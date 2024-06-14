@@ -28,10 +28,12 @@ Nếu bạn thấy thú vị, thì đăng ký kênh ủng hộ tôi (If you find
 - Website: [hoanguyenit.com](https://hoanguyenit.com)
 
 # Demo
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/image2.png)
+![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/image1.png)
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/image2.png)
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/image3.png)
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/image4.png)
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/image5.png)
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/image6.png)
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/image7.png)
+![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/image8.png)
+![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/image9.png)
