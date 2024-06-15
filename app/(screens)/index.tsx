@@ -68,7 +68,7 @@ const HomeScreen = () => {
                    {/* products */}
 
                    <View className='w-full px-4'>
-                          <ScrollView className='w-full' horizontal>
+                          <ScrollView className='w-full' horizontal  showsHorizontalScrollIndicator={true}>
                                 <TouchableOpacity className='w-1/2 px-2'>
                                     <View className='w-full p-4'>
                                           <Image source={require('@/assets/products/3.png')} className='w-40 h-40 m-auto block'  resizeMode='contain'/>
@@ -105,7 +105,7 @@ const HomeScreen = () => {
                           </TouchableOpacity>
                       </View>
                       <View className='w-full mt-2'>
-                          <ScrollView horizontal className='w-full'>
+                          <ScrollView horizontal className='w-full'  showsHorizontalScrollIndicator={true}>
                                 <TouchableOpacity className='w-1/2 px-2'>
                                     <View className='w-full p-4 shadow-md border-[1px] border-[#F5F5F5] rounded-full bg-white flex flex-row items-center'>
                                         <Image source={require('@/assets/products/3.png')} className='w-20 h-20 m-auto block'  resizeMode='contain'/>
