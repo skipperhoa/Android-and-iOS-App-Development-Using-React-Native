@@ -1,4 +1,4 @@
-import { View, Text,ScrollView ,TextInput, TouchableOpacity, Alert,Image} from 'react-native'
+import { View, Text,ScrollView ,TextInput, TouchableOpacity, Alert,Image,StyleSheet} from 'react-native'
 import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 // icon
@@ -10,7 +10,9 @@ import { AntDesign } from '@expo/vector-icons';
 const HomeScreen = () => {
   return (
     <SafeAreaProvider>
-        <ScrollView className='w-full h-full bg-white'>
+        <ScrollView className='w-full h-full bg-white' 
+       
+        >
               <View className='flex-1 h-full bg-white'>
                    {/* search food */}
                    <View className='px-4 relative mt-2'>
@@ -24,7 +26,16 @@ const HomeScreen = () => {
                    {/* category */}
 
                    <View className='w-full px-4 mt-4'>
-                        <ScrollView className='w-full' horizontal>
+                        <ScrollView 
+                        // 🔥 Nếu bạn muốn viết kiểu Tailwindcss, thì cài thư viện "nativewind"
+                        className='w-full' 
+                        // 🚚 cho nó chạy theo chiều ngang
+                        horizontal 
+                        // 🚀 Viết css cấu hình cho ScrollView
+                        contentContainerStyle={styles.contentContainer}
+                        // 🎉 Ẩn thanh scroll trong ScrollView. Sẽ thấy thanh màu "xám", khi scrollView theo chiều ngang
+                        showsHorizontalScrollIndicator={true}
+                        >
                           <View className='w-full flex flex-row gap-3'>
                                   <TouchableOpacity>
                                       <View className='flex flex-row items-center justify-center p-2 bg-orange-500 rounded-full'>
@@ -215,5 +226,9 @@ const HomeScreen = () => {
   </SafeAreaProvider>
   )
 }
-
+const styles = StyleSheet.create({
+    contentContainer: {
+      paddingVertical: 20
+    }
+  });
 export default HomeScreen
