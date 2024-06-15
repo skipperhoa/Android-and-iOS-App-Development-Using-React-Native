@@ -26,6 +26,5 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
     npx expo start
    ```
 # Demo
-
-<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/app1.png" alt="App 1" width="300"/>
-<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/app2.png" alt="App 2" width="300"/>
+![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/1.png)
+![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/2.png)
