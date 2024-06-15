@@ -1,7 +1,9 @@
+## Android and iOS App Development Using React Native
+Please Like, Share, and Subscribe if you like the video : 👉 [Creator's Channel](https://www.youtube.com/channel/UCBOZRctXJSg9YNLyddedASg?sub_confirmation=1)
+👉 [Link Video](https://www.youtube.com/watch?v=wskGvhK52qs)
+[![Android and iOS App Development Using React Native](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/background.png)](https://www.youtube.com/watch?v=wskGvhK52qs)
 
-## Demo : Android and iOS App Development Using React Native
-Please Like, Share, and Subscribe if you like the video : [Creator's Channel](https://www.youtube.com/channel/UCBOZRctXJSg9YNLyddedASg?sub_confirmation=1)
-[![Multiple microservices in one docker compose](https://raw.githubusercontent.com/skipperhoa/microservice/main/background_demo_microservice.jpg)](https://www.youtube.com/watch?v=0WaQR1Ci5aY)
+## App Mobile 🚀 : [Project 1 app mobile](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/tree/project1-mobile)
 
 Nếu bạn thấy thú vị, thì đăng ký kênh ủng hộ tôi (If you find it interesting, then subscribe to my channel to support me)
 - YouTube Channel: [Creator's Channel](https://www.youtube.com/channel/UCBOZRctXJSg9YNLyddedASg?sub_confirmation=1)
