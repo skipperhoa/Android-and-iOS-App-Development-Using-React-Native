@@ -1,5 +1,6 @@
 ## Android and iOS App Development Using React Native
-Please Like, Share, and Subscribe if you like the video : [Creator's Channel](https://www.youtube.com/channel/UCBOZRctXJSg9YNLyddedASg?sub_confirmation=1)
+Please Like, Share, and Subscribe if you like the video : 👉 [Creator's Channel](https://www.youtube.com/channel/UCBOZRctXJSg9YNLyddedASg?sub_confirmation=1)
+👉 [Link Video](https://www.youtube.com/watch?v=wskGvhK52qs)
 [![Android and iOS App Development Using React Native](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/background.png)](https://www.youtube.com/watch?v=wskGvhK52qs)
 
 Nếu bạn thấy thú vị, thì đăng ký kênh ủng hộ tôi (If you find it interesting, then subscribe to my channel to support me)
