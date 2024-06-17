@@ -43,6 +43,10 @@ export default function Layout() {
             </View>
         </TouchableOpacity>,
       }} />
+      <Stack.Screen name="detail" options={{
+        headerShown: false,
+        title: '',
+      }} />
     </Stack>
   );
 }

@@ -7,12 +7,14 @@ import {
   Image,
 } from "react-native";
 import React from "react";
+import { useRouter } from "expo-router";
 
 // icon
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome6 } from "@expo/vector-icons";
 
 const MenuScreen = () => {
+  const router = useRouter();
   return (
     <SafeAreaView>
       <ScrollView>
@@ -46,7 +48,7 @@ const MenuScreen = () => {
             </View>
             <View className="w-full mt-2">
               <View className="w-full flex flex-row flex-wrap">
-                <TouchableOpacity className="w-1/2 mb-4">
+                <TouchableOpacity className="w-1/2 mb-4" onPress={() => router.push('detail')}>
                   <View className="w-full">
                     <View className="px-4">
                       <Image
