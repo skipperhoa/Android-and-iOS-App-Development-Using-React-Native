@@ -4,16 +4,16 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 // icon
 import { EvilIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
 
 import { AntDesign } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 const HomeScreen = () => {
   return (
     <SafeAreaProvider>
-        <ScrollView className='w-full h-full bg-white' 
-       
-        >
-              <View className='flex-1 h-full bg-white'>
+        {/* show content */}
+        <ScrollView className='flex-1 w-full h-full bg-white' >
+              <View className='w-full h-full bg-white'>
                    {/* search food */}
                    <View className='px-4 relative mt-2'>
                        <TextInput placeholder='Search food' 
@@ -223,6 +223,30 @@ const HomeScreen = () => {
 
               </View>
         </ScrollView>
+        {/* fix footer */}
+        <View className='w-full pb-5 px-4 pt-1 bg-white'>
+             <View className='w-full flex flex-row items-center justify-between bg-yellow-500 py-4 px-5 rounded-full'>
+                  <TouchableOpacity>
+                    <MaterialCommunityIcons name="format-list-text" size={30} color="black" />
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                  <MaterialCommunityIcons name="cart-outline" size={30} color="black" />
+                  </TouchableOpacity>
+                  <TouchableOpacity className='relative'>
+                     <View className='w-full flex flex-col items-center justify-center'>
+                        <View className='absolute -top-16 w-16 h-16 bg-yellow-800 rounded-full items-center justify-center border-[4px] border-white shadow-xl'>
+                                <AntDesign name="plus" size={30} color="white" />
+                        </View>
+                     </View>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                     <Ionicons name="notifications-outline" size={30} color="black" />
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                  <AntDesign name="user" size={30} color="black" />
+                  </TouchableOpacity>
+             </View>
+        </View>
   </SafeAreaProvider>
   )
 }
