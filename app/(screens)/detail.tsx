@@ -18,9 +18,8 @@ import { AntDesign } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
 const DedailScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
-    HelvetIns: require("../../assets/fonts/HelvetIns.ttf"),
+   
     PlaywriteNL: require("../../assets/fonts/Playwrite_NL/Playwrite-NL.ttf"),
-    "SpaceMono-Regular": require("../../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
   return (
