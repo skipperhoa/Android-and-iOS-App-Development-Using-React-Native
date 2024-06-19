@@ -17,7 +17,7 @@ const MenuScreen = () => {
   const router = useRouter();
   return (
     <SafeAreaView>
-      <ScrollView>
+      <ScrollView className="w-full h-full bg-white">
         <View>
           {/* categor */}
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>

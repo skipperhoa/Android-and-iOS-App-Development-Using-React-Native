@@ -24,7 +24,6 @@ const HomeScreen = () => {
                    </View>
 
                    {/* category */}
-
                    <View className='w-full px-4 mt-4'>
                         <ScrollView 
                         // 🔥 Nếu bạn muốn viết kiểu Tailwindcss, thì cài thư viện "nativewind"

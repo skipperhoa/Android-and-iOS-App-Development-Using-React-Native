@@ -5,9 +5,9 @@ import {
   ScrollView,
   StyleSheet,
   Image,
-  TouchableOpacity,
+  TouchableOpacity,Platform
 } from "react-native";
-import React from "react";
+import React, { useCallback } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
 // icon
@@ -15,7 +15,14 @@ import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { EvilIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { useFonts } from "expo-font";
 const DedailScreen = () => {
+  const [fontsLoaded, fontError] = useFonts({
+    HelvetIns: require("../../assets/fonts/HelvetIns.ttf"),
+    PlaywriteNL: require("../../assets/fonts/Playwrite_NL/Playwrite-NL.ttf"),
+    "SpaceMono-Regular": require("../../assets/fonts/SpaceMono-Regular.ttf"),
+  });
+
   return (
     <LinearGradient
       colors={["rgba(205,37,4,0.8)", "#0E0D0D"]}
@@ -30,14 +37,26 @@ const DedailScreen = () => {
                 className="w-full h-60"
               />
             </View>
-            <View className="w-full px-2">
-              <Text className="text-white text-3xl text-center pt-10 font-bold leading-10">
+            <View className="w-full px-4">
+              <Text
+                style={{ fontFamily: "PlaywriteNL" }}
+                className="w-full text-white text-[20px] text-center"
+              >
                 Mì Cay Hải Sản (new) - Cấp Độ 7 Siêu Cay
               </Text>
             </View>
-            <Text className="text-red-300 text-4xl text-center font-bold mt-4">
-              50.000₫
-            </Text>
+            <View className="w-full h-24 relative flex flex-col items-center justify-center">
+              <Text className="w-full text-[40px] text-center font-bold text-[#FFC300] italic relative z-10">
+                50.000đ
+              </Text>
+              <LinearGradient
+                colors={["#AA0303", "#D31D1D"]}
+                className="w-52 h-20 -skew-x-12 absolute top-2 rounded-xl"
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+              ></LinearGradient>
+            </View>
+
             <View className="mt-4 px-4">
               <Text className="text-justify text-sm leading-6 text-white">
                 Find that perfect color with our color picker and discover
@@ -107,6 +126,25 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     fontSize: 15,
     color: "#fff",
+  },
+  gradient: {
+    width: 208, // equivalent to w-52 in Tailwind CSS
+    height: 80, // equivalent to h-20 in Tailwind CSS
+    transform: [{ skewX: '-12deg' }], // equivalent to -skew-x-12
+    position: 'absolute', // equivalent to absolute positioning
+    top: 8, // equivalent to top-2 in Tailwind CSS
+    borderRadius: 16, // equivalent to rounded-xl in Tailwind CSS
+  },
+  gradientAndroid: {
+    width: 208, // equivalent to w-52 in Tailwind CSS
+    height: 80, // equivalent to h-20 in Tailwind CSS
+    transform: [
+      { rotate: '-5deg' },
+      { scaleX: 1.4 },
+    ],
+    position: 'absolute', // equivalent to absolute positioning
+    top: 8, // equivalent to top-2 in Tailwind CSS
+    borderRadius: 16, // equivalent to rounded-xl in Tailwind CSS
   },
 });
 export default DedailScreen;
