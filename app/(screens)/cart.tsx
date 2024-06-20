@@ -1,16 +1,42 @@
-import { View, Text, SafeAreaView, TouchableOpacity, Image, ScrollView,TextInput } from 'react-native'
+import { View, Text, SafeAreaView,StyleSheet, Animated,TouchableOpacity, Image, ScrollView,TextInput } from 'react-native'
 import React from 'react'
-
+import { Swipeable, GestureHandlerRootView } from 'react-native-gesture-handler';
 // icon
-
 import { AntDesign } from '@expo/vector-icons';
+const renderRightActions = (
+    progress: Animated.AnimatedInterpolation<number|string>,
+    dragAnimatedValue:Animated.AnimatedInterpolation<number|string>
+  ) => {
+    const opacity = dragAnimatedValue.interpolate({
+      inputRange: [-150, 0],
+      outputRange: [1, 0],
+      extrapolate: 'clamp',
+    }) as Animated.AnimatedInterpolation<number>;
+   
+    return (
+      <View className="w-2/3 bg-white rounded-xl flex flex-row items-center">
+        <View className='flex-1'>
+          <Text className='p-2 text-sm font-bold'>Bạn có muốn xoá sản phẩm này?</Text>
+        </View>
+        <Animated.View className="bg-red-500 h-full rounded-r-xl" style={[styles.deleteButton, {opacity}]}>
+          <TouchableOpacity className='w-auto h-full p-2 flex flex-col items-center justify-center'>
+            <AntDesign name="delete" size={30} color="white" />
+          </TouchableOpacity>
+        </Animated.View>
+      </View>
+    );
+  };
+
 
 const CartScreen = () => {
+   
   return (
     <SafeAreaView className='w-full h-full bg-white'>
       <ScrollView className='flex-1 h-full bg-gray-100'>
-         <View className='w-full h-full p-4'>
+         <GestureHandlerRootView className='w-full h-full p-4'>
+         
               <TouchableOpacity className='w-full mb-4'>
+              <Swipeable renderRightActions={renderRightActions}>
                   <View className='w-full flex flex-row items-center bg-white rounded-xl shadow-sm shadow-gray-200'>
                       <View className='w-1/3 p-1 flex flex-col items-center'>
                            <Image source={require('@/assets/products/1.png')}
@@ -34,8 +60,11 @@ const CartScreen = () => {
                             </View>
                       </View>
                   </View>
+                </Swipeable>
               </TouchableOpacity>
+            
               <TouchableOpacity className='w-full mb-4'>
+              <Swipeable renderRightActions={renderRightActions}>
                   <View className='w-full flex flex-row items-center bg-white rounded-xl shadow-sm shadow-gray-200'>
                       <View className='w-1/3 p-1 flex flex-col items-center'>
                            <Image source={require('@/assets/products/2.png')}
@@ -59,8 +88,10 @@ const CartScreen = () => {
                             </View>
                       </View>
                   </View>
+                </Swipeable>
               </TouchableOpacity>
               <TouchableOpacity className='w-full mb-4'>
+              <Swipeable renderRightActions={renderRightActions}>
                   <View className='w-full flex flex-row items-center bg-white rounded-xl shadow-sm shadow-gray-200'>
                       <View className='w-1/3 p-1 flex flex-col items-center'>
                            <Image source={require('@/assets/products/3.png')}
@@ -84,8 +115,11 @@ const CartScreen = () => {
                             </View>
                       </View>
                   </View>
+                </Swipeable>
               </TouchableOpacity>
+
               <TouchableOpacity className='w-full mb-4'>
+              <Swipeable renderRightActions={renderRightActions}>
                   <View className='w-full flex flex-row items-center bg-white rounded-xl shadow-sm shadow-gray-200'>
                       <View className='w-1/3 p-1 flex flex-col items-center'>
                            <Image source={require('@/assets/products/4.png')}
@@ -109,8 +143,11 @@ const CartScreen = () => {
                             </View>
                       </View>
                   </View>
+                </Swipeable>
               </TouchableOpacity>
+
               <TouchableOpacity className='w-full mb-4'>
+              <Swipeable renderRightActions={renderRightActions}>
                   <View className='w-full flex flex-row items-center bg-white rounded-xl shadow-sm shadow-gray-200'>
                       <View className='w-1/3 p-1 flex flex-col items-center'>
                            <Image source={require('@/assets/products/5.png')}
@@ -134,9 +171,10 @@ const CartScreen = () => {
                             </View>
                       </View>
                   </View>
+                </Swipeable>
               </TouchableOpacity>
               
-         </View>
+         </GestureHandlerRootView>
       </ScrollView>
       {/* footer */}
       <View className='w-full px-4'>
@@ -168,5 +206,46 @@ const CartScreen = () => {
     </SafeAreaView>
   )
 }
-
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      minHeight: 300,
+    },
+    row: {
+      flexDirection: 'row',
+      flex: 1,
+      alignItems: 'center',
+      paddingLeft: 5,
+      backgroundColor: '#efefef',
+      margin: 20,
+      minHeight: 50,
+    },
+    swipedRow: {
+      flexDirection: 'row',
+      flex: 1,
+      alignItems: 'center',
+      paddingLeft: 5,
+      backgroundColor: '#818181',
+      margin: 20,
+      minHeight: 50,
+    },
+    swipedConfirmationContainer: {
+      flex: 1,
+    },
+    deleteConfirmationText: {
+      color: '#fcfcfc',
+      fontWeight: 'bold',
+    },
+    deleteButton: {
+      backgroundColor: '#b60000',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      height: '100%',
+    },
+    deleteButtonText: {
+      color: '#fcfcfc',
+      fontWeight: 'bold',
+      padding: 3,
+    },
+  });
 export default CartScreen
