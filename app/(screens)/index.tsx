@@ -10,7 +10,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 const HomeScreen = () => {
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider className='bg-white w-full h-full'>
         {/* show content */}
         <ScrollView className='flex-1 w-full h-full bg-white' >
               <View className='w-full h-full bg-white'>
@@ -223,26 +223,34 @@ const HomeScreen = () => {
               </View>
         </ScrollView>
         {/* fix footer */}
-        <View className='w-full pb-5 px-4 pt-1 bg-white'>
-             <View className='w-full flex flex-row items-center justify-between bg-yellow-500 py-4 px-5 rounded-full'>
-                  <TouchableOpacity>
-                    <MaterialCommunityIcons name="format-list-text" size={30} color="black" />
+        <View className='w-full h-[50px]'>
+             <View className='w-full h-full flex flex-row items-center justify-between bg-yellow-500 rounded-t-[20px]'>
+                  <TouchableOpacity className='w-1/5 flex flex-col items-center  '>
+                    <MaterialCommunityIcons name="format-list-text" size={23} color="white" />
                   </TouchableOpacity>
-                  <TouchableOpacity>
-                  <MaterialCommunityIcons name="cart-outline" size={30} color="black" />
+                  <TouchableOpacity className='w-1/5 flex flex-col items-center '>
+                   
+                        <MaterialCommunityIcons name="cart-outline" size={23} color="white" />
+                   
                   </TouchableOpacity>
-                  <TouchableOpacity className='relative'>
-                     <View className='w-full flex flex-col items-center justify-center'>
-                        <View className='absolute -top-16 w-16 h-16 bg-yellow-800 rounded-full items-center justify-center border-[4px] border-white shadow-xl'>
-                                <AntDesign name="plus" size={30} color="white" />
+                  <TouchableOpacity className='w-1/5 relative flex flex-col items-center'>
+                        <View className='bg-white w-[60px] h-[60px] flex flex-col items-center
+                          absolute -top-[50px] rounded-full shadow-md shadow-gray-200'>
+                            <View className='w-full h-full flex flex-col items-center justify-center'>
+                            <View className='relative shadow-lg w-[50px] h-[50px] bg-yellow-600  border-gray-300 rounded-full flex items-center justify-center'>
+                                <AntDesign name="qrcode" size={23} color="white" />
+                            </View> 
+                            </View>
+                            
+                             
                         </View>
-                     </View>
+                      
                   </TouchableOpacity>
-                  <TouchableOpacity>
-                     <Ionicons name="notifications-outline" size={30} color="black" />
+                  <TouchableOpacity className='w-1/5 flex flex-col items-center py-4'>
+                     <Ionicons name="notifications-outline" size={23} color="white" />
                   </TouchableOpacity>
-                  <TouchableOpacity>
-                  <AntDesign name="user" size={30} color="black" />
+                  <TouchableOpacity className='w-1/5 flex flex-col items-center '>
+                  <AntDesign name="user" size={23} color="white" />
                   </TouchableOpacity>
              </View>
         </View>
