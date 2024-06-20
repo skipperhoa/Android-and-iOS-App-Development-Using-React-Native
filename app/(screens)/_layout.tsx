@@ -47,6 +47,10 @@ export default function Layout() {
         headerShown: false,
         title: '',
       }} />
+       <Stack.Screen name="cart" options={{
+        headerShown: true,
+        title: 'Carts',
+      }} />
     </Stack>
   );
 }

@@ -8,7 +8,9 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 const HomeScreen = () => {
+    const router = useRouter() 
   return (
     <SafeAreaProvider className='bg-white w-full h-full'>
         {/* show content */}
@@ -228,7 +230,7 @@ const HomeScreen = () => {
                   <TouchableOpacity className='w-1/5 flex flex-col items-center  '>
                     <MaterialCommunityIcons name="format-list-text" size={23} color="white" />
                   </TouchableOpacity>
-                  <TouchableOpacity className='w-1/5 flex flex-col items-center '>
+                  <TouchableOpacity className='w-1/5 flex flex-col items-center ' onPress={()=>router.push('cart')}>
                    
                         <MaterialCommunityIcons name="cart-outline" size={23} color="white" />
                    
