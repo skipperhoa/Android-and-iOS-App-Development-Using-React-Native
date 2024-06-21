@@ -1,4 +1,4 @@
-import { View, Text,ScrollView,Animated ,TextInput, TouchableOpacity, Alert,Image,StyleSheet} from 'react-native'
+import { View, Text,ScrollView,Animated ,TextInput, TouchableOpacity, Alert,Image,StyleSheet,Dimensions} from 'react-native'
 import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 // icon
@@ -9,8 +9,34 @@ import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import Carousel from 'react-native-snap-carousel';
+const sliders = [
+    {
+        id:1,
+        image: require('../../assets/products/img01.jpg')
+    },
+    {
+        id:2,
+        image: require('../../assets/products/img02.jpg')
+    },
+    {
+        id:3,
+        image: require('../../assets/products/img03.jpg')
+    }
+]
+const SLIDER_WIDTH = Dimensions.get('window').width;
+const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.9);
+// const ITEM_HEIGHT = Math.round(ITEM_WIDTH * 3 / 4);
 const HomeScreen = () => {
     const router = useRouter() 
+   const _renderItem = ({item} :any) => {
+        return (
+                <TouchableOpacity className='w-full h-full'>
+                <Image source= {item.image} className='w-full h-full rounded-xl' />
+            </TouchableOpacity>
+          
+        );
+    }
 
   return (
     <SafeAreaProvider className='bg-gray-100 w-full h-full'>
@@ -29,21 +55,28 @@ const HomeScreen = () => {
 
                  
                    {/* show banner */}
-                   <View className='w-full px-4 mt-4 h-44'>
-                        <View className='w-full h-44 relative'>
-                             <TouchableOpacity style={[{paddingLeft:0}]} className='w-full h-full absolute flex flex-row items-center justify-center'>
-                                  <Image source= {require('../../assets/products/img01.jpg')} className='w-full h-32 rounded-xl' />
-                             </TouchableOpacity>
-                             <TouchableOpacity style={[{paddingLeft:15}]} className='w-full h-full absolute flex flex-row items-center justify-center'>
-                                  <Image source= {require('../../assets/products/img02.jpg')} className='w-full h-36 rounded-xl' />
-                             </TouchableOpacity>
-                             <TouchableOpacity style={[{paddingLeft:30}]} className='w-full h-full absolute flex flex-row items-center justify-center'>
-                                  <Image source= {require('../../assets/products/img03.jpg')} className='w-full h-44 rounded-xl' />
-                             </TouchableOpacity>
+                   <View className='w-full mt-4 h-44'>
+                        <View className='w-full h-full relative'>
+                          
+                                  
+                                        <Carousel
+                                        data={sliders}
+                                        renderItem={_renderItem}
+                                      
+                                        sliderWidth={SLIDER_WIDTH}
+                                        itemWidth={ITEM_WIDTH}
+                                        layout={'stack'} 
+                                        inactiveSlideShift={0}
+                                        useScrollView={true}
+                                        loop={true}
+                                        layoutCardOffset={`18`}
+                                        />
+                                   
+                                  
                         </View>    
                    </View>
                    {/* button click banner */}
-                   <View className='w-full px-4 mt-4 flex flex-row items-center justify-center'>
+                   {/* <View className='w-full px-4 mt-4 flex flex-row items-center justify-center'>
                       <TouchableOpacity className='px-2' onPress={() => {Alert.alert('1')}}>
                           <View className="w-4 h-4 bg-gray-300 rounded-full" style={[{backgroundColor: '#F39103'}]}></View>
                       </TouchableOpacity>
@@ -53,7 +86,7 @@ const HomeScreen = () => {
                       <TouchableOpacity className='px-2' onPress={() => {Alert.alert('3')}}>
                           <View className="w-4 h-4 bg-gray-300 rounded-full"></View>
                       </TouchableOpacity>
-                   </View>
+                   </View> */}
 
                    {/* category */}
                    <View className='w-full px-4 my-4'>
@@ -291,6 +324,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
     contentContainer: {
       paddingVertical: 20
-    }
+    },
+    
   });
 export default HomeScreen
