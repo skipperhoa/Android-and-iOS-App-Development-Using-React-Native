@@ -1,1 +1,2 @@
 https://cquelle.com/swipe-to-delete-react-native/
+https://github.com/meliorence/react-native-snap-carousel/issues/970

@@ -25,7 +25,7 @@ const sliders = [
     }
 ]
 const SLIDER_WIDTH = Dimensions.get('window').width;
-const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.9);
+const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.8);
 // const ITEM_HEIGHT = Math.round(ITEM_WIDTH * 3 / 4);
 const HomeScreen = () => {
     const router = useRouter() 
@@ -57,22 +57,17 @@ const HomeScreen = () => {
                    {/* show banner */}
                    <View className='w-full mt-4 h-44'>
                         <View className='w-full h-full relative'>
-                          
-                                  
                                         <Carousel
                                         data={sliders}
                                         renderItem={_renderItem}
-                                      
+                                        containerCustomStyle={styles.carouselContainer}
                                         sliderWidth={SLIDER_WIDTH}
                                         itemWidth={ITEM_WIDTH}
                                         layout={'stack'} 
                                         inactiveSlideShift={0}
                                         useScrollView={true}
                                         loop={true}
-                                        layoutCardOffset={`18`}
-                                        />
-                                   
-                                  
+                                        />     
                         </View>    
                    </View>
                    {/* button click banner */}
@@ -325,6 +320,7 @@ const styles = StyleSheet.create({
     contentContainer: {
       paddingVertical: 20
     },
-    
+    carouselContainer: {
+      },
   });
 export default HomeScreen
