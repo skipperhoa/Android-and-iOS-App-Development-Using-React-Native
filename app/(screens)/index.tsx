@@ -1,4 +1,4 @@
-import { View, Text,ScrollView ,TextInput, TouchableOpacity, Alert,Image,StyleSheet} from 'react-native'
+import { View, Text,ScrollView,Animated ,TextInput, TouchableOpacity, Alert,Image,StyleSheet} from 'react-native'
 import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 // icon
@@ -11,25 +11,55 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 const HomeScreen = () => {
     const router = useRouter() 
+
   return (
-    <SafeAreaProvider className='bg-white w-full h-full'>
+    <SafeAreaProvider className='bg-gray-100 w-full h-full'>
         {/* show content */}
-        <ScrollView className='flex-1 w-full h-full bg-white' >
-              <View className='w-full h-full bg-white'>
+        <ScrollView className='flex-1 w-full h-full bg-gray-100' >
+              <View className='w-full h-full bg-gray-100'>
                    {/* search food */}
                    <View className='px-4 relative mt-2'>
                        <TextInput placeholder='Search food' 
                        className='border-[1px] bg-[#fff] border-[#F2F2F3] rounded-full h-10 px-4 pl-10 placeholder-gray-400'/>
-                      <TouchableOpacity className='w-10 absolute z-10 left-6 top-[30%] -translate-y-[50%]' onPress={() => {Alert.alert('Search food')}}>
+                      <TouchableOpacity className='w-10 absolute z-10 left-6 top-[30%] -translate-y-[50%]'
+                       onPress={() => {Alert.alert('Search food')}}>
                           <EvilIcons name="search" size={24} color="black" />
                       </TouchableOpacity>
                    </View>
 
+                 
+                   {/* show banner */}
+                   <View className='w-full px-4 mt-4 h-44'>
+                        <View className='w-full h-44 relative'>
+                             <TouchableOpacity style={[{paddingLeft:0}]} className='w-full h-full absolute flex flex-row items-center justify-center'>
+                                  <Image source= {require('../../assets/products/img01.jpg')} className='w-full h-32 rounded-xl' />
+                             </TouchableOpacity>
+                             <TouchableOpacity style={[{paddingLeft:15}]} className='w-full h-full absolute flex flex-row items-center justify-center'>
+                                  <Image source= {require('../../assets/products/img02.jpg')} className='w-full h-36 rounded-xl' />
+                             </TouchableOpacity>
+                             <TouchableOpacity style={[{paddingLeft:30}]} className='w-full h-full absolute flex flex-row items-center justify-center'>
+                                  <Image source= {require('../../assets/products/img03.jpg')} className='w-full h-44 rounded-xl' />
+                             </TouchableOpacity>
+                        </View>    
+                   </View>
+                   {/* button click banner */}
+                   <View className='w-full px-4 mt-4 flex flex-row items-center justify-center'>
+                      <TouchableOpacity className='px-2' onPress={() => {Alert.alert('1')}}>
+                          <View className="w-4 h-4 bg-gray-300 rounded-full" style={[{backgroundColor: '#F39103'}]}></View>
+                      </TouchableOpacity>
+                      <TouchableOpacity className='px-2' onPress={() => {Alert.alert('2')}}>
+                          <View className="w-4 h-4 bg-gray-300 rounded-full"></View>
+                      </TouchableOpacity>
+                      <TouchableOpacity className='px-2' onPress={() => {Alert.alert('3')}}>
+                          <View className="w-4 h-4 bg-gray-300 rounded-full"></View>
+                      </TouchableOpacity>
+                   </View>
+
                    {/* category */}
-                   <View className='w-full px-4 mt-4'>
+                   <View className='w-full px-4 my-4'>
                         <ScrollView 
                         // 🔥 Nếu bạn muốn viết kiểu Tailwindcss, thì cài thư viện "nativewind"
-                        className='w-full' 
+                        className='w-full bg-white px-2 rounded-xl shadow-md shadow-gray-200' 
                         // 🚚 cho nó chạy theo chiều ngang
                         horizontal 
                         // 🚀 Viết css cấu hình cho ScrollView
@@ -67,11 +97,10 @@ const HomeScreen = () => {
                    </View>
 
                    {/* products */}
-
                    <View className='w-full px-4'>
-                          <ScrollView className='w-full' horizontal  showsHorizontalScrollIndicator={false}>
+                          <ScrollView className='w-full bg-white rounded-xl' horizontal  showsHorizontalScrollIndicator={false}>
                                 <TouchableOpacity className='w-1/2 px-2'>
-                                    <View className='w-full p-4'>
+                                    <View className='w-full px-4 pb-2'>
                                           <Image source={require('@/assets/products/3.png')} className='w-40 h-40 m-auto block'  resizeMode='contain'/>
                                           <Text className='text-center font-bold text-[16px] pt-2'>Mì kim chi sườn sụn</Text>
                                           <Text className='text-center text-gray-500 text-sm pt-2'>Món mì cay</Text>
@@ -82,7 +111,7 @@ const HomeScreen = () => {
                                       </View>  
                                 </TouchableOpacity> 
                                 <TouchableOpacity className='w-1/2 px-2'>
-                                    <View className='w-full p-4'>
+                                    <View className='w-full px-4 pb-2'>
                                           <Image source={require('@/assets/products/6.png')} className='w-40 h-40 m-auto block'  resizeMode='contain'/>
                                           <Text className='text-center font-bold text-[16px] pt-2'>Mì kim chi sườn sụn</Text>
                                           <Text className='text-center text-gray-500 text-sm pt-2'>Món mì cay</Text>
@@ -98,7 +127,7 @@ const HomeScreen = () => {
 
                    {/* Top san pham */}
 
-                  <View className='w-full mt-4 px-4'>
+                  <View className='w-full mt-2 px-4'>
                       <View className='flex flex-row items-center justify-between py-2'>
                           <Text className='font-bold text-xl'>Top sản phẩm</Text>
                           <TouchableOpacity>
@@ -143,7 +172,7 @@ const HomeScreen = () => {
 
                   {/* product */}
 
-                  <View className='w-full mt-4 pb-10'> 
+                  <View className='w-full mt-2 pb-10'> 
                     <View className='flex flex-row items-center justify-between py-2 px-4'>
                           <Text className='font-bold text-xl'>Sản phẩm mới</Text>
                           <TouchableOpacity>
