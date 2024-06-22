@@ -9,7 +9,11 @@ import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+
+// cài đặt thư viện
 import Carousel from 'react-native-snap-carousel';
+
+// cấu hình dữ liệu 
 const sliders = [
     {
         id:1,
@@ -24,14 +28,19 @@ const sliders = [
         image: require('../../assets/products/img03.jpg')
     }
 ]
+// lấy width layout
 const SLIDER_WIDTH = Dimensions.get('window').width;
+
+// cấu hình width cho item
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.8);
 // const ITEM_HEIGHT = Math.round(ITEM_WIDTH * 3 / 4);
 const HomeScreen = () => {
-    const router = useRouter() 
+   const router = useRouter() 
+
+   // thiết lập render item
    const _renderItem = ({item} :any) => {
         return (
-                <TouchableOpacity className='w-full h-full'>
+            <TouchableOpacity className='w-full h-full'>
                 <Image source= {item.image} className='w-full h-full rounded-xl' />
             </TouchableOpacity>
           
@@ -56,19 +65,21 @@ const HomeScreen = () => {
                  
                    {/* show banner */}
                    <View className='w-full mt-4 h-44'>
+
                         <View className='w-full h-full relative'>
                                         <Carousel
-                                        data={sliders}
-                                        renderItem={_renderItem}
-                                        containerCustomStyle={styles.carouselContainer}
-                                        sliderWidth={SLIDER_WIDTH}
-                                        itemWidth={ITEM_WIDTH}
-                                        layout={'stack'} 
-                                        inactiveSlideShift={0}
-                                        useScrollView={true}
-                                        loop={true}
+                                            data={sliders}
+                                            renderItem={_renderItem}
+                                            containerCustomStyle={styles.carouselContainer}
+                                            sliderWidth={SLIDER_WIDTH}
+                                            itemWidth={ITEM_WIDTH}
+                                            layout={'stack'}  // mặc định là "default"
+                                            inactiveSlideShift={0}
+                                            useScrollView={true}
+                                            loop={true}
                                         />     
                         </View>    
+
                    </View>
                    {/* button click banner */}
                    {/* <View className='w-full px-4 mt-4 flex flex-row items-center justify-center'>
