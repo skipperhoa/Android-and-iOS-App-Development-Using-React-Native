@@ -9,6 +9,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { Svg, Path } from 'react-native-svg';
 
 // cài đặt thư viện
 import Carousel from 'react-native-snap-carousel';
@@ -293,7 +294,7 @@ const HomeScreen = () => {
               </View>
         </ScrollView>
         {/* fix footer */}
-        <View className='w-full h-[50px]'>
+        <View className='w-full h-[60px] pb-1'>
              <View className='w-full h-full flex flex-row items-center justify-between bg-yellow-500 rounded-t-[20px]'>
                   <TouchableOpacity className='w-1/5 flex flex-col items-center  '>
                     <MaterialCommunityIcons name="format-list-text" size={23} color="white" />
@@ -303,8 +304,8 @@ const HomeScreen = () => {
                         <MaterialCommunityIcons name="cart-outline" size={23} color="white" />
                    
                   </TouchableOpacity>
-                  <TouchableOpacity className='w-1/5 relative flex flex-col items-center'>
-                        <View className='bg-white w-[60px] h-[60px] flex flex-col items-center
+                  <TouchableOpacity className='w-1/5 relative h-full flex flex-col items-center'>
+                        {/* <View className='bg-white w-[60px] h-[60px] flex flex-col items-center
                           absolute -top-[50px] rounded-full shadow-md shadow-gray-200'>
                             <View className='w-full h-full flex flex-col items-center justify-center'>
                             <View className='relative shadow-lg w-[50px] h-[50px] bg-yellow-600  border-gray-300 rounded-full flex items-center justify-center'>
@@ -313,6 +314,21 @@ const HomeScreen = () => {
                             </View>
                             
                              
+                        </View> */}
+                        <View className='w-full'>
+                            <View className='relative z-10 -top-5 m-auto w-[53px] h-[53px] bg-yellow-600  border-gray-300 rounded-full flex items-center justify-center'>
+                                <AntDesign name="qrcode" size={28} color="white" />
+                            </View> 
+                            <View className='w-full absolute -top-[28px] h-full flex flex-col items-center justify-center'>
+                            <Svg width="120" height="80" viewBox="0 0 120 80">
+                                <Path
+                                    d="M0 40 H120 V40 C90 40 90 80 60 80 C30 80 30 40 0 40 Z"
+                                    fill="#f3f4f6"
+                                    stroke="#f3f4f6"
+                                    strokeWidth="0"
+                                />
+                                </Svg>    
+                            </View>
                         </View>
                       
                   </TouchableOpacity>

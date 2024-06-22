@@ -259,7 +259,7 @@ const CartScreen = () => {
                       <AntDesign name="shoppingcart" size={24} color="white" />
                         <Text className='text-white font-bold block py-4 pl-2 text-center text-xl'>Check out</Text>
                     </View>
-                </TouchableOpacity>
+                </TouchableOpacity>   
             </View>
         </View>
       </View>
