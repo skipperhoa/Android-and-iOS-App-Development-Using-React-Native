@@ -1,0 +1,124 @@
+import { View, Text, SafeAreaView, Image, TouchableOpacity,StyleSheet } from 'react-native'
+import React from 'react'
+import { useFonts } from "expo-font";
+import { AntDesign } from '@expo/vector-icons';
+import { LinearGradient } from "expo-linear-gradient";
+import { MaterialIcons } from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+
+const ProfileScreen = () => {
+  const [fontsLoaded, fontError] = useFonts({
+    HelvetIns: require("../../assets/fonts/HelvetIns.ttf"),
+  });
+  return (
+    <SafeAreaView className='w-full h-full bg-white'>
+
+        <View className='w-full flex-1'>
+          <View className='w-full bg-white'>    
+
+              {/* avatar */}
+              <View className='m-auto pt-10'>
+                  <Image source={{uri:'https://hoanguyenit.com/images/hoanguyencoder.jpg'}} className="w-28 h-28 rounded-full" />
+              </View>
+              {/* name */}
+              <View className='w-full m-auto pt-4 relative'>
+                  <Text className='text-gray-800 text-2xl text-center' style={{fontFamily:'HelvetIns'}}>Hoa Nguyen Coder</Text>
+                  <Text className='font-bold text-xl text-gray-600 text-center pt-1'>Web Developer</Text>
+              </View>
+            
+             
+
+              {/* settings */}
+              <View className='w-full pt-20'>
+                  <View className='w-full'>
+                      <TouchableOpacity>
+                          <View className='flex flex-row items-center p-4'>
+                              <View className='w-1/5 m-autoflex flex-col items-center'>
+                                  <AntDesign name="user" size={24} color="black" />
+                              </View>
+                              <View className='w-4/5'>
+                                  <Text className='text-xl text-gray-700'>My Profile</Text>
+                              </View>
+                          </View>
+                      </TouchableOpacity>
+                      <TouchableOpacity>
+                          <View className='flex flex-row items-center p-4'>
+                              <View className='w-1/5 m-autoflex flex-col items-center'>
+                              <AntDesign name="message1" size={24} color="black" />
+                              </View>
+                              <View className='w-4/5'>
+                                <View className='w-full flex flex-row items-center justify-between'>
+                                  <Text className='text-xl text-gray-700'>Messages</Text>
+                                  
+                                    <LinearGradient
+                                          colors={["#F33502", "#F95710"]}
+                                          className="w-8 h-8 bg-gray-400 flex flex-col items-center justify-center rounded-full"
+                                        >
+                                    <Text className='text-white font-bold text-xl'>7</Text>
+                                        </LinearGradient>
+                                </View>
+                              </View>
+                          </View>
+                      </TouchableOpacity>
+                      <TouchableOpacity>
+                          <View className='flex flex-row items-center p-4'>
+                              <View className='w-1/5 m-autoflex flex-col items-center'>
+                                  <MaterialIcons name="favorite-border" size={24} color="black" />
+                              </View>
+                              <View className='w-4/5'>
+                                  <Text className='text-xl text-gray-700'>Favourites</Text>
+                              </View>
+                          </View>
+                      </TouchableOpacity>
+                      <TouchableOpacity>
+                          <View className='flex flex-row items-center p-4'>
+                              <View className='w-1/5 m-autoflex flex-col items-center'>
+                              <EvilIcons name="location" size={24} color="black" />
+                              </View>
+                              <View className='w-4/5'>
+                                  <Text className='text-xl text-gray-700'>Location</Text>
+                              </View>
+                          </View>
+                      </TouchableOpacity>
+                      <TouchableOpacity>
+                          <View className='flex flex-row items-center p-4'>
+                              <View className='w-1/5 m-autoflex flex-col items-center'>
+                                <Ionicons name="settings-outline" size={24} color="black" />
+                              </View>
+                              <View className='w-4/5'>
+                                  <Text className='text-xl text-gray-700'>Settings</Text>
+                              </View>
+                          </View>
+                      </TouchableOpacity>
+                  </View>
+              </View>
+          </View>
+        </View>
+        
+        <View className='w-full'>
+            <TouchableOpacity>
+                <View className='flex flex-row items-center justify-center'>
+                <MaterialIcons name="logout" size={24} color="black" />
+                   <Text className='text-xl text-gray-700 pl-2'>Logout</Text>
+                </View>
+            </TouchableOpacity>
+        </View>
+    </SafeAreaView>
+  )
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  clipPath: {
+    width: 200,
+    height: 200,
+    backgroundColor: 'blue',
+    borderRadius: 100, // Tạo thành hình tròn
+    overflow: 'hidden', // Ẩn đi phần ngoài phạm vi borderRadius
+  },
+});
+export default ProfileScreen 

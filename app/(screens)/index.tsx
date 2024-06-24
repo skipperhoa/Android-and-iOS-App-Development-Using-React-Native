@@ -335,8 +335,8 @@ const HomeScreen = () => {
                   <TouchableOpacity className='w-1/5 flex flex-col items-center py-4'>
                      <Ionicons name="notifications-outline" size={23} color="white" />
                   </TouchableOpacity>
-                  <TouchableOpacity className='w-1/5 flex flex-col items-center '>
-                  <AntDesign name="user" size={23} color="white" />
+                  <TouchableOpacity className='w-1/5 flex flex-col items-center ' onPress={()=>router.push('profile')}>
+                     <AntDesign name="user" size={23} color="white" />
                   </TouchableOpacity>
              </View>
         </View>

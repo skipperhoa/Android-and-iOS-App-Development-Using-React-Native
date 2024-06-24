@@ -33,6 +33,7 @@
         {
           "fonts": [
             "./assets/fonts/SpaceMono-Regular.ttf",
+            "./assets/fonts/HelvetIns.ttf",
             "./assets/fonts/Playwrite_NL/Playwrite-NL.ttf"
           ]
         }

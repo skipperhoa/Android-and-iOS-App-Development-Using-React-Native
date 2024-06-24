@@ -51,6 +51,11 @@ export default function Layout() {
         headerShown: true,
         title: 'Carts',
       }} />
+       <Stack.Screen name="profile" options={{
+        headerShown: true,
+        title: '',
+        headerLeft: () => <AntDesign name="profile" size={24} color="black" onPress={() => router.back()} />,
+      }} />
     </Stack>
   );
 }
