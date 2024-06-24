@@ -56,6 +56,11 @@ export default function Layout() {
         title: '',
         headerLeft: () => <AntDesign name="profile" size={24} color="black" onPress={() => router.back()} />,
       }} />
+       <Stack.Screen name="settings" options={{
+        headerShown: false,
+        title: '',
+        headerLeft: () => <AntDesign name="profile" size={24} color="black" onPress={() => router.back()} />,
+      }} />
     </Stack>
   );
 }

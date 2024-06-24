@@ -15,9 +15,11 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { EvilIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import Svg, { Path } from "react-native-svg";
+import { useRouter } from "expo-router";
 const { width, height } = Dimensions.get("window");
 console.warn(height / 210);
 const ProfileScreen = () => {
+  const router = useRouter();
   const [fontsLoaded, fontError] = useFonts({
     HelvetIns: require("../../assets/fonts/HelvetIns.ttf"),
   });
@@ -126,7 +128,7 @@ const ProfileScreen = () => {
                   </View>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => router.push("settings")}>
                 <View className="flex flex-row items-center p-4">
                   <View className="w-1/5 m-autoflex flex-col items-center">
                     <Ionicons name="settings-outline" size={24} color="black" />
