@@ -62,11 +62,11 @@ const ProfileScreen = () => {
             <LinearGradient
               colors={["#4c669f", "#4c669f", "#FC7533"]}
               //  colors={['#4c669f', '#4c669f', '#192f6a']}
-              className="w-[550px] h-[550px] absolute -left-10 -top-52 bg-gray-200 rounded-full z-20"
+              className="w-[550px] h-[550px] absolute -left-10 -top-52 rounded-full z-20"
             ></LinearGradient>
             <LinearGradient
-              colors={["#F33502", "#FC7533", "4c669f"]}
-              className="w-[500px] h-[470px] absolute right-10 -top-40 bg-gray-100 rounded-full z-10"
+              colors={["#FC7533", "#FC7533", "#FA844A"]}
+              className="w-[500px] h-[470px] absolute right-10 -top-40 rounded-full z-10"
             ></LinearGradient>
           </View>
 
