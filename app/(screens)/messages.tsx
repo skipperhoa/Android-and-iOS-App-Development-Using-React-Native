@@ -4,7 +4,9 @@ import { LinearGradient } from "expo-linear-gradient";
 // icon
 import { AntDesign } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
+import { useRouter } from 'expo-router';
 const MesssagesScreen = () => {
+    const router = useRouter();
     const [fontsLoaded, fontError] = useFonts({
         Montserrat: require("../../assets/fonts/Montserrat/static/Montserrat-Regular.ttf"),
       });
@@ -109,7 +111,7 @@ const MesssagesScreen = () => {
                 <ScrollView className='w-full bg-white  rounded-t-3xl mt-2'>
                     <View className='w-full p-8'>
                             <View>
-                                <TouchableOpacity className='w-full mb-8'>
+                                <TouchableOpacity className='w-full mb-8' onPress={() => router.push("chat")}>
                                     <View className='w-full flex flex-row items-center'>
                                         <View className='w-16 h-16 rounded-full bg-[#C4D6C4] flex flex-col items-center justify-center relative'>
                                             <Image source={require('../../assets/images/avatar/1.png')}  className='w-full h-full rounded-full' 

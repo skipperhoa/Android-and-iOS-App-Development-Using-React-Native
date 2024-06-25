@@ -18,6 +18,7 @@ import { EvilIcons } from "@expo/vector-icons";
 const SettingScreen = () => {
   const [fontsLoaded, fontError] = useFonts({
     HelvetIns: require("../../assets/fonts/HelvetIns.ttf"),
+    
   });
   return (
     <LinearGradient colors={["#FC7325", "#FC813A"]} className="w-full h-full">
