@@ -3,7 +3,11 @@ import React from 'react'
 import { LinearGradient } from "expo-linear-gradient";
 // icon
 import { AntDesign } from '@expo/vector-icons';
+import { useFonts } from 'expo-font';
 const MesssagesScreen = () => {
+    const [fontsLoaded, fontError] = useFonts({
+        Montserrat: require("../../assets/fonts/Montserrat/static/Montserrat-Regular.ttf"),
+      });
   return (
     <LinearGradient   colors={["#FC7533", "#FC7533", "#FA844A"]} className='w-full h-full'>
         <SafeAreaView className='w-full h-full'>
@@ -119,7 +123,7 @@ const MesssagesScreen = () => {
                                                 <Text className='text-black text-[16px] font-bold text-left'>Hoa Nguyen Coder</Text>
                                                 <Text className='text-gray-600'>12:00</Text>
                                             </View>
-                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'>Chuyên trang chia sẻ các kiến thức liên quan đến
+                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}}>Chuyên trang chia sẻ các kiến thức liên quan đến
                                             </Text>
                                         </View>
                                     </View>
@@ -138,7 +142,7 @@ const MesssagesScreen = () => {
                                                 <Text className='text-black text-[16px] font-bold text-left'>Nguyễn Văn Bé</Text>
                                                 <Text className='text-gray-600'>12:00</Text>
                                             </View>
-                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'>Chuyên trang chia sẻ các kiến thức liên quan đến
+                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
                                             </Text>
                                         </View>
                                     </View>
@@ -157,7 +161,7 @@ const MesssagesScreen = () => {
                                                 <Text className='text-black text-[16px] font-bold text-left'>Trần Thị Tuyết Nga</Text>
                                                 <Text className='text-gray-600'>07:00</Text>
                                             </View>
-                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'>Chuyên trang chia sẻ các kiến thức liên quan đến
+                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
                                             </Text>
                                         </View>
                                     </View>
@@ -176,7 +180,7 @@ const MesssagesScreen = () => {
                                                 <Text className='text-black text-[16px] font-bold text-left'>Dương Kim Hưng</Text>
                                                 <Text className='text-gray-600'>08:00</Text>
                                             </View>
-                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'>Chuyên trang chia sẻ các kiến thức liên quan đến
+                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
                                             </Text>
                                         </View>
                                     </View>
@@ -195,7 +199,7 @@ const MesssagesScreen = () => {
                                                 <Text className='text-black text-[16px] font-bold text-left'>Trần Văn Lộc</Text>
                                                 <Text className='text-gray-600'>09:00</Text>
                                             </View>
-                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'>Chuyên trang chia sẻ các kiến thức liên quan đến
+                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
                                             </Text>
                                         </View>
                                     </View>
