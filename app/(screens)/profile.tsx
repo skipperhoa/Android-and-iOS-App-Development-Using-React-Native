@@ -85,7 +85,7 @@ const ProfileScreen = () => {
                   </View>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => router.push("messages")}>
                 <View className="flex flex-row items-center p-4">
                   <View className="w-1/5 m-autoflex flex-col items-center">
                     <AntDesign name="message1" size={24} color="black" />
