@@ -87,7 +87,7 @@ const ProfileScreen = () => {
           {/* settings */}
           <View className="w-full pt-24">
             <View className="w-full">
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => router.push("myProfile")}>
                 <View className="flex flex-row items-center p-4">
                   <View className="w-1/5 m-autoflex flex-col items-center">
                     <AntDesign name="user" size={24} color="black" />

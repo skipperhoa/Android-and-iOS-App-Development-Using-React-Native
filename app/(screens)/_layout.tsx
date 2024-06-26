@@ -71,6 +71,11 @@ export default function Layout() {
        
         title: '',
       }} />
+      <Stack.Screen name="myProfile" options={{
+        headerShown: false,
+       
+        title: '',
+      }} />
     </Stack>
   );
 }

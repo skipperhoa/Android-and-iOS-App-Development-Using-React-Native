@@ -334,7 +334,7 @@ const styles = StyleSheet.create({
     },
     swipedRow: {
       flexDirection: 'row',
-      flex: 1,
+    flex: 1,
       alignItems: 'center',
       paddingLeft: 5,
       backgroundColor: '#818181',
