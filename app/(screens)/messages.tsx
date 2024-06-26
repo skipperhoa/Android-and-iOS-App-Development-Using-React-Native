@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, TouchableOpacity, Image ,ScrollView,Flat} from 'react-native'
+import { View, Text, SafeAreaView, TouchableOpacity, Image ,ScrollView} from 'react-native'
 import React from 'react'
 import { LinearGradient } from "expo-linear-gradient";
 // icon
@@ -106,7 +106,7 @@ const MesssagesScreen = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
-                
+
             </View>
                 {/* list messages */}
                 <ScrollView className='w-full bg-white  rounded-t-3xl mt-2'>
