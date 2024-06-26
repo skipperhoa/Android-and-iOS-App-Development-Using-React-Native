@@ -2,10 +2,11 @@ import {
   View,
   Text,
   SafeAreaView,
-  Image,
+  Image,ScrollView,
   TouchableOpacity,
   Dimensions,
   StyleSheet,
+  Platform
 } from "react-native";
 import React from "react";
 import { useFonts } from "expo-font";
@@ -16,9 +17,20 @@ import { EvilIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import Svg, { Path } from "react-native-svg";
 import { useRouter } from "expo-router";
+
 const { width, height } = Dimensions.get("window");
 console.warn(height / 210);
 const ProfileScreen = () => {
+   
+
+  const checkPlatform = () => {
+    if (Platform.OS === "ios") {
+      return 'ios';
+    } else {
+      return "android";
+    }
+  };
+
   const router = useRouter();
   const [fontsLoaded, fontError] = useFonts({
     HelvetIns: require("../../assets/fonts/HelvetIns.ttf"),
@@ -30,7 +42,7 @@ const ProfileScreen = () => {
           <View className="w-full bg-white relative">
             <View className="w-full relative z-50">
               {/* avatar */}
-              <View className="m-auto pt-10">
+              <View className="m-auto" style={[{paddingTop:checkPlatform()==='ios'?40:10}]}>
                 <LinearGradient
                   colors={["#4c669f", "#4c669f", "#FC7533"]}
                   className="w-36 h-36 rounded-full p-2 flex flex-col items-center justify-center"
@@ -143,7 +155,7 @@ const ProfileScreen = () => {
         </View>
       </View>
 
-      <View className="w-full">
+      <View className="w-full py-4">
         <TouchableOpacity>
           <View className="flex flex-row items-center justify-center">
             <MaterialIcons name="logout" size={24} color="black" />

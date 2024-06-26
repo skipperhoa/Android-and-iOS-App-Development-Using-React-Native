@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView,StyleSheet, Animated,TouchableOpacity,Image, ScrollView,TextInput, Button } from 'react-native'
+import { View, Text, SafeAreaView,StyleSheet, Animated,TouchableOpacity,Image, ScrollView,TextInput, Platform} from 'react-native'
 import React, { useState } from 'react'
 import { Swipeable, GestureHandlerRootView } from 'react-native-gesture-handler';
 import BottomSheet from '@/components/BottomSheet'
@@ -86,6 +86,13 @@ const CartScreen = () => {
     }))
   }
   //
+  const checkPlatform = () => {
+    if (Platform.OS === "ios") {
+      return 'ios';
+    } else {
+      return "android";
+    }
+  };
    
   return (
     <SafeAreaView className='w-full h-full bg-white relative'>
@@ -253,7 +260,7 @@ const CartScreen = () => {
                   <Text className='font-bold text-xl'>Total</Text>
                   <Text className='text-gray-600 font-bold text-xl'>100.000 đ</Text>
             </View>
-            <View className='w-full mt-4'>
+            <View className='w-full mt-4' style={[{paddingBottom:checkPlatform()=='android'?20:0}]}>
                 <TouchableOpacity onPress={() => toggleSheet()}>
                     <View className='w-full bg-yellow-600 rounded-full flex flex-row items-center justify-center'>
                       <AntDesign name="shoppingcart" size={24} color="white" />
@@ -267,7 +274,7 @@ const CartScreen = () => {
       {/* Bottom sheet */}
       <BottomSheet isOpen={isOpen} toggleSheet={toggleSheet}>
 
-      <View className='w-full h-full py-2 px-4 bg-white rounded-[30px] border-[1px] border-gray-300 
+      <View className='w-full h-full py-2 px-4 bg-white rounded-t-[30px] border-[1px] border-gray-300 
         shadow-xl shadow-gray-200'>
             <View className='w-full pt-2'>
                   <Text className='text-sm font-bold py-2'>Address</Text>
