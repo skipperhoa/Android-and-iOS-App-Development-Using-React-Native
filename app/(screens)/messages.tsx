@@ -1,12 +1,44 @@
-import { View, Text, SafeAreaView, TouchableOpacity, Image ,ScrollView} from 'react-native'
+import { View, Text, SafeAreaView, TouchableOpacity, Image ,ScrollView,Animated} from 'react-native'
 import React from 'react'
 import { LinearGradient } from "expo-linear-gradient";
+import { Swipeable, GestureHandlerRootView } from 'react-native-gesture-handler';
 // icon
 import { AntDesign } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 import { useRouter } from 'expo-router';
+import { useSharedValue } from 'react-native-reanimated';
+const renderRightActions = (
+    progress: Animated.AnimatedInterpolation<number|string>,
+    dragAnimatedValue:Animated.AnimatedInterpolation<number|string>
+  ) => {
+    const opacity = dragAnimatedValue.interpolate({
+      inputRange: [-150, 0],
+      outputRange: [1, 0],
+      extrapolate: 'clamp',
+    }) as Animated.AnimatedInterpolation<number>;
+   
+    return (
+      <View className="w-2/3 bg-white rounded-xl flex flex-row items-center">
+        <View className='flex-1'>
+          <Text className='p-2 text-sm' style={{fontFamily: "Montserrat",fontWeight: 'bold'}}>Bạn có muốn xoá messages này?</Text>
+        </View>
+        <Animated.View className="bg-red-500 h-full rounded-r-xl" style={[{
+            backgroundColor: '#b60000',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            height: '100%',
+        }, {opacity}]}>
+          <TouchableOpacity className='w-auto h-full p-4 flex flex-col items-center justify-center'>
+            <AntDesign name="delete" size={20} color="white" />
+          </TouchableOpacity>
+        </Animated.View>
+      </View>
+    );
+  };
+
 const MesssagesScreen = () => {
     const router = useRouter();
+    const isOpen = useSharedValue(false);
     const [fontsLoaded, fontError] = useFonts({
         Montserrat: require("../../assets/fonts/Montserrat/static/Montserrat-Regular.ttf"),
       });
@@ -109,105 +141,116 @@ const MesssagesScreen = () => {
 
             </View>
                 {/* list messages */}
-                <ScrollView className='w-full bg-white  rounded-t-3xl mt-2'>
-                    <View className='w-full p-8'>
-                            <View>
-                                <TouchableOpacity className='w-full mb-8' onPress={() => router.push("chat")}>
-                                    <View className='w-full flex flex-row items-center'>
-                                        <View className='w-16 h-16 rounded-full bg-[#C4D6C4] flex flex-col items-center justify-center relative'>
-                                            <Image source={require('../../assets/images/avatar/1.png')}  className='w-full h-full rounded-full' 
-                                            resizeMode='cover' />
-                                            <View className='w-6 h-6 rounded-full bg-[#FFC300] flex flex-col items-center justify-center absolute -left-2 -top-2'>
-                                                <Text className=' text-white text-sm font-bold'>1</Text>
+                <ScrollView className='w-full bg-white h-full rounded-t-3xl mt-2'>
+                    <View className='w-full p-4'>
+                            <GestureHandlerRootView className='w-full h-full'>
+                                <TouchableOpacity className='w-full' onPress={() => router.push('chat')}>
+                                    <Swipeable renderRightActions={renderRightActions}>
+                                        <View className='w-full flex flex-row items-center bg-white p-4'>
+                                            <View className='w-16 h-16 rounded-full bg-[#C4D6C4] flex flex-col items-center justify-center relative'>
+                                                <Image source={require('../../assets/images/avatar/7.png')}  className='w-full h-full rounded-full' 
+                                                resizeMode='cover' />
+                                                <View className='w-6 h-6 rounded-full bg-[#FFC300] flex flex-col items-center justify-center absolute -left-2 -top-2'>
+                                                    <Text className=' text-white text-sm font-bold'>3</Text>
+                                                </View>
+                                            </View>         
+                                            <View className='flex-1 px-4'>
+                                                <View className='w-full flex-row items-center justify-between'>
+                                                    <Text className='text-black text-[16px] font-bold text-left'>Trần Thị Tuyết Nga</Text>
+                                                    <Text className='text-gray-600'>07:00</Text>
+                                                </View>
+                                                <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
+                                                </Text>
                                             </View>
-                                        </View>         
-                                        <View className='flex-1 px-4'>
-                                            <View className='w-full flex-row items-center justify-between'>
-                                                <Text className='text-black text-[16px] font-bold text-left'>Hoa Nguyen Coder</Text>
-                                                <Text className='text-gray-600'>12:00</Text>
-                                            </View>
-                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}}>Chuyên trang chia sẻ các kiến thức liên quan đến
-                                            </Text>
                                         </View>
-                                    </View>
+                                    </Swipeable>
                                 </TouchableOpacity>
-                                <TouchableOpacity className='w-full mb-8'>
-                                    <View className='w-full flex flex-row items-center'>
-                                        <View className='w-16 h-16 rounded-full bg-[#C4D6C4] flex flex-col items-center justify-center relative'>
-                                            <Image source={require('../../assets/images/avatar/2.png')}  className='w-full h-full rounded-full' 
-                                            resizeMode='cover' />
-                                            <View className='w-6 h-6 rounded-full bg-[#FFC300] flex flex-col items-center justify-center absolute -left-2 -top-2'>
-                                                <Text className=' text-white text-sm font-bold'>1</Text>
+                                <TouchableOpacity className='w-full'>
+                                    <Swipeable renderRightActions={renderRightActions}>
+                                        <View className='w-full flex flex-row items-center bg-white p-4'>
+                                            <View className='w-16 h-16 rounded-full bg-[#C4D6C4] flex flex-col items-center justify-center relative'>
+                                                <Image source={require('../../assets/images/avatar/1.png')}  className='w-full h-full rounded-full' 
+                                                resizeMode='cover' />
+                                                <View className='w-6 h-6 rounded-full bg-[#FFC300] flex flex-col items-center justify-center absolute -left-2 -top-2'>
+                                                    <Text className=' text-white text-sm font-bold'>3</Text>
+                                                </View>
+                                            </View>         
+                                            <View className='flex-1 px-4'>
+                                                <View className='w-full flex-row items-center justify-between'>
+                                                    <Text className='text-black text-[16px] font-bold text-left'>Trần Thị Tuyết Nga</Text>
+                                                    <Text className='text-gray-600'>07:00</Text>
+                                                </View>
+                                                <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
+                                                </Text>
                                             </View>
-                                        </View>         
-                                        <View className='flex-1 px-4'>
-                                            <View className='w-full flex-row items-center justify-between'>
-                                                <Text className='text-black text-[16px] font-bold text-left'>Nguyễn Văn Bé</Text>
-                                                <Text className='text-gray-600'>12:00</Text>
-                                            </View>
-                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
-                                            </Text>
                                         </View>
-                                    </View>
+                                    </Swipeable>
                                 </TouchableOpacity>
-                                <TouchableOpacity className='w-full mb-8'>
-                                    <View className='w-full flex flex-row items-center'>
-                                        <View className='w-16 h-16 rounded-full bg-[#C4D6C4] flex flex-col items-center justify-center relative'>
-                                            <Image source={require('../../assets/images/avatar/7.png')}  className='w-full h-full rounded-full' 
-                                            resizeMode='cover' />
-                                            <View className='w-6 h-6 rounded-full bg-[#FFC300] flex flex-col items-center justify-center absolute -left-2 -top-2'>
-                                                <Text className=' text-white text-sm font-bold'>3</Text>
+                                <TouchableOpacity className='w-full'>
+                                    <Swipeable renderRightActions={renderRightActions}>
+                                        <View className='w-full flex flex-row items-center bg-white p-4'>
+                                            <View className='w-16 h-16 rounded-full bg-[#C4D6C4] flex flex-col items-center justify-center relative'>
+                                                <Image source={require('../../assets/images/avatar/3.png')}  className='w-full h-full rounded-full' 
+                                                resizeMode='cover' />
+                                                <View className='w-6 h-6 rounded-full bg-[#FFC300] flex flex-col items-center justify-center absolute -left-2 -top-2'>
+                                                    <Text className=' text-white text-sm font-bold'>3</Text>
+                                                </View>
+                                            </View>         
+                                            <View className='flex-1 px-4'>
+                                                <View className='w-full flex-row items-center justify-between'>
+                                                    <Text className='text-black text-[16px] font-bold text-left'>Trần Thị Tuyết Nga</Text>
+                                                    <Text className='text-gray-600'>07:00</Text>
+                                                </View>
+                                                <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
+                                                </Text>
                                             </View>
-                                        </View>         
-                                        <View className='flex-1 px-4'>
-                                            <View className='w-full flex-row items-center justify-between'>
-                                                <Text className='text-black text-[16px] font-bold text-left'>Trần Thị Tuyết Nga</Text>
-                                                <Text className='text-gray-600'>07:00</Text>
-                                            </View>
-                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
-                                            </Text>
                                         </View>
-                                    </View>
+                                    </Swipeable>
                                 </TouchableOpacity>
-                                <TouchableOpacity className='w-full mb-8'>
-                                    <View className='w-full flex flex-row items-center'>
-                                        <View className='w-16 h-16 rounded-full bg-[#C4D6C4] flex flex-col items-center justify-center relative'>
-                                            <Image source={require('../../assets/images/avatar/4.png')}  className='w-full h-full rounded-full' 
-                                            resizeMode='cover' />
-                                            <View className='w-6 h-6 rounded-full bg-[#FFC300] flex flex-col items-center justify-center absolute -left-2 -top-2'>
-                                                <Text className=' text-white text-sm font-bold'>1</Text>
+                                <TouchableOpacity className='w-full'>
+                                    <Swipeable renderRightActions={renderRightActions}>
+                                        <View className='w-full flex flex-row items-center bg-white p-4'>
+                                            <View className='w-16 h-16 rounded-full bg-[#C4D6C4] flex flex-col items-center justify-center relative'>
+                                                <Image source={require('../../assets/images/avatar/4.png')}  className='w-full h-full rounded-full' 
+                                                resizeMode='cover' />
+                                                <View className='w-6 h-6 rounded-full bg-[#FFC300] flex flex-col items-center justify-center absolute -left-2 -top-2'>
+                                                    <Text className=' text-white text-sm font-bold'>3</Text>
+                                                </View>
+                                            </View>         
+                                            <View className='flex-1 px-4'>
+                                                <View className='w-full flex-row items-center justify-between'>
+                                                    <Text className='text-black text-[16px] font-bold text-left'>Trần Thị Tuyết Nga</Text>
+                                                    <Text className='text-gray-600'>07:00</Text>
+                                                </View>
+                                                <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
+                                                </Text>
                                             </View>
-                                        </View>         
-                                        <View className='flex-1 px-4'>
-                                            <View className='w-full flex-row items-center justify-between'>
-                                                <Text className='text-black text-[16px] font-bold text-left'>Dương Kim Hưng</Text>
-                                                <Text className='text-gray-600'>08:00</Text>
-                                            </View>
-                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
-                                            </Text>
                                         </View>
-                                    </View>
+                                    </Swipeable>
                                 </TouchableOpacity>
-                                <TouchableOpacity className='w-full mb-8'>
-                                    <View className='w-full flex flex-row items-center'>
-                                        <View className='w-16 h-16 rounded-full bg-[#C4D6C4] flex flex-col items-center justify-center relative'>
-                                            <Image source={require('../../assets/images/avatar/3.png')}  className='w-full h-full rounded-full' 
-                                            resizeMode='cover' />
-                                            <View className='w-6 h-6 rounded-full bg-[#FFC300] flex flex-col items-center justify-center absolute -left-2 -top-2'>
-                                                <Text className=' text-white text-sm font-bold'>1</Text>
+                                <TouchableOpacity className='w-full'>
+                                    <Swipeable renderRightActions={renderRightActions}>
+                                        <View className='w-full flex flex-row items-center bg-white p-4'>
+                                            <View className='w-16 h-16 rounded-full bg-[#C4D6C4] flex flex-col items-center justify-center relative'>
+                                                <Image source={require('../../assets/images/avatar/5.png')}  className='w-full h-full rounded-full' 
+                                                resizeMode='cover' />
+                                                <View className='w-6 h-6 rounded-full bg-[#FFC300] flex flex-col items-center justify-center absolute -left-2 -top-2'>
+                                                    <Text className=' text-white text-sm font-bold'>3</Text>
+                                                </View>
+                                            </View>         
+                                            <View className='flex-1 px-4'>
+                                                <View className='w-full flex-row items-center justify-between'>
+                                                    <Text className='text-black text-[16px] font-bold text-left'>Trần Thị Tuyết Nga</Text>
+                                                    <Text className='text-gray-600'>07:00</Text>
+                                                </View>
+                                                <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
+                                                </Text>
                                             </View>
-                                        </View>         
-                                        <View className='flex-1 px-4'>
-                                            <View className='w-full flex-row items-center justify-between'>
-                                                <Text className='text-black text-[16px] font-bold text-left'>Trần Văn Lộc</Text>
-                                                <Text className='text-gray-600'>09:00</Text>
-                                            </View>
-                                            <Text className='w-full pt-1 text-[12px] leading-5 font-bold text-left text-[#404140]'  style={{fontFamily:'Montserrat'}} >Chuyên trang chia sẻ các kiến thức liên quan đến
-                                            </Text>
                                         </View>
-                                    </View>
+                                    </Swipeable>
                                 </TouchableOpacity>
-                            </View>
+                               
+                            </GestureHandlerRootView>
                     </View>
                 </ScrollView>
         </View>
