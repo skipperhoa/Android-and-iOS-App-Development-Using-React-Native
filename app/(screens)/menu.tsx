@@ -16,7 +16,7 @@ import { FontAwesome6 } from "@expo/vector-icons";
 const MenuScreen = () => {
   const router = useRouter();
   return (
-    <SafeAreaView>
+    <SafeAreaView className="w-full bg-white h-full">
       <ScrollView className="w-full h-full bg-white">
         <View>
           {/* categor */}

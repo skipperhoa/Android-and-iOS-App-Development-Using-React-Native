@@ -76,6 +76,11 @@ export default function Layout() {
        
         title: '',
       }} />
+       <Stack.Screen name="location" options={{
+        headerShown: false,
+       
+        title: '',
+      }} />
     </Stack>
   );
 }

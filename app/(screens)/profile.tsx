@@ -19,7 +19,7 @@ import Svg, { Path } from "react-native-svg";
 import { useRouter } from "expo-router";
 
 const { width, height } = Dimensions.get("window");
-console.warn(height / 210);
+//console.warn(height / 210);
 const ProfileScreen = () => {
    
 
@@ -130,7 +130,7 @@ const ProfileScreen = () => {
                   </View>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => router.push("location")}>
                 <View className="flex flex-row items-center p-4">
                   <View className="w-1/5 m-autoflex flex-col items-center">
                     <EvilIcons name="location" size={24} color="black" />
