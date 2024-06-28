@@ -81,6 +81,13 @@ export default function Layout() {
        
         title: '',
       }} />
+ <Stack.Screen name="favourites" options={{
+        headerShown: false,
+       
+        title: '',
+      }} />
+      
+
     </Stack>
   );
 }
