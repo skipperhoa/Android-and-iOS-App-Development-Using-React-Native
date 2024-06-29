@@ -1,5 +1,5 @@
 import { Stack } from 'expo-router';
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { useRouter } from 'expo-router';
 
 // icon
@@ -86,7 +86,26 @@ export default function Layout() {
        
         title: '',
       }} />
-      
+       <Stack.Screen name="listOrders" options={{
+        headerShown: true,
+       
+        title: '',
+        headerLeft: () => <View className='flex flex-row items-center'>
+           <AntDesign name="arrowleft" size={30} color="#EE7C03" onPress={() => router.back()} />
+           <Text className='text-xl pl-4'>Đơn mua</Text>
+        </View>,
+        headerRight: () =><View className='flex flex-row items-center gap-2 pr-2'>
+            <AntDesign name="search1" size={30} color="#EE7C03" />
+           <TouchableOpacity onPress={() => router.push('messages')}>
+            <View className='relative'>
+                  <AntDesign name="message1" size={30} color="#EE7C03" />
+                  <View className='absolute -top-2 -right-3 bg-red-500 w-8 h-6 flex flex-col items-center justify-center rounded-full text-center text-white text-sm'>
+                    <Text className='text-white text-[12px]'>99+</Text>
+                  </View>
+              </View>
+           </TouchableOpacity>
+        </View>
+      }} />
      
       
 

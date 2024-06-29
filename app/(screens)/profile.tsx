@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import React from "react";
 import { useFonts } from "expo-font";
+
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -143,18 +144,14 @@ const ProfileScreen = () => {
                       </View>
                     </View>
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={() => router.push("favourites")}>
+                  <TouchableOpacity onPress={() => router.push("listOrders")}>
                     <View className="flex flex-row items-center p-4">
                       <View className="w-1/5 m-autoflex flex-col items-center">
-                        <MaterialIcons
-                          name="favorite-border"
-                          size={24}
-                          color="black"
-                        />
+                      <MaterialIcons name="list-alt" size={24} color="black" />
                       </View>
                       <View className="w-4/5">
                         <Text className="text-xl text-gray-700">
-                          Purchased Orders
+                          List Orders
                         </Text>
                       </View>
                     </View>
