@@ -5,7 +5,9 @@ import React from "react";
 import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useRouter } from "expo-router";
 const ListOrderScreen = () => {
+  const router = useRouter();
   return (
     <SafeAreaView className="w-full h-full bg-white">
       <View className="w-full h-full">
@@ -110,7 +112,7 @@ const ListOrderScreen = () => {
           {/* list orders */}
           <ScrollView className="w-full bg-gray-100"> 
 
-              <View className="w-full p-4 bg-white">
+              <TouchableOpacity className="w-full p-4 bg-white" onPress={() => {router.push('infoOrders')}}>
 
                     {/* card title */}
                    <View className="w full bg-white flex flex-row items-center justify-between">
@@ -146,7 +148,7 @@ const ListOrderScreen = () => {
                       </View>
                    </View>
                    {/* card footer */}
-                   <View className="w-full border-t-[1px] border-gray-300 pt-4">
+                   <View className="w-full border-t-[1px] border-gray-300 pt-4" >
                       <View className="flex flex-row items-center justify-between pb-4">
                            <Text className="text-sm text-gray-400">2 sản phẩm</Text>
                            <View className="flex flex-row items-center gap-2">
@@ -164,7 +166,7 @@ const ListOrderScreen = () => {
                       </View>
 
                    </View>
-              </View>
+              </TouchableOpacity>
               <View className="w-full p-4 bg-white mt-4">
 
                     {/* card title */}

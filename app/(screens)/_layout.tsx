@@ -107,7 +107,10 @@ export default function Layout() {
         </View>
       }} />
      
-      
+     <Stack.Screen name="infoOrders" options={{
+        headerShown: true,
+        title: 'Info Orders',
+      }} />
 
     </Stack>
   );
