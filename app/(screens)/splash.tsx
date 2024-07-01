@@ -1,8 +1,10 @@
 import { View, Text, SafeAreaView, Image ,Platform, TouchableOpacity} from 'react-native'
 import React from 'react'
 import { useFonts } from "expo-font";
+import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 const SplashScreen = () => {
+    const router = useRouter();
     const [fontsLoaded, fontError] = useFonts({
         HelvetIns: require("../../assets/fonts/HelvetIns.ttf"),
         
@@ -32,7 +34,7 @@ const SplashScreen = () => {
                     <Image source={require('../../assets/images/bg/bg01.png')} className='w-full h-56 '  resizeMode='stretch'/>
                 </View>
                 <View className='w-full px-6'>
-                     <TouchableOpacity className='w-full py-4 bg-[#04AE04] rounded-xl'>
+                     <TouchableOpacity className='w-full py-4 bg-[#04AE04] rounded-xl' onPress={() => router.push('home')}>
                           <Text className='w-auto font-bold text-sm text-white text-center uppercase py-1' style={{fontFamily: "HelvetIns",fontWeight: 'bold'}}>Tiếp tục mua hàng</Text>
                      </TouchableOpacity>
                      <View className='flex flex-row items-center py-2 pt-4'>
