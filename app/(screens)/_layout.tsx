@@ -21,8 +21,16 @@ export default function Layout() {
           fontWeight: 'bold',
         },
       }}>
-      {/* Optionally configure static options outside the route.*/}
+      <Stack.Screen name="splash" options={{
+        headerShown: false,
+        title: '',
+      }} />
       <Stack.Screen name="index" options={{
+        headerShown: false,
+        title: '',
+      }} />
+      {/* Optionally configure static options outside the route.*/}
+      <Stack.Screen name="home" options={{
         headerShown: true,
         title: 'App Food',
         headerLeft: () => <Ionicons name="menu-outline" size={24} color="black" onPress={()=>router.push('menu')} />,
@@ -111,6 +119,11 @@ export default function Layout() {
         headerShown: true,
         title: 'Info Orders',
       }} />
+       <Stack.Screen name="box" options={{
+        headerShown: true,
+        title: 'box',
+      }} />
+
 
     </Stack>
   );
