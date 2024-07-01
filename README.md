@@ -26,17 +26,46 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
     npx expo start
    ```
 # Demo
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/1.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/2.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/3.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/4.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/5.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/6.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/7.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/8.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/9.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/10.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/11.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/12.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/13.png)
-![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/14.png)
+# Demo SVG trong README
+
+## Hình 1
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/1.png" width="414" height="500" alt="Demo Image 1">
+
+## Hình 2
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/2.png" width="414" height="500" alt="Demo Image 2">
+
+## Hình 3
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/3.png" width="414" height="500" alt="Demo Image 3">
+
+## Hình 4
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/4.png" width="414" height="500" alt="Demo Image 4">
+
+## Hình 5
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/5.png" width="414" height="500" alt="Demo Image 5">
+
+## Hình 6
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/6.png" width="414" height="500" alt="Demo Image 6">
+
+## Hình 7
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/7.png" width="414" height="500" alt="Demo Image 7">
+
+## Hình 8
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/8.png" width="414" height="500" alt="Demo Image 8">
+
+## Hình 9
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/9.png" width="414" height="500" alt="Demo Image 9">
+
+## Hình 10
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/10.png" width="414" height="500" alt="Demo Image 10">
+
+## Hình 11
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/11.png" width="414" height="500" alt="Demo Image 11">
+
+## Hình 12
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/12.png" width="414" height="500" alt="Demo Image 12">
+
+## Hình 13
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/13.png" width="414" height="500" alt="Demo Image 13">
+
+## Hình 14
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/14.png" width="414" height="500" alt="Demo Image 14">
