@@ -119,6 +119,7 @@ export default function Layout() {
         headerShown: true,
         title: 'Info Orders',
       }} />
+     
        <Stack.Screen name="box" options={{
         headerShown: true,
         title: 'box',
