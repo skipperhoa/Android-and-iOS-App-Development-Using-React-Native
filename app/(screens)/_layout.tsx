@@ -119,6 +119,14 @@ export default function Layout() {
         headerShown: true,
         title: 'Info Orders',
       }} />
+       <Stack.Screen name="login" options={{
+        headerShown: true,
+        title: 'Login',
+      }} />
+      <Stack.Screen name="register" options={{
+        headerShown: false,
+        title: '',
+      }} />
      
        <Stack.Screen name="box" options={{
         headerShown: true,

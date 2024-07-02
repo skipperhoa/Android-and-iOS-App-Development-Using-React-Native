@@ -49,17 +49,14 @@ const SplashScreen = () => {
                           <Text className='w-auto font-bold text-sm text-white text-center uppercase py-1' style={{fontFamily: "Montserrat",fontWeight: 'bold'}}>Tiếp tục mua hàng</Text>
                     </View>
                      </TouchableOpacity>
-                     <TouchableOpacity className='w-full py-2 bg-[#022DF2] rounded-full mt-2' onPress={() => router.push('home')}>
+                     <TouchableOpacity className='w-full py-2 bg-[#022DF2] rounded-full mt-2' onPress={() => router.push('login')}>
                          <View className='flex flex-row items-center justify-center gap-2'>
-
                            <AntDesign name="login" size={24} color="white" />
                             <Text className='w-auto font-bold text-sm text-white text-center uppercase py-1' style={{fontFamily: "Montserrat",fontWeight: 'bold'}}>Login</Text>
                          </View>
                      </TouchableOpacity>
-                     <TouchableOpacity className='w-full py-2 border-[1px] border-gray-300/100 rounded-full mt-2' onPress={() => router.push('home')}>
+                     <TouchableOpacity className='w-full py-2 border-[1px] border-gray-300/100 rounded-full mt-2' onPress={() => router.push('register')}>
                      <View className='flex flex-row items-center justify-center gap-2'>
-
-
                           <AntDesign name="adduser" size={24} color="black" />
                             <Text className='w-auto font-bold text-sm text-black text-center uppercase py-1' style={{fontFamily: "Montserrat",fontWeight: 'bold'}}>Register</Text>
                         </View>
