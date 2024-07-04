@@ -123,6 +123,10 @@ export default function Layout() {
         headerShown: false,
         title: '',
       }} />
+        <Stack.Screen name="loginPhone" options={{
+        headerShown: false,
+        title: '',
+      }} />
       <Stack.Screen name="register" options={{
         headerShown: false,
         title: '',

@@ -3,12 +3,14 @@ import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 // 📗 khai báo thư viện mà expo hổ trỡ để lấy giá trị chiều cao  statusBar
 import Constants from 'expo-constants';
-import { AntDesign, Ionicons ,Entypo,FontAwesome} from '@expo/vector-icons';
+import { AntDesign, Ionicons ,Entypo,FontAwesome,MaterialIcons} from '@expo/vector-icons';
 
 import { Path, Svg } from 'react-native-svg';
+import { useRouter } from 'expo-router';
 const LoginScreen = () => {
   const {width,height} = useWindowDimensions();
   const width_svg = width/3
+  const router = useRouter()
   
   return (
      <LinearGradient colors={["#FB9105", "#FB9105", "#fff"]}>
@@ -70,6 +72,12 @@ const LoginScreen = () => {
                       <TouchableOpacity>
                           <View className='w-16 h-16 rounded-xl bg-gray-200/50 flex flex-col items-center justify-center'>
                           <FontAwesome name="twitter-square" size={24} color="#0588F0" />
+                          </View>
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={()=>router.push('loginPhone')}>
+                          <View className='w-16 h-16 rounded-xl bg-gray-200/50 flex flex-col items-center justify-center'>
+                         
+                            <MaterialIcons name="phone-android" size={24} color="black" />
                           </View>
                       </TouchableOpacity>
                   </View>
