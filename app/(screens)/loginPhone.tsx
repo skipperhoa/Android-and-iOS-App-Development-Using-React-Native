@@ -4,11 +4,13 @@ import React ,{useState} from 'react'
 import Constants from 'expo-constants';
 import { Svg, Path } from 'react-native-svg';
 import {Picker} from '@react-native-picker/picker';
+import { useRouter } from 'expo-router';
 // icon
 import { Foundation } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
 const LoginPhoneScreen = () => {
+const router = useRouter();
 const {width,height} = useWindowDimensions();
 const width_svg = width/3
 const [selectedLanguage, setSelectedLanguage] = useState();
@@ -64,7 +66,7 @@ const [selectedLanguage, setSelectedLanguage] = useState();
                             />
                         </View>
                         <View className='w-full px-24 mt-4'>
-                            <TouchableOpacity className='w-full bg-orange-500 rounded-full p-1'>
+                            <TouchableOpacity className='w-full bg-orange-500 rounded-full p-1' onPress={() => router.push('verification')}>
                                 <View className='w-full flex flex-row items-center justify-center gap-2'>
 
                                 <Feather name="send" size={24} color="white" />

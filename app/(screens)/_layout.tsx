@@ -127,6 +127,10 @@ export default function Layout() {
         headerShown: false,
         title: '',
       }} />
+      <Stack.Screen name="verification" options={{
+        headerShown: false,
+        title: '',
+      }} />
       <Stack.Screen name="register" options={{
         headerShown: false,
         title: '',
