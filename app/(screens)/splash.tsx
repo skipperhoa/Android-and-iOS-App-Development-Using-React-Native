@@ -28,8 +28,8 @@ const SplashScreen = () => {
         {/* logo */}
           <View className='w-auto flex justify-center items-center pt-5 pb-4'>
                 <Image source={require('../../assets/images/bg/bg02.png')} className='w-20 h-20' />
-                <Text className='py-2 text-gray-700/200' style={{fontFamily: "Montserrat",fontWeight: 'bold', fontSize:18}}>Welcome to</Text>
-                <Text className=' text-gray-700/200' style={{fontFamily: "PlaywriteNL",fontWeight: 'bold', fontSize:28}}>
+                <Text className='py-2 text-gray-700/200' style={{fontFamily: "Montserrat", fontSize:18}}>Welcome to</Text>
+                <Text className=' text-gray-700/200' style={{fontFamily: "PlaywriteNL", fontSize:24}}>
                 Dev Food Việt Nam</Text>
           </View>
 

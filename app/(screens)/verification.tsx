@@ -38,7 +38,7 @@ const [selectedLanguage, setSelectedLanguage] = useState();
                                     <Text className='text-xl text-center text-orange-600 font-bold pt-20'>Enter OTP</Text>
                                     <Text className='text-sm text-center text-gray-800 font-bold pt-2'>We have sent OTP on your number</Text>
                             </View>
-                            <View style={{transform: [{rotate: '180deg'}]}} className='absolute bottom-[-50px] z-10'>
+                            <View style={{transform: [{rotate: '180deg'}]}} className='absolute bottom-[-49px] z-10'>
                                         <Svg width={width} height={50} viewBox={`0 0 ${width} 50`} >
 
                                             <Path d={`M0 50 C ${width_svg} 0 ${width - width_svg} 0 ${width} 50`} stroke="#FFF"   fill={'#fff'}

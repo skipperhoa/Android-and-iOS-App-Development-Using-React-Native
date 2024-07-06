@@ -221,7 +221,7 @@ const HomeScreen = () => {
                       </View>
                       <View className='w-full px-2 mt-2'>
                           <View className='flex flex-row flex-wrap'>
-                               <TouchableOpacity className='w-1/2 p-2'>
+                               <TouchableOpacity className='w-1/2 p-2' onPress={() => router.push('/detail')}>
                                    <View className='w-full p-4 shadow-md border-[1px] border-[#F5F5F5] rounded-md bg-white relative'>
                                        <Image source={require('@/assets/products/3.png')} className='w-full h-28 m-auto block' 
                                         resizeMode='stretch'/>

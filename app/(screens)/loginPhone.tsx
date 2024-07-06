@@ -1,4 +1,4 @@
-import { View, Text , useWindowDimensions,TextInput, TouchableOpacity} from 'react-native'
+import { View, Text , useWindowDimensions,TextInput, TouchableOpacity,Platform} from 'react-native'
 import React ,{useState} from 'react'
 // 📗 khai báo thư viện mà expo hổ trỡ để lấy giá trị chiều cao  statusBar
 import Constants from 'expo-constants';
@@ -15,7 +15,13 @@ const {width,height} = useWindowDimensions();
 const width_svg = width/3
 const [selectedLanguage, setSelectedLanguage] = useState();
 
-//console.warn(height)
+const checkPlatform = () => {
+    if (Platform.OS === "ios") {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   return (
     <LinearGradient colors={["#FB9105", "#FB9105", "#FAA403"]}>
@@ -36,10 +42,10 @@ const [selectedLanguage, setSelectedLanguage] = useState();
                         <Text className='text-xl text-center text-orange-600 font-bold pt-20'>Enter your mobile number</Text>
                         <Text className='text-sm text-center text-gray-800 font-bold pt-2'>We will send you a OTP Message</Text>
                  </View>
-                 <View style={{transform: [{rotate: '180deg'}]}} className='absolute bottom-[-50px] z-10'>
+                 <View style={{transform: [{rotate: '180deg'}]}} className='absolute bottom-[-49px] z-10'>
                             <Svg width={width} height={50} viewBox={`0 0 ${width} 50`} >
 
-                                <Path d={`M0 50 C ${width_svg} 0 ${width - width_svg} 0 ${width} 50`} stroke="#FFF"   fill={'#fff'}
+                                <Path d={`M0 50 C ${width_svg} 0 ${width - width_svg} 0 ${width} 50`} stroke="transparent"   fill={'#fff'}
                                  />
 
                         </Svg>
@@ -49,15 +55,18 @@ const [selectedLanguage, setSelectedLanguage] = useState();
             <View className='w-full h-full flex-1'>
                 <View className='w-full h-full flex flex-col items-center justify-center'>
 
-                    <View className='w-full'>
+                    <View className='w-full' style={{paddingHorizontal:40}}>
                         <Picker
                             selectedValue={selectedLanguage}
-                            itemStyle ={{ height: 50, color: 'black' }}
+                            style={{ color: '#fff' , backgroundColor: 'transparent'}}
+                            selectionColor={'white'}
+                           
+                            itemStyle ={{ height: 50, color: '#fff',backgroundColor:'transparent' }}
                             onValueChange={(itemValue, itemIndex) =>
                                 setSelectedLanguage(itemValue)
                             }>
-                            <Picker.Item label="+84 Viet Nam" value="+84" />
-                            <Picker.Item label="+1 United States" value="+1" />
+                            <Picker.Item label="+84 Viet Nam" value="+84" style={{ backgroundColor: 'transparent' }} />
+                            <Picker.Item label="+1 United States" value="+1"  style={{ backgroundColor: 'transparent' }} />
                             </Picker>
                         </View>
                         <View className='w-full px-10 pt-4'>
