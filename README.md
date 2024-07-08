@@ -1,9 +1,19 @@
+## Android and iOS App Development Using React Native
+Please Like, Share, and Subscribe if you like the video :
+👉 [Creator's Channel](https://www.youtube.com/channel/UCBOZRctXJSg9YNLyddedASg?sub_confirmation=1)
+👉 [Link Video](https://www.youtube.com/watch?v=wskGvhK52qs)
+
+Nếu bạn thấy thú vị, thì đăng ký kênh ủng hộ tôi (If you find it interesting, then subscribe to my channel to support me)
+- YouTube Channel: [Creator's Channel](https://www.youtube.com/channel/UCBOZRctXJSg9YNLyddedASg?sub_confirmation=1)
+- TikTok: [@ha.nguyn.coder](https://www.tiktok.com/@ha.nguyn.coder)
+- Twitter: [@skipperhoa](https://x.com/skipperhoa)
+- Facebook Fanpage: [Fanpage](https://www.facebook.com/profile.php?id=100049475056780)
+- Website: [hoanguyenit.com](https://hoanguyenit.com)
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
 ## Get started
-
 1. Install dependencies
 
    ```bash
@@ -15,36 +25,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    ```bash
     npx expo start
    ```
+# Demo
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Hình 1
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project3-mobile/Demo/1.jpg" width="320" height="500" alt="Splash Screen">
