@@ -1,10 +1,18 @@
 import { View, Text, useWindowDimensions } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Svg, { Path } from "react-native-svg";
 // icon
 import { FontAwesome5 } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+
 const SplashScreen = () => {
-    const {width, height} = useWindowDimensions()
+  const router  = useRouter();
+  const {width, height} = useWindowDimensions()
+  useEffect(()=>{
+    setTimeout(()=>{
+        router.push('/(tabs)')
+    },2000)
+  },[])
   return (
     <View style={{backgroundColor:'green', flex:1}}>
       <View style={{flex:1,width:'100%',justifyContent:'center',alignItems:'center',position:'relative'}}>
