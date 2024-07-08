@@ -68,4 +68,21 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 <img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/13.png" width="320" height="500" alt="Demo Image 13">
 
 ## Hình 14
-<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/14.png" width="320" height="500" alt="Demo Image 14">
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/14.png" width="320" height="500" alt="Demo Image 15">
+
+## Hình 15
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/15.png" width="320" height="500" alt="Demo Image 13">
+
+## Hình 16
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/16.png" width="320" height="500" alt="Demo Image 16">
+
+## Hình 17
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/17.png" width="320" height="500" alt="Demo Image 17">
+
+## Hình 18
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/18.png" width="320" height="500" alt="Demo Image 18">
+
+## Hình 19
+<img src="https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project2-mobile/Demo/19.png" width="320" height="500" alt="Demo Image 19">
+
+
