@@ -1,17 +1,67 @@
-import { View, Text, SafeAreaView , StyleSheet, TouchableOpacity, TextInput} from 'react-native'
+import { View, Text, SafeAreaView ,Dimensions,Platform, StyleSheet, TouchableOpacity, TextInput, Image, useWindowDimensions} from 'react-native'
 import React from 'react'
 import { useFonts } from 'expo-font';
+import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
 // icon
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
+
+// data image
+const slides = [
+  {
+    image: require("../../../assets/images/travel/1.jpg"),
+  },
+  {
+    image: require("../../../assets/images/travel/2.jpg"),
+  },
+  {
+    image: require("../../../assets/images/travel/3.jpg"),
+  },
+  {
+    image: require("../../../assets/images/travel/4.jpg"),
+  },
+  {
+    image: require("../../../assets/images/travel/5.jpg"),
+  },
+  {
+    image: require("../../../assets/images/travel/6.jpg"),
+  }
+]
+const { width: screenWidth } = Dimensions.get('window')
+
 const HomeScreen = () => {
+  const {width,height} = useWindowDimensions()
   const [fontsLoaded, fontError] = useFonts({
     HelvetIns: require("../../../assets/fonts/HelvetIns.ttf"),
     PlaywriteNL: require("../../../assets/fonts/Playwrite_NL/Playwrite-NL.ttf"),
     Montserrat: require("../../../assets/fonts/Montserrat/static/Montserrat-Regular.ttf"),
     
   });
+
+  const _renderItem = ({item} :  any) => {
+    return (
+      <TouchableOpacity style={{width:'100%'}}>
+          <Image source = {item.image} style={{width:'100%',height:280, borderRadius:15}} />
+      </TouchableOpacity>
+    )
+  }
+  const _renderItem2 =  ({item, index}, parallaxProps)=>{
+    return (
+        <View style={styles.item}>
+            <ParallaxImage
+                source={{ uri: item.thumbnail }}
+                containerStyle={styles.imageContainer}
+                style={styles.image}
+                parallaxFactor={0.4}
+                {...parallaxProps}
+            />
+            <Text style={styles.title} numberOfLines={2}>
+                { item.title }
+            </Text>
+        </View>
+    );
+}
   return (
     <SafeAreaView style={styles.box}>
         <View style={styles.container}>
@@ -57,7 +107,31 @@ const HomeScreen = () => {
                 </View>
             </View>
 
-            {/* content */}
+            {/* slide banner */}
+            <View>
+                <View style={{width:'100%'}}>
+                   
+                   {
+                      /*  <Carousel
+                       layout={'default'}
+                       data={slides}
+                       sliderWidth={380}
+                       itemWidth={380}
+                       renderItem={_renderItem}
+                       /> */
+                       <Carousel
+                       sliderWidth={screenWidth}
+                       sliderHeight={screenWidth}
+                       itemWidth={screenWidth - 100}
+                       data={slides}
+                       renderItem={_renderItem}
+                       hasParallaxImages={true}
+                   />
+                   }
+                </View>
+            </View>
+
+        
 
             
 
@@ -110,6 +184,20 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat",
     letterSpacing:2,
     lineHeight:40
-  }
+  },
+  item: {
+    width: screenWidth - 100,
+    height: screenWidth - 100,
+  },
+  imageContainer: {
+    flex: 1,
+    marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
+    backgroundColor: 'white',
+    borderRadius: 15,
+  },
+  image: {
+    ...StyleSheet.absoluteFillObject,
+    resizeMode: 'cover',
+  },
 })
 export default HomeScreen
