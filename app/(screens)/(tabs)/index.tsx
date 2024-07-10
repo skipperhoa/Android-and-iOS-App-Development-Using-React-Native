@@ -1,11 +1,11 @@
-import { View, Text, SafeAreaView ,Dimensions,Platform, StyleSheet, TouchableOpacity, TextInput, Image, useWindowDimensions} from 'react-native'
+import { View, Text, SafeAreaView ,Dimensions,Platform, StyleSheet, TouchableOpacity, TextInput, Image, useWindowDimensions, ScrollView} from 'react-native'
 import React from 'react'
 import { useFonts } from 'expo-font';
 import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
 // icon
-import { Ionicons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { EvilIcons } from '@expo/vector-icons';
+import { Ionicons,FontAwesome5 , MaterialIcons,EvilIcons,FontAwesome} from '@expo/vector-icons';
+
+
 
 // data image
 const slides = [
@@ -46,25 +46,9 @@ const HomeScreen = () => {
       </TouchableOpacity>
     )
   }
-  const _renderItem2 =  ({item, index}, parallaxProps)=>{
-    return (
-        <View style={styles.item}>
-            <ParallaxImage
-                source={{ uri: item.thumbnail }}
-                containerStyle={styles.imageContainer}
-                style={styles.image}
-                parallaxFactor={0.4}
-                {...parallaxProps}
-            />
-            <Text style={styles.title} numberOfLines={2}>
-                { item.title }
-            </Text>
-        </View>
-    );
-}
   return (
     <SafeAreaView style={styles.box}>
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
           
            {/* header */}
             <View style={styles.headerTop}>
@@ -100,7 +84,7 @@ const HomeScreen = () => {
                         <TextInput placeholder='E.g Viet Nam, New York, London' style={{height:60,paddingRight:10,paddingVertical:20,
                          borderRadius:7, backgroundColor:'#F0F1F1',paddingLeft:40
                         }} placeholderTextColor={'gray'}></TextInput>
-                        <TouchableOpacity style={{position:'absolute',top:39,left:10}}>
+                        <TouchableOpacity style={{position:'absolute',top:47,left:10}}>
                             <FontAwesome name="map-marker" size={24} color="gray" />
                         </TouchableOpacity>
                     </View>
@@ -112,13 +96,7 @@ const HomeScreen = () => {
                 <View style={{width:'100%'}}>
                    
                    {
-                      /*  <Carousel
-                       layout={'default'}
-                       data={slides}
-                       sliderWidth={380}
-                       itemWidth={380}
-                       renderItem={_renderItem}
-                       /> */
+                    
                        <Carousel
                        sliderWidth={screenWidth}
                        sliderHeight={screenWidth}
@@ -131,12 +109,193 @@ const HomeScreen = () => {
                 </View>
             </View>
 
+            {/* category */}
+            <View style={{width:'100%',padding:20}}>
+                <View style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+                  <FontAwesome5 name="broadcast-tower" size={20} color="green" />
+                    <Text style={{fontWeight:'bold',fontSize:16,paddingVertical:20,paddingLeft:10}}>Disseminating Services</Text>
+                </View>
+                <View style={{display:'flex',flexDirection:'row',flexWrap:'wrap'}}>
+                    <TouchableOpacity style={{width:'25%',marginBottom:20}}>
+                        <View style={{width:'100%'}}>
+                            <View style={{width:40,height:40, borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
+                                <FontAwesome name="plane" size={30} color="green" />
+                            </View>
+                            <Text style={{textAlign:'center',marginTop:10,color:'#000',fontFamily: "Montserrat",fontSize:12,margin:'auto',width:'100%'}}>Flights</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{width:'25%',marginBottom:20}}>
+                        <View style={{width:'100%'}}>
+                            <View style={{width:40,height:40,  borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
+                            <MaterialIcons name="hotel" size={30} color="green" />
+                            </View>
+                            <Text style={{textAlign:'center',marginTop:10,color:'#000',fontFamily: "Montserrat",fontSize:12,margin:'auto',width:'100%'}}>Hotels</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{width:'25%',marginBottom:20}}>
+                        <View style={{width:'100%'}}>
+                            <View style={{width:40,height:40,  borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
+                            <FontAwesome name="car" size={30} color="green" />
+                            </View>
+                            <Text style={{textAlign:'center',marginTop:10,color:'#000',fontFamily: "Montserrat",fontSize:12,margin:'auto',width:'100%'}}>Car Rentals</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{width:'25%',marginBottom:20}}>
+                        <View style={{width:'100%'}}>
+                            <View style={{width:40,height:40,  borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
+                            <MaterialIcons name="beach-access" size={30} color="green" />
+                            </View>
+                            <Text style={{textAlign:'center',marginTop:10,color:'#000',fontFamily: "Montserrat",fontSize:12,margin:'auto',width:'100%'}}>Vacation Packages</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{width:'25%',marginBottom:20}}>
+                        <View style={{width:'100%'}}>
+                            <View style={{width:40,height:40,  borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
+                            <FontAwesome name="calendar" size={30} color="green" />
+                            </View>
+                            <Text style={{textAlign:'center',marginTop:10,color:'#000',fontFamily: "Montserrat",fontSize:12,margin:'auto',width:'100%'}}>Activities</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{width:'25%',marginBottom:20}}>
+                        <View style={{width:'100%'}}>
+                            <View style={{width:40,height:40,  borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
+                            <MaterialIcons name="restaurant" size={30} color="green" />
+                            </View>
+                            <Text style={{textAlign:'center',marginTop:10,color:'#000',fontFamily: "Montserrat",fontSize:12,margin:'auto',width:'100%'}}>Restaurants</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{width:'25%',marginBottom:20}}>
+                        <View style={{width:'100%'}}>
+                            <View style={{width:40,height:40,  borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
+                            <FontAwesome name="map" size={30} color="green" />
+                            </View>
+                            <Text style={{textAlign:'center',marginTop:10,color:'#000',fontFamily: "Montserrat",fontSize:12,margin:'auto',width:'100%'}}>Destinations</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{width:'25%',marginBottom:20}}>
+                        <View style={{width:'100%'}}>
+                            <View style={{width:40,height:40,  borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
+                            <FontAwesome name="book" size={30} color="green" />
+                            </View>
+                            <Text style={{textAlign:'center',marginTop:10,color:'#000',fontFamily: "Montserrat",fontSize:12,margin:'auto',width:'100%'}}>Travel Guides</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{width:'25%',marginBottom:0}}>
+                        <View style={{width:'100%'}}>
+                            <View style={{width:40,height:40,  borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
+                            <MaterialIcons name="local-activity" size={30} color="green" />
+                            </View>
+                            <Text style={{textAlign:'center',marginTop:10,color:'#000',fontFamily: "Montserrat",fontSize:12,margin:'auto',width:'100%'}}>Local Experiences</Text>
+                        </View>
+                    </TouchableOpacity>
+                  
+                    <TouchableOpacity style={{width:'25%',marginBottom:0}}>
+                        <View style={{width:'100%'}}>
+                            <View style={{width:40,height:40,  borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
+                            <FontAwesome name="shield" size={30} color="green" />
+                            </View>
+                            <Text style={{textAlign:'center',marginTop:10,color:'#000',fontFamily: "Montserrat",fontSize:12,margin:'auto',width:'100%'}}>Travel Insurance</Text>
+                        </View>
+                    </TouchableOpacity>
+                  
+                    <TouchableOpacity style={{width:'25%',marginBottom:0}}>
+                        <View style={{width:'100%'}}>
+                            <View style={{width:40,height:40,  borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
+                            <FontAwesome name="suitcase" size={30} color="green" />
+                            </View>
+                            <Text style={{textAlign:'center',marginTop:10,color:'#000',fontFamily: "Montserrat",fontSize:12,margin:'auto',width:'100%'}}>Travel Essentials</Text>
+                        </View>
+                    </TouchableOpacity>
+                 
+                    <TouchableOpacity style={{width:'25%',marginBottom:0}}>
+                        <View style={{width:'100%'}}>
+                            <View style={{width:40,height:40,  borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
+                            <FontAwesome name="tag" size={30} color="green" />
+                            </View>
+                            <Text style={{textAlign:'center',marginTop:10,color:'#000',fontFamily: "Montserrat",fontSize:12,margin:'auto',width:'100%'}}>Travel Essentials</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+            {/* list travel */}
+
+            <View style={{width:'100%',paddingHorizontal:10}}>
+                <View style={{display:'flex',flexDirection:'row',alignItems:'center',paddingHorizontal:10}}>
+                    <FontAwesome name="plane" size={30} color="green" />
+                    <Text style={{fontWeight:'bold',fontSize:16,paddingVertical:20,paddingLeft:10,textTransform:'capitalize'}}>travel 2024 (hot)</Text>
+                </View>
+                <View style={{width:'100%',display:'flex',flexDirection:'row',justifyContent:'space-between',flexWrap:'wrap'}}>
+                    <TouchableOpacity style={{width:'50%',padding:10}}>
+                       <View style={{width:'100%',backgroundColor:'#F4F4F4',borderRadius:10}}>
+                           <Image source={require("../../../assets/images/travel/7.jpg")} style={{width:'100%',height:120,borderTopRightRadius:10,borderTopLeftRadius:10}}/>
+                           <View style={{width:'100%',paddingHorizontal:20}}>
+
+                              <Text style={{fontSize:16,paddingTop:15,textAlign:'left',fontWeight:'bold',height:65}}>Đảo Tuần Châu</Text>
+                              <View style={{paddingTop:5,display:'flex',flexDirection:'row',alignItems:'center',gap:10}}>
+                                  <Text style={{fontSize:14}}>4,4</Text>
+                                  <FontAwesome name="star" size={16} color="orange" />
+                                  <Text style={{fontSize:14}}>(1,3N)</Text>
+                              </View>
+                              <Text style={{fontSize:14,paddingVertical:15}} numberOfLines={1}>Đảo</Text>
+                           </View>
+                       </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{width:'50%',padding:10}}>
+                       <View style={{width:'100%',backgroundColor:'#F4F4F4',borderRadius:10}}>
+                           <Image source={require("../../../assets/images/travel/8.jpg")} style={{width:'100%',height:120,borderTopRightRadius:10,borderTopLeftRadius:10}}/>
+                           <View style={{width:'100%',paddingHorizontal:20}}>
+
+                              <Text style={{fontSize:16,paddingTop:15,textAlign:'left',fontWeight:'bold',height:65}}>Vịnh Bái Tử Long</Text>
+                              <View style={{paddingTop:5,display:'flex',flexDirection:'row',alignItems:'center',gap:10}}>
+                                  <Text style={{fontSize:14}}>4,4</Text>
+                                  <FontAwesome name="star" size={16} color="orange" />
+                                  <Text style={{fontSize:14}}>(1,3N)</Text>
+                              </View>
+                              <Text style={{fontSize:14,paddingVertical:15}} numberOfLines={1}>Vịnh</Text>
+                           </View>
+                       </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{width:'50%',padding:10}}>
+                       <View style={{width:'100%',backgroundColor:'#F4F4F4',borderRadius:10}}>
+                           <Image source={require("../../../assets/images/travel/9.jpg")} style={{width:'100%',height:120,borderTopRightRadius:10,borderTopLeftRadius:10}}/>
+                           <View style={{width:'100%',paddingHorizontal:20}}>
+
+                              <Text style={{fontSize:16,paddingTop:15,textAlign:'left',fontWeight:'bold',height:65}}>Bải Biển Hạ Long</Text>
+                              <View style={{paddingTop:5,display:'flex',flexDirection:'row',alignItems:'center',gap:10}}>
+                                  <Text style={{fontSize:14}}>4,4</Text>
+                                  <FontAwesome name="star" size={16} color="orange" />
+                                  <Text style={{fontSize:14}}>(1,3N)</Text>
+                              </View>
+                              <Text style={{fontSize:14,paddingVertical:15}} numberOfLines={1}>Điểm thu hút khách nước ngoài</Text>
+                           </View>
+                       </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{width:'50%',padding:10}}>
+                       <View style={{width:'100%',backgroundColor:'#F4F4F4',borderRadius:10}}>
+                           <Image source={require("../../../assets/images/travel/10.jpg")} style={{width:'100%',height:120,borderTopRightRadius:10,borderTopLeftRadius:10}}/>
+                           <View style={{width:'100%',paddingHorizontal:20}}>
+
+                              <Text style={{fontSize:16,paddingTop:15,textAlign:'left',fontWeight:'bold',height:65}}>Núi Bài Thơ</Text>
+                              <View style={{paddingTop:5,display:'flex',flexDirection:'row',alignItems:'center',gap:10}}>
+                                  <Text style={{fontSize:14}}>4,4</Text>
+                                  <FontAwesome name="star" size={16} color="orange" />
+                                  <Text style={{fontSize:14}}>(1,3N)</Text>
+                              </View>
+                              <Text style={{fontSize:14,paddingVertical:15}} numberOfLines={1}>Điểm thu hút khách nước ngoài</Text>
+                           </View>
+                       </View>
+                    </TouchableOpacity>
+
+                </View>
+            </View>
+
         
 
             
 
 
-        </View>
+        </ScrollView>
     </SafeAreaView>
   )
 }
@@ -169,7 +328,7 @@ const styles = StyleSheet.create({
   },
   boxSearch:{
      width:'100%',
-     padding:20,
+     paddingHorizontal:20,
     
     
   },
@@ -184,20 +343,6 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat",
     letterSpacing:2,
     lineHeight:40
-  },
-  item: {
-    width: screenWidth - 100,
-    height: screenWidth - 100,
-  },
-  imageContainer: {
-    flex: 1,
-    marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
-    backgroundColor: 'white',
-    borderRadius: 15,
-  },
-  image: {
-    ...StyleSheet.absoluteFillObject,
-    resizeMode: 'cover',
-  },
+  }
 })
 export default HomeScreen
