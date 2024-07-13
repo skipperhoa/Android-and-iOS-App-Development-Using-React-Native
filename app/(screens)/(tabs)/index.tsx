@@ -51,7 +51,7 @@ const HomeScreen = () => {
         <ScrollView style={styles.container}>
           
            {/* header */}
-            <View style={styles.headerTop}>
+            {/* <View style={styles.headerTop}>
                 <View>
                     <View style={styles.headerContent}>
                         <TouchableOpacity>
@@ -70,7 +70,7 @@ const HomeScreen = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
-            </View>
+            </View> */}
 
             {/* search travel*/}
 
@@ -329,6 +329,7 @@ const styles = StyleSheet.create({
   boxSearch:{
      width:'100%',
      paddingHorizontal:20,
+     paddingTop:30
     
     
   },
