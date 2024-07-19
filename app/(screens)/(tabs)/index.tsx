@@ -2,6 +2,7 @@ import { View, Text, SafeAreaView ,Dimensions,Platform, StyleSheet, TouchableOpa
 import React from 'react'
 import { useFonts } from 'expo-font';
 import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
+import { DrawerActions, useNavigation } from '@react-navigation/native';
 // icon
 import { Ionicons,FontAwesome5 , MaterialIcons,EvilIcons,FontAwesome} from '@expo/vector-icons';
 
@@ -31,6 +32,7 @@ const slides = [
 const { width: screenWidth } = Dimensions.get('window')
 
 const HomeScreen = () => {
+  const navigation = useNavigation()
   const {width,height} = useWindowDimensions()
   const [fontsLoaded, fontError] = useFonts({
     HelvetIns: require("../../../assets/fonts/HelvetIns.ttf"),
@@ -51,10 +53,10 @@ const HomeScreen = () => {
         <ScrollView style={styles.container}>
           
            {/* header */}
-            {/* <View style={styles.headerTop}>
+             {/* <View style={styles.headerTop}>
                 <View>
                     <View style={styles.headerContent}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
                             <Ionicons name="filter" size={30} color="black" />
                         </TouchableOpacity>
                         <View style={{flexShrink:1,flex:1, justifyContent:'center', alignItems:'center'}}>
@@ -70,7 +72,7 @@ const HomeScreen = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
-            </View> */}
+            </View>  */}
 
             {/* search travel*/}
 

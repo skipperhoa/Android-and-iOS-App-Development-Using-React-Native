@@ -13,7 +13,8 @@ import { getPathDown } from "../../../components/curve";
 import { Svg, Path } from "react-native-svg";
 import { scale } from "react-native-size-scaling";
 import { getHeaderTitle } from "@react-navigation/elements";
-
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DrawerActions } from '@react-navigation/native';
 // ICON
 import {
   MaterialCommunityIcons,
@@ -30,6 +31,27 @@ import Constants from "expo-constants";
 //       <Text style={{fontSize:20,color:"black",paddingTop:100}}>4324324234</Text>
 //   </View>
 // }
+
+// Menu Drawer
+import RegisterScreen from "../register";
+const Drawer = createDrawerNavigator();
+const MyDrawerApp = ()=>{
+  return (
+    <Drawer.Navigator screenOptions={{ headerShown: false }}>
+      {/* 
+        viết layout cho menu tại đây
+        Chú ý chúng ta dùng component={TabRootLayout}  để có bottom tabs ở bên dưới screen
+      */}
+       <Drawer.Screen name="index" component={TabRootLayout} />
+
+        {/* thêm các screeb khác */}
+       <Drawer.Screen name="register" component={RegisterScreen} />
+
+
+    </Drawer.Navigator>
+  );
+}
+
 
 const CustomTitleTab = ({ children }: any) => {
   return (
@@ -102,7 +124,7 @@ const TabRootLayout = () => {
                     <View style={styles.headerTop}>
                       <View>
                         <View style={styles.headerContent}>
-                          <TouchableOpacity>
+                          <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
                             <Ionicons name="filter" size={35} color="white" />
                           </TouchableOpacity>
                           <View
@@ -306,4 +328,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TabRootLayout;
+//export default TabRootLayout;
+export default MyDrawerApp;
