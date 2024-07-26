@@ -107,7 +107,7 @@ const LoginPhoneScreen = () => {
                                 <View style={{...styles.dropdownItemStyle, ...(isSelected && {backgroundColor: '#D2D9DF'})}}>
                                     <Image source={item.icon} style={styles.dropdownItemIconStyle} />
                                 <Text style={styles.dropdownItemTxtStyle}>{item.title}</Text>
-                                </View>z
+                                </View>
                             );
                             }}
                             showsVerticalScrollIndicator={false}
