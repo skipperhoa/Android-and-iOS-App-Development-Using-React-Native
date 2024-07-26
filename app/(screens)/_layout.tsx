@@ -28,6 +28,11 @@ const RootLayout = () => {
           headerShown: false
         }}
       />
+       <Stack.Screen name="loginPhone" 
+        options={{
+          headerShown: false
+        }}
+      />
       
     
     </Stack>
