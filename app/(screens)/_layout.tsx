@@ -33,6 +33,11 @@ const RootLayout = () => {
           headerShown: false
         }}
       />
+             <Stack.Screen name="verifyCode" 
+        options={{
+          headerShown: false
+        }}
+      />
       
     
     </Stack>
