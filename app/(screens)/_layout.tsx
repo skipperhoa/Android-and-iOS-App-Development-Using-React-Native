@@ -38,6 +38,11 @@ const RootLayout = () => {
           headerShown: false
         }}
       />
+       <Stack.Screen name="flight" 
+        options={{
+          headerShown: false
+        }}
+      />
       
     
     </Stack>
