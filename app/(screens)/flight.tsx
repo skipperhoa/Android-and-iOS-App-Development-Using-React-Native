@@ -21,7 +21,7 @@ const FlightScreen = () => {
                         <TouchableOpacity>
                             <Entypo name="chevron-with-circle-left" size={30} color="white" />
                         </TouchableOpacity>
-                        <Text style={{fontWeight:500,fontSize:20,color:'white'}}>Fights</Text>
+                        <Text style={{fontWeight:500,fontSize:20,color:'white'}}>Flight</Text>
                         <TouchableOpacity>
                         <MaterialIcons name="filter-list" size={30} color="white" />
                         </TouchableOpacity>
