@@ -48,6 +48,11 @@ const RootLayout = () => {
           headerShown: false
         }}
       />
+       <Stack.Screen name="travelDetail" 
+        options={{
+          headerShown: false
+        }}
+      />
       
     
     </Stack>
