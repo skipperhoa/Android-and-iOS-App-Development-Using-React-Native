@@ -53,6 +53,11 @@ const RootLayout = () => {
           headerShown: false
         }}
       />
+       <Stack.Screen name="collections" 
+          options={{
+            headerShown: false   
+          }}
+      />
       
     
     </Stack>

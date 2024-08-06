@@ -11,7 +11,7 @@ const SplashScreen = () => {
   useEffect(()=>{
     setTimeout(()=>{
         router.push('/(tabs)')
-    },4000)
+    },2000)
   },[])
   return (
     <View style={{backgroundColor:'green', flex:1}}>

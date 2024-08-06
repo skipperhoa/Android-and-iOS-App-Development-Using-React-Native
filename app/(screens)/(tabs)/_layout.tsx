@@ -36,6 +36,7 @@ import Constants from "expo-constants";
 
 // Menu Drawer
 import RegisterScreen from "../register";
+import CollectionScreen from "../collections";
 const Drawer = createDrawerNavigator();
 
 
@@ -49,6 +50,7 @@ const CustomTitleTab = ({ children }: any) => {
 
 // Custom Drawer Navigator
 const CustomDrawerContent = (props: any)=>{
+  const {state, navigation} = props
   return (
    <View style={{flex:1,height:'100%'}}>
          <DrawerContentScrollView {...props}>
@@ -73,13 +75,14 @@ const CustomDrawerContent = (props: any)=>{
                     props.state.routes.map((route:any, index:any)=>{
                         const {drawerIcon,drawerLabel} = props.descriptors[route.key].options;
                         const focused = index === props.state.index;
+                        //console.warn(route.name)
                         return (
                           <TouchableOpacity
                             key={route.key}
                             style={{width:'100%',paddingVertical:10,paddingHorizontal:20, flexDirection:'row',alignContent:'center'
                               
                             }}
-                            onPress={() => props.navigation.navigate(route.name)}
+                            onPress={() => navigation.navigate(route.name)}
                           >
                             <View style={{width:'100%',flexDirection:'row',justifyContent:'center',alignItems:'center',gap:10}}>
                                 {
@@ -375,8 +378,9 @@ const MyDrawerApp = ()=>{
          }}
        />
 
-  <Drawer.Screen name="Collections" component={TabRootLayout}
+  <Drawer.Screen name="collections" component={CollectionScreen}
          options={{
+          headerShown: false,
            drawerIcon: ({focused,color,size})=>{
             return (
                 <View style={{backgroundColor:focused?"green":"#fff", borderRadius:8, padding:2}}>
