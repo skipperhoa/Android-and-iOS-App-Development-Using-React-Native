@@ -7,9 +7,11 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 // 📗 khai báo thư viện mà expo hổ trỡ để lấy giá trị chiều cao  statusBar
 import Constants from "expo-constants";
+import { useRouter } from 'expo-router';
 
 
 const FlightScreen = () => {
+   const router = useRouter()
   return (
     <View style={{flex:1, height:'100%', backgroundColor:'#EAEAEA', position:'relative'}}>
      
@@ -18,7 +20,7 @@ const FlightScreen = () => {
         {/* end */}
          {/* header */}
          <View style={{backgroundColor:'green',paddingTop:Constants.statusBarHeight,flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingHorizontal:20,paddingVertical:10}}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={()=>router.back()}>
                             <Entypo name="chevron-with-circle-left" size={30} color="white" />
                         </TouchableOpacity>
                         <Text style={{fontWeight:500,fontSize:20,color:'white'}}>Flight</Text>
@@ -136,7 +138,7 @@ const FlightScreen = () => {
 
                         <View>
 
-                             <View style={{width:'100%',backgroundColor:'white',marginTop:20, borderRadius:10, paddingHorizontal:20, paddingVertical:20}}>
+                             <TouchableOpacity onPress={() => router.push('flightDetail')} style={{width:'100%',backgroundColor:'white',marginTop:20, borderRadius:10, paddingHorizontal:20, paddingVertical:20}}>
                                  <View style={{flexDirection:'row',alignItems:'center'}}>
                                          <MaterialIcons name="flight" size={24} color="green" />
                                          <Text style={{paddingLeft:10, fontSize:16, fontWeight:500}}>Hang Bay 123BM</Text>
@@ -177,7 +179,7 @@ const FlightScreen = () => {
                                           <Text style={{color:'orange',fontWeight:500,fontSize:16}}>Book Now</Text>
                                       </TouchableOpacity>
                                  </View>
-                             </View>
+                             </TouchableOpacity>
                              <View style={{width:'100%',backgroundColor:'white',marginTop:20, borderRadius:10, paddingHorizontal:20, paddingVertical:20}}>
                                  <View style={{flexDirection:'row',alignItems:'center'}}>
                                          <MaterialIcons name="flight" size={24} color="green" />

@@ -8,14 +8,14 @@ import {
   Animated,
 } from "react-native";
 import React, { useState, useRef, useEffect } from "react";
-import { Tabs } from "expo-router";
+import { Tabs, useRouter } from "expo-router";
 import { getPathDown } from "../../../components/curve";
 import { Svg, Path } from "react-native-svg";
 import { height, scale } from "react-native-size-scaling";
 import { getHeaderTitle } from "@react-navigation/elements";
 import { createDrawerNavigator,DrawerContentScrollView,
   DrawerItemList } from '@react-navigation/drawer';
-import { DrawerActions } from '@react-navigation/native';
+import { DrawerActions,useNavigation } from '@react-navigation/native';
 // ICON
 import {
   MaterialCommunityIcons,MaterialIcons,FontAwesome,
@@ -37,6 +37,7 @@ import Constants from "expo-constants";
 // Menu Drawer
 import RegisterScreen from "../register";
 import CollectionScreen from "../collections";
+import WishListScreen from "../wishLists";
 const Drawer = createDrawerNavigator();
 
 
@@ -341,6 +342,8 @@ const TabRootLayout = () => {
 };
 
 const MyDrawerApp = ()=>{
+  const router = useRouter();
+  const navigation = useNavigation();
   return (
     <Drawer.Navigator screenOptions={{ 
       headerShown: false,
@@ -425,6 +428,7 @@ const MyDrawerApp = ()=>{
 
 <Drawer.Screen name="Orders" component={TabRootLayout}
          options={{
+          
            drawerIcon: ({focused,color,size})=>{
             return (
                 <View style={{backgroundColor:focused?"green":"#fff", borderRadius:8, padding:2}}>
@@ -445,8 +449,14 @@ const MyDrawerApp = ()=>{
          }}
        />
 
-  <Drawer.Screen name="Wishlist" component={TabRootLayout}
+  <Drawer.Screen name="wishLists" component={WishListScreen}
          options={{
+          headerShown: true,
+           headerTitle: "Travel Wishlist",
+           headerLeft: ()=> <TouchableOpacity style={{paddingHorizontal:20}} onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
+           <Ionicons name="filter" size={30} color="black" />
+       </TouchableOpacity>,
+           
            drawerIcon: ({focused,color,size})=>{
             return (
                 <View style={{backgroundColor:focused?"green":"#fff", borderRadius:8, padding:2}}>
@@ -458,7 +468,8 @@ const MyDrawerApp = ()=>{
             return (
               <View style={{flex:1}}>
                 <View style={{width:'100%',flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
-                    <Text style={{flex:1,color:focused?"green":color,fontSize:16,fontWeight:500,paddingLeft:10}}>Wishlist</Text>
+                    <Text style={{flex:1,color:focused?"green":color,fontSize:16,fontWeight:500,paddingLeft:10}}>Travel 
+                    Wishlist</Text>
                     <Entypo name="chevron-right" size={16} color={color} />
                 </View>
               </View>

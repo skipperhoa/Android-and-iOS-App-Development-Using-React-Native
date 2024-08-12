@@ -58,6 +58,11 @@ const RootLayout = () => {
             headerShown: false   
           }}
       />
+       <Stack.Screen name="wishLists" 
+          options={{
+            headerShown: false   
+          }}
+      />
       
     
     </Stack>

@@ -4,7 +4,9 @@ import Svg, { Path } from "react-native-svg";
 import {AntDesign,Entypo,MaterialIcons,Fontisto,FontAwesome} from '@expo/vector-icons';
 // 📗 khai báo thư viện mà expo hổ trỡ để lấy giá trị chiều cao  statusBar
 import Constants from "expo-constants";
+import { useRouter } from 'expo-router';
 const TravelDetailScreen = () => {
+    const router = useRouter()
     const {width,height} = useWindowDimensions()
   return (
     <View style={{flex:1, height:'100%', backgroundColor:'#fff', position:'relative'}}>
@@ -13,7 +15,7 @@ const TravelDetailScreen = () => {
       <View style={{width:'100%',height:height/3+80, position:'relative'}}>
              {/* header */}
             <View style={{width:'100%',paddingTop:Constants.statusBarHeight,flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingHorizontal:20,paddingVertical:10,position:'relative',zIndex:200}}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={()=>router.back()}>
                             <AntDesign name="arrowleft" size={35} color="white" />
                             </TouchableOpacity>
                             

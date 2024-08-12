@@ -5,6 +5,7 @@ import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
 import { DrawerActions, useNavigation } from '@react-navigation/native';
 // icon
 import { Ionicons,FontAwesome5 , MaterialIcons,EvilIcons,FontAwesome} from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
 
 
@@ -32,6 +33,7 @@ const slides = [
 const { width: screenWidth } = Dimensions.get('window')
 
 const HomeScreen = () => {
+  const router = useRouter( )
   const navigation = useNavigation()
   const {width,height} = useWindowDimensions()
   const [fontsLoaded, fontError] = useFonts({
@@ -118,7 +120,7 @@ const HomeScreen = () => {
                     <Text style={{fontWeight:'bold',fontSize:16,paddingVertical:20,paddingLeft:10}}>Disseminating Services</Text>
                 </View>
                 <View style={{display:'flex',flexDirection:'row',flexWrap:'wrap'}}>
-                    <TouchableOpacity style={{width:'25%',marginBottom:20}}>
+                    <TouchableOpacity style={{width:'25%',marginBottom:20}} onPress={() => router.push('flight')}>
                         <View style={{width:'100%'}}>
                             <View style={{width:40,height:40, borderRadius:10,justifyContent:'center',margin:'auto',alignItems:'center', borderWidth:1, borderColor:'#EBEBEB'}}>
                                 <FontAwesome name="plane" size={30} color="green" />
@@ -228,7 +230,7 @@ const HomeScreen = () => {
                     <Text style={{fontWeight:'bold',fontSize:16,paddingVertical:20,paddingLeft:10,textTransform:'capitalize'}}>travel 2024 (hot)</Text>
                 </View>
                 <View style={{width:'100%',display:'flex',flexDirection:'row',justifyContent:'space-between',flexWrap:'wrap'}}>
-                    <TouchableOpacity style={{width:'50%',padding:10}}>
+                    <TouchableOpacity onPress={() => router.push('travelDetail')} style={{width:'50%',padding:10}}>
                        <View style={{width:'100%',backgroundColor:'#F4F4F4',borderRadius:10}}>
                            <Image source={require("../../../assets/images/travel/7.jpg")} style={{width:'100%',height:120,borderTopRightRadius:10,borderTopLeftRadius:10}}/>
                            <View style={{width:'100%',paddingHorizontal:20}}>
