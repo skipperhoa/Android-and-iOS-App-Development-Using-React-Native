@@ -63,6 +63,11 @@ const RootLayout = () => {
             headerShown: false   
           }}
       />
+        <Stack.Screen name="cart" 
+          options={{
+            headerShown: false   
+          }}
+      />
       
     
     </Stack>

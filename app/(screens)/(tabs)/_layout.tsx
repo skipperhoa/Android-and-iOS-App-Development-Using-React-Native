@@ -22,8 +22,8 @@ import {
   Ionicons,
   EvilIcons,
   Entypo,
+  AntDesign
 } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
 // 📗 khai báo thư viện mà expo hổ trỡ để lấy giá trị chiều cao  statusBar
 import Constants from "expo-constants";
 // custom header
@@ -38,6 +38,7 @@ import Constants from "expo-constants";
 import RegisterScreen from "../register";
 import CollectionScreen from "../collections";
 import WishListScreen from "../wishLists";
+import CartScreen from "../cart";
 const Drawer = createDrawerNavigator();
 
 
@@ -404,11 +405,22 @@ const MyDrawerApp = ()=>{
          }}
        />
 
-<Drawer.Screen name="Cart" component={TabRootLayout}
+<Drawer.Screen name="cart" component={CartScreen}
          options={{
+           headerShown: true,
+           headerTitle: "Carts",
+           headerLeft: ()=> <TouchableOpacity style={{paddingHorizontal:20}} onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
+           <Ionicons name="filter" size={30} color="black" />
+       </TouchableOpacity>,
+
+       headerRight: ()=> <TouchableOpacity style={{paddingHorizontal:20}}>
+           <AntDesign name="message1" size={24} color="black" />
+       </TouchableOpacity>,
+           
            drawerIcon: ({focused,color,size})=>{
             return (
                 <View style={{backgroundColor:focused?"green":"#fff", borderRadius:8, padding:2}}>
+                   
                     <Ionicons name="cart" size={size} color={color} />
                 </View>
             )
@@ -417,8 +429,9 @@ const MyDrawerApp = ()=>{
             return (
               <View style={{flex:1}}>
                 <View style={{width:'100%',flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
-                    <Text style={{flex:1,color:focused?"green":color,fontSize:16,fontWeight:500,paddingLeft:10}}>Cart</Text>
+                    <Text style={{flex:1,color:focused?"green":color,fontSize:16,fontWeight:500,paddingLeft:10}}>Carts</Text>
                     <Entypo name="chevron-right" size={16} color={color} />
+                    
                 </View>
               </View>
             )
