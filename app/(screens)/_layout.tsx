@@ -68,6 +68,11 @@ const RootLayout = () => {
             headerShown: false   
           }}
       />
+      <Stack.Screen name="news" 
+          options={{
+            headerShown: false   
+          }}
+      />
       
     
     </Stack>

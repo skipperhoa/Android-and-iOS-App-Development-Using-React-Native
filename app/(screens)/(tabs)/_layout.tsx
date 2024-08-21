@@ -39,6 +39,7 @@ import RegisterScreen from "../register";
 import CollectionScreen from "../collections";
 import WishListScreen from "../wishLists";
 import CartScreen from "../cart";
+import NewScreen from "../news";
 const Drawer = createDrawerNavigator();
 
 
@@ -439,9 +440,17 @@ const MyDrawerApp = ()=>{
          }}
        />
 
-<Drawer.Screen name="Orders" component={TabRootLayout}
+<Drawer.Screen name="news" component={NewScreen}
          options={{
-          
+          headerShown: true,
+          headerTitle: "News",
+          headerLeft: ()=> <TouchableOpacity style={{paddingHorizontal:20}} onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
+          <Ionicons name="filter" size={30} color="black" />
+      </TouchableOpacity>,
+
+      headerRight: ()=> <TouchableOpacity style={{paddingHorizontal:20}}>
+         <AntDesign name="search1" size={24} color="black" />
+      </TouchableOpacity>,
            drawerIcon: ({focused,color,size})=>{
             return (
                 <View style={{backgroundColor:focused?"green":"#fff", borderRadius:8, padding:2}}>
@@ -453,7 +462,7 @@ const MyDrawerApp = ()=>{
             return (
               <View style={{flex:1}}>
                 <View style={{width:'100%',flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
-                    <Text style={{flex:1,color:focused?"green":color,fontSize:16,fontWeight:500,paddingLeft:10}}>Orders</Text>
+                    <Text style={{flex:1,color:focused?"green":color,fontSize:16,fontWeight:500,paddingLeft:10}}>News</Text>
                     <Entypo name="chevron-right" size={16} color={color} />
                 </View>
               </View>
