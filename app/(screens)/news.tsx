@@ -2,8 +2,10 @@ import { View, Text, SafeAreaView, TouchableOpacity, Image, ScrollView } from 'r
 import React from 'react'
 import { useFonts } from 'expo-font';
 import {MaterialIcons,Ionicons} from '@expo/vector-icons'
+import { useRouter } from 'expo-router';
 
 const NewScreen = () => {
+    const router = useRouter();
     const [fontsLoaded, fontError] = useFonts({
         HelvetIns: require("../../assets/fonts/HelvetIns.ttf"),
         PlaywriteNL: require("../../assets/fonts/Playwrite_NL/Playwrite-NL.ttf"),
@@ -14,7 +16,7 @@ const NewScreen = () => {
     <SafeAreaView style={{width:'100%',flex:1}}>
         <ScrollView style={{width:'100%',height:'100%'}}>
             <View style={{width:'100%',padding:20}}>
-                <TouchableOpacity style={{width:'100%',paddingBottom:20}}>
+                <TouchableOpacity style={{width:'100%',paddingBottom:20}} onPress={() => router.push('/newsDetail')}>
                      <View style={{width:'100%',padding:20,borderRadius:10, backgroundColor:'#FFF',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
                          <View style={{flex:1,paddingRight:15}}>
                              <TouchableOpacity>
