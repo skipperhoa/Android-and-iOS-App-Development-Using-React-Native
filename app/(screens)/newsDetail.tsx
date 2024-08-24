@@ -2,7 +2,7 @@ import { View, Text,TouchableOpacity,ScrollView,Image ,useWindowDimensions} from
 import React from 'react'
 import { useRouter } from 'expo-router';
 import { useFonts } from 'expo-font';
-import {Ionicons,AntDesign,Feather,MaterialIcons} from '@expo/vector-icons'
+import {Ionicons,AntDesign,Feather,MaterialIcons,EvilIcons,Entypo} from '@expo/vector-icons'
 // 📗 khai báo thư viện mà expo hổ trỡ để lấy giá trị chiều cao  statusBar
 import Constants from "expo-constants";
 
@@ -106,7 +106,7 @@ const NewsDetailScreen = () => {
                         </View>
                     {/* content */}
                     <ScrollView style={{width:'100%',flex:1,height:'100%',paddingTop:60,paddingHorizontal:15}}>
-                        <View style={{width:'100%',paddingTop:20,height:'100%',backgroundColor:'white',borderRadius:20}}>
+                        <View style={{width:'100%',paddingTop:20,height:'100%',backgroundColor:'white',borderRadius:20,paddingBottom:100}}>
                             <View>
                                  <TouchableOpacity style={{margin:'auto'}}>
                                      <View style={{width:150,flexDirection:'row',alignItems:'center',gap:5, padding:5, borderRadius:100,backgroundColor:'#2078fe',justifyContent:'center'}}>
@@ -143,7 +143,226 @@ const NewsDetailScreen = () => {
                                             renderersProps={renderersProps}
                                         />
                                  </View>
+
+                                 {/* comment */}
+                                 <View>
+                                     <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingHorizontal:20, borderBottomWidth:1, borderBottomColor:'#ECECEC',paddingBottom:10}}>
+                                         
+                                        <View style={{flexDirection:'row',alignItems:'center',gap:5}}>
+                                            <EvilIcons name="comment" size={24} color="black" />
+                                            <Text style={{fontSize:14,fontWeight:500}}>Comments</Text>
+                                         </View>
+                                         <TouchableOpacity>
+                                             <View style={{flexDirection:'row',alignItems:'center',gap:5}}>
+                                                 <Text style={{fontSize:14,fontWeight:500}}>Sort</Text>
+                                                  <AntDesign name="filter" size={20} color="black" />
+                                             </View>
+                                         </TouchableOpacity>
+                                     </View>
+                                     {/* list comment */}
+                                     <View style={{width:'100%',marginTop:10}}>
+                                         <View>
+
+                                           {/* comment parent 1 */}
+                                              <View style={{flexDirection:'row',gap:10, paddingVertical:10,borderBottomWidth:1,borderColor:'#ECECEC',paddingHorizontal:20}}>
+                                                   <View style={{width:50,height:50,borderRadius:25,justifyContent:'center',alignItems:'center',position:'relative'}}>
+                                                       <View style={{width:15,height:15, backgroundColor:'green',borderRadius:10,position:'absolute',top:2,left:0,zIndex:10,borderWidth:1,borderColor:'#fff'}}></View>
+                                                       <Image source={require("../../assets/images/avatar/3.png")} style={{width:45,height:45,borderRadius:25}} />
+                                                   </View>
+                                                   <View style={{flex:1}}>
+                                                       <View style={{width:'100%'}}>
+                                                          <Text style={{fontWeight:500,fontSize:15,paddingBottom:5,color:'#474747'}}>Laravel New 2024</Text>
+                                                          <Text style={{fontSize:15,lineHeight:23,width:'100%',fontFamily:'Montserrat',color:'#5a5858'}}>
+                                                              Thông thường trong các dự án của chúng ta làm
+                                                          </Text>
+                                                           <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',marginTop:5,gap:10}}>
+                                                              <View style={{flexDirection:'row',alignItems:'center',gap:10}}>
+                                                                    <TouchableOpacity>
+                                                                        <MaterialIcons name="more-horiz" size={24} color="black" />
+                                                                      </TouchableOpacity>
+                                                                      <TouchableOpacity>
+                                                                        <Entypo name="reply" size={24} color="black" />
+                                                                      </TouchableOpacity>
+                                                              </View>
+                                                              <Text style={{fontSize:12,fontWeight:400}}>24/08/2024</Text>
+                                                             
+                                                           </View>
+                                                       </View>
+                                                       {/* reply */}
+                                                      <View>
+                                                          {/* comment 1 */}
+                                                          <View style={{flexDirection:'row',gap:10, paddingVertical:10}}>
+                                                              <View style={{width:50,height:50,borderRadius:25,justifyContent:'center',alignItems:'center',position:'relative'}}>
+                                                                  <View style={{width:15,height:15, backgroundColor:'gray',borderRadius:10,position:'absolute',top:2,left:0,zIndex:10,borderWidth:1,borderColor:'#fff'}}></View>
+                                                                  <Image source={require("../../assets/images/avatar/2.png")} style={{width:45,height:45,borderRadius:25}} />
+                                                              </View>
+                                                              <View style={{flex:1}}>
+                                                                  <View style={{width:'100%'}}>
+                                                                      <Text style={{fontWeight:500,fontSize:15,paddingBottom:5,color:'#474747'}}>React Native New 2024</Text>
+                                                                      <Text style={{fontSize:15,lineHeight:23,width:'100%',fontFamily:'Montserrat',color:'#5a5858'}}>
+                                                                          Thông thường trong các dự án của chúng ta làm
+                                                                      </Text>
+                                                                      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',marginTop:5,gap:10}}>
+                                                                          <View style={{flexDirection:'row',alignItems:'center',gap:10}}>
+                                                                                <TouchableOpacity>
+                                                                                    <MaterialIcons name="more-horiz" size={24} color="black" />
+                                                                                  </TouchableOpacity>
+                                                                                  <TouchableOpacity>
+                                                                                    <Entypo name="reply" size={24} color="black" />
+                                                                                  </TouchableOpacity>
+                                                                          </View>
+                                                                          <Text style={{fontSize:12,fontWeight:400}}>24/08/2024</Text>
+                                                                        
+                                                                      </View>
+                                                                  </View>
+                                                              </View>
+                                                          </View>
+                                                          {/* end comment 1 */}
+
+                                                           {/* comment 2 */}
+                                                           <View style={{flexDirection:'row',gap:10, paddingVertical:10}}>
+                                                              <View style={{width:50,height:50,borderRadius:25,justifyContent:'center',alignItems:'center',position:'relative'}}>
+                                                                  <View style={{width:15,height:15, backgroundColor:'green',borderRadius:10,position:'absolute',top:2,left:0,zIndex:10,borderWidth:1,borderColor:'#fff'}}></View>
+                                                                  <Image source={require("../../assets/images/avatar/5.png")} style={{width:45,height:45,borderRadius:25}} />
+                                                              </View>
+                                                              <View style={{flex:1}}>
+                                                                  <View style={{width:'100%'}}>
+                                                                      <Text style={{fontWeight:500,fontSize:15,paddingBottom:5,color:'#474747'}}>React New 2024</Text>
+                                                                      <Text style={{fontSize:15,lineHeight:23,width:'100%',fontFamily:'Montserrat',color:'#5a5858'}}>
+                                                                          Thông thường trong các dự án của chúng ta làm
+                                                                      </Text>
+                                                                      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',marginTop:5,gap:10}}>
+                                                                          <View style={{flexDirection:'row',alignItems:'center',gap:10}}>
+                                                                                <TouchableOpacity>
+                                                                                    <MaterialIcons name="more-horiz" size={24} color="black" />
+                                                                                  </TouchableOpacity>
+                                                                                  <TouchableOpacity>
+                                                                                    <Entypo name="reply" size={24} color="black" />
+                                                                                  </TouchableOpacity>
+                                                                          </View>
+                                                                          <Text style={{fontSize:12,fontWeight:400}}>24/08/2024</Text>
+                                                                        
+                                                                      </View>
+                                                                  </View>
+                                                              </View>
+                                                          </View>
+                                                          {/* end comment 2 */}
+
+                                                      </View>
+                                                       {/* end reply */}
+
+
+
+
+
+                                                   </View>
+                                              </View>
+                                            {/* end comment parent 1 */}
+
+
+                                             {/* comment parent 2 */}
+                                             <View style={{flexDirection:'row',gap:10, paddingVertical:10,borderBottomWidth:1,borderColor:'#ECECEC',paddingHorizontal:20}}>
+                                                   <View style={{width:50,height:50,borderRadius:25,justifyContent:'center',alignItems:'center',position:'relative'}}>
+                                                       <View style={{width:15,height:15, backgroundColor:'green',borderRadius:10,position:'absolute',top:2,left:0,zIndex:10,borderWidth:1,borderColor:'#fff'}}></View>
+                                                       <Image source={require("../../assets/images/avatar/6.png")} style={{width:45,height:45,borderRadius:25}} />
+                                                   </View>
+                                                   <View style={{flex:1}}>
+                                                       <View style={{width:'100%'}}>
+                                                          <Text style={{fontWeight:500,fontSize:15,paddingBottom:5,color:'#474747'}}>Next.JS New 2024</Text>
+                                                          <Text style={{fontSize:15,lineHeight:23,width:'100%',fontFamily:'Montserrat',color:'#5a5858'}}>
+                                                              Thông thường trong các dự án của chúng ta làm
+                                                          </Text>
+                                                           <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',marginTop:5,gap:10}}>
+                                                              <View style={{flexDirection:'row',alignItems:'center',gap:10}}>
+                                                                    <TouchableOpacity>
+                                                                        <MaterialIcons name="more-horiz" size={24} color="black" />
+                                                                      </TouchableOpacity>
+                                                                      <TouchableOpacity>
+                                                                        <Entypo name="reply" size={24} color="black" />
+                                                                      </TouchableOpacity>
+                                                              </View>
+                                                              <Text style={{fontSize:12,fontWeight:400}}>24/08/2024</Text>
+                                                             
+                                                           </View>
+                                                       </View>
+                                                       {/* reply */}
+                                                      <View>
+                                                          {/* comment 1 */}
+                                                          <View style={{flexDirection:'row',gap:10, paddingVertical:10}}>
+                                                              <View style={{width:50,height:50,borderRadius:25,justifyContent:'center',alignItems:'center',position:'relative'}}>
+                                                                  <View style={{width:15,height:15, backgroundColor:'gray',borderRadius:10,position:'absolute',top:2,left:0,zIndex:10,borderWidth:1,borderColor:'#fff'}}></View>
+                                                                  <Image source={require("../../assets/images/avatar/7.png")} style={{width:45,height:45,borderRadius:25}} />
+                                                              </View>
+                                                              <View style={{flex:1}}>
+                                                                  <View style={{width:'100%'}}>
+                                                                      <Text style={{fontWeight:500,fontSize:15,paddingBottom:5,color:'#474747'}}>Node.JS New 2024</Text>
+                                                                      <Text style={{fontSize:15,lineHeight:23,width:'100%',fontFamily:'Montserrat',color:'#5a5858'}}>
+                                                                          Thông thường trong các dự án của chúng ta làm
+                                                                      </Text>
+                                                                      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',marginTop:5,gap:10}}>
+                                                                          <View style={{flexDirection:'row',alignItems:'center',gap:10}}>
+                                                                                <TouchableOpacity>
+                                                                                    <MaterialIcons name="more-horiz" size={24} color="black" />
+                                                                                  </TouchableOpacity>
+                                                                                  <TouchableOpacity>
+                                                                                    <Entypo name="reply" size={24} color="black" />
+                                                                                  </TouchableOpacity>
+                                                                          </View>
+                                                                          <Text style={{fontSize:12,fontWeight:400}}>24/08/2024</Text>
+                                                                        
+                                                                      </View>
+                                                                  </View>
+                                                              </View>
+                                                          </View>
+                                                          {/* end comment 1 */}
+
+                                                           {/* comment 2 */}
+                                                           <View style={{flexDirection:'row',gap:10, paddingVertical:10}}>
+                                                              <View style={{width:50,height:50,borderRadius:25,justifyContent:'center',alignItems:'center',position:'relative'}}>
+                                                                  <View style={{width:15,height:15, backgroundColor:'green',borderRadius:10,position:'absolute',top:2,left:0,zIndex:10,borderWidth:1,borderColor:'#fff'}}></View>
+                                                                  <Image source={require("../../assets/images/avatar/8.png")} style={{width:45,height:45,borderRadius:25}} />
+                                                              </View>
+                                                              <View style={{flex:1}}>
+                                                                  <View style={{width:'100%'}}>
+                                                                      <Text style={{fontWeight:500,fontSize:15,paddingBottom:5,color:'#474747'}}>Vue.JS New 2024</Text>
+                                                                      <Text style={{fontSize:15,lineHeight:23,width:'100%',fontFamily:'Montserrat',color:'#5a5858'}}>
+                                                                          Thông thường trong các dự án của chúng ta làm
+                                                                      </Text>
+                                                                      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',marginTop:5,gap:10}}>
+                                                                          <View style={{flexDirection:'row',alignItems:'center',gap:10}}>
+                                                                                <TouchableOpacity>
+                                                                                    <MaterialIcons name="more-horiz" size={24} color="black" />
+                                                                                  </TouchableOpacity>
+                                                                                  <TouchableOpacity>
+                                                                                    <Entypo name="reply" size={24} color="black" />
+                                                                                  </TouchableOpacity>
+                                                                          </View>
+                                                                          <Text style={{fontSize:12,fontWeight:400}}>24/08/2024</Text>
+                                                                        
+                                                                      </View>
+                                                                  </View>
+                                                              </View>
+                                                          </View>
+                                                          {/* end comment 2 */}
+
+                                                      </View>
+                                                       {/* end reply */}
+
+
+
+
+
+                                                   </View>
+                                              </View>
+                                            {/* end comment parent 2 */}
+
+
+                                         </View>
+                                     </View>
+
+                                 </View>
                             </View>
+
                         </View>
                     </ScrollView>
             </View>
