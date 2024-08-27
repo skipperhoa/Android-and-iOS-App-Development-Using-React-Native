@@ -78,7 +78,11 @@ const RootLayout = () => {
             headerShown: false   
           }}
       />
-      
+          <Stack.Screen name="myAccount" 
+          options={{
+            headerShown: false   
+          }}
+      />
     
     </Stack>
   )

@@ -287,7 +287,7 @@ const NewsDetailScreen = () => {
                                                        </View>
                                                        {/* reply */}
                                                       <View>
-                                                          {/* comment 1 */}
+                                                          {/* comment 1 */} 
                                                           <View style={{flexDirection:'row',gap:10, paddingVertical:10}}>
                                                               <View style={{width:50,height:50,borderRadius:25,justifyContent:'center',alignItems:'center',position:'relative'}}>
                                                                   <View style={{width:15,height:15, backgroundColor:'gray',borderRadius:10,position:'absolute',top:2,left:0,zIndex:10,borderWidth:1,borderColor:'#fff'}}></View>

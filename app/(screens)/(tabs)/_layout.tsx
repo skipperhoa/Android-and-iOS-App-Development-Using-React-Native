@@ -40,6 +40,7 @@ import CollectionScreen from "../collections";
 import WishListScreen from "../wishLists";
 import CartScreen from "../cart";
 import NewScreen from "../news";
+import MyAccountScreen from "../myAccount";
 const Drawer = createDrawerNavigator();
 
 
@@ -524,7 +525,7 @@ const MyDrawerApp = ()=>{
        />
 
 
-<Drawer.Screen name="MyAccount" component={TabRootLayout}
+<Drawer.Screen name="MyAccount" component={MyAccountScreen}
          options={{
            drawerIcon: ({focused,color,size})=>{
             return (
