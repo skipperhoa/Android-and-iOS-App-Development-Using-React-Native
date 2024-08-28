@@ -1,5 +1,5 @@
-import { View, Text,TouchableOpacity,ScrollView,Image ,useWindowDimensions} from 'react-native'
-import React from 'react'
+import { View, Text,TouchableOpacity,Animated,Easing,ScrollView,Image ,useWindowDimensions} from 'react-native'
+import React,{useRef,useState, useEffect} from 'react'
 import { useRouter } from 'expo-router';
 import { useFonts } from 'expo-font';
 import {Ionicons,AntDesign,Feather,MaterialIcons,EvilIcons,Entypo} from '@expo/vector-icons'
@@ -8,7 +8,27 @@ import Constants from "expo-constants";
 
 import RenderHtml, { HTMLElementModel, HTMLContentModel } from 'react-native-render-html';
 
+
 const NewsDetailScreen = () => {
+    
+      const [onlineRef] = useState(new Animated.Value(0.5));
+      useEffect(() => {
+        const spin = onlineRef.interpolate({
+          inputRange: [0,1],
+          outputRange: [0.5,1],
+        });
+     
+        Animated.loop(
+          Animated.timing(
+            onlineRef,
+            {
+              toValue: 1,
+              duration: 2000,
+              useNativeDriver: true,
+            }
+          )
+        ).start();
+      }, []);
     const router = useRouter()
     const { width } = useWindowDimensions();
     const [fontsLoaded, fontError] = useFonts({
@@ -166,7 +186,26 @@ const NewsDetailScreen = () => {
                                            {/* comment parent 1 */}
                                               <View style={{flexDirection:'row',gap:10, paddingVertical:10,borderBottomWidth:1,borderColor:'#ECECEC',paddingHorizontal:20}}>
                                                    <View style={{width:50,height:50,borderRadius:25,justifyContent:'center',alignItems:'center',position:'relative'}}>
-                                                       <View style={{width:15,height:15, backgroundColor:'green',borderRadius:10,position:'absolute',top:2,left:0,zIndex:10,borderWidth:1,borderColor:'#fff'}}></View>
+                                                       
+                                                      
+                                                      
+                                                            <Animated.View style={
+                                                                [{width:15,height:15, backgroundColor:'green',borderRadius:10,position:'absolute',top:2,left:0,zIndex:10,borderWidth:1,borderColor:'#fff'},
+                                                                   {
+                                                                    transform: [
+                                                                        {
+                                                                          /* scale: onlineRef.interpolate({
+                                                                            inputRange: [0, 0.5, 1],
+                                                                            outputRange: [0.5, 0.75, 1.25],
+                                                                          }), */
+                                                                          scale: onlineRef
+                                                                        },
+                                                                      ],
+                                                                   }
+                                                                ]}></Animated.View>
+                                                      
+                                                     
+
                                                        <Image source={require("../../assets/images/avatar/3.png")} style={{width:45,height:45,borderRadius:25}} />
                                                    </View>
                                                    <View style={{flex:1}}>
@@ -222,7 +261,20 @@ const NewsDetailScreen = () => {
                                                            {/* comment 2 */}
                                                            <View style={{flexDirection:'row',gap:10, paddingVertical:10}}>
                                                               <View style={{width:50,height:50,borderRadius:25,justifyContent:'center',alignItems:'center',position:'relative'}}>
-                                                                  <View style={{width:15,height:15, backgroundColor:'green',borderRadius:10,position:'absolute',top:2,left:0,zIndex:10,borderWidth:1,borderColor:'#fff'}}></View>
+                                                              <Animated.View style={
+                                                                [{width:15,height:15, backgroundColor:'green',borderRadius:10,position:'absolute',top:2,left:0,zIndex:10,borderWidth:1,borderColor:'#fff'},
+                                                                   {
+                                                                    transform: [
+                                                                        {
+                                                                          /* scale: onlineRef.interpolate({
+                                                                            inputRange: [0, 0.5, 1],
+                                                                            outputRange: [0.5, 0.75, 1.25],
+                                                                          }), */
+                                                                          scale: onlineRef
+                                                                        },
+                                                                      ],
+                                                                   }
+                                                                ]}></Animated.View>
                                                                   <Image source={require("../../assets/images/avatar/5.png")} style={{width:45,height:45,borderRadius:25}} />
                                                               </View>
                                                               <View style={{flex:1}}>
@@ -326,7 +378,7 @@ const NewsDetailScreen = () => {
                                                                   <View style={{width:'100%'}}>
                                                                       <Text style={{fontWeight:500,fontSize:15,paddingBottom:5,color:'#474747'}}>Vue.JS New 2024</Text>
                                                                       <Text style={{fontSize:15,lineHeight:23,width:'100%',fontFamily:'Montserrat',color:'#5a5858'}}>
-                                                                          Thông thường trong các dự án của chúng ta làm
+                                                                          Thông thường trong các dự án của chúng ta làm3
                                                                       </Text>
                                                                       <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',marginTop:5,gap:10}}>
                                                                           <View style={{flexDirection:'row',alignItems:'center',gap:10}}>

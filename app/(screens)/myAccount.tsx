@@ -1,13 +1,17 @@
-import { View, Text ,TouchableOpacity, Image,ScrollView} from 'react-native'
-import React from 'react'
+import { View, Text ,TouchableOpacity, Image,ScrollView,Animated} from 'react-native'
+import React, { useRef } from 'react'
 import { useRouter } from 'expo-router'
 import {Ionicons,AntDesign,MaterialIcons,FontAwesome} from '@expo/vector-icons'
 import { useFonts } from 'expo-font';
 // 📗 khai báo thư viện mà expo hổ trỡ để lấy giá trị chiều cao  statusBar
 import Constants from "expo-constants";
 
+
 const MyAccountScreen = () => {
   const router = useRouter()
+
+ 
+
   const [fontsLoaded, fontError] = useFonts({
     HelvetIns: require("../../assets/fonts/HelvetIns.ttf"),
     PlaywriteNL: require("../../assets/fonts/Playwrite_NL/Playwrite-NL.ttf"),
