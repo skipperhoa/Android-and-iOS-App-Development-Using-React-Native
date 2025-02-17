@@ -1,12 +1,12 @@
 ## Android and iOS App Development Using React Native
 Please Like, Share, and Subscribe if you like the video :
 👉 [Creator's Channel](https://www.youtube.com/channel/UCBOZRctXJSg9YNLyddedASg?sub_confirmation=1)
-👉 [Link Video](https://www.youtube.com/watch?v=wskGvhK52qs)
-[![Android and iOS App Development Using React Native](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/project1-mobile/Demo/background.png)](https://www.youtube.com/watch?v=wskGvhK52qs)
+👉 [Link Video](https://www.youtube.com/watch?v=5KEwU71OX34&list=PLeoClvLfcvYp51LGAuf-ieM3NBAgX2AUA)
+[![Android and iOS App Development Using React Native](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/react-native-shopcar/Demo/home.png)](https://www.youtube.com/watch?v=5KEwU71OX34&list=PLeoClvLfcvYp51LGAuf-ieM3NBAgX2AUA)
 
 Nếu bạn thấy thú vị, thì đăng ký kênh ủng hộ tôi (If you find it interesting, then subscribe to my channel to support me)
 - YouTube Channel: [Creator's Channel](https://www.youtube.com/channel/UCBOZRctXJSg9YNLyddedASg?sub_confirmation=1)
-- TikTok: [@ha.nguyn.coder](https://www.tiktok.com/@hoanguyencoder)
+- TikTok: [@hoanguyencoder](https://www.tiktok.com/@hoanguyencoder)
 - Twitter: [@skipperhoa](https://x.com/skipperhoa)
 - Facebook Fanpage: [Fanpage](https://www.facebook.com/profile.php?id=100049475056780)
 - Website: [hoanguyenit.com](https://hoanguyenit.com)
