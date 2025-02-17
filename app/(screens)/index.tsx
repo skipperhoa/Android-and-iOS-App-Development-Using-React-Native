@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text ,TextInput, TouchableOpacity, Image, ScrollView} from 'react-native'
-import { FontAwesome5, Entypo,MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { FontAwesome5, Entypo,MaterialCommunityIcons ,MaterialIcons, FontAwesome} from '@expo/vector-icons'; 
 export default function IndexScreen() {
   return (
     <>
@@ -12,14 +12,14 @@ export default function IndexScreen() {
 
                  <View className='flex-1 bg-gray-100 flex-row items-center p-3 rounded-md'>
                      <View className='flex-row items-center gap-2'>
-                         <FontAwesome5 name="search" size={20} color="black" />
+                         <FontAwesome5 name="search" size={20} color="#027DFC" />
                          <TextInput className='text-gray-500 flex-1'  placeholder="Tìm kiếm sản phẩm" />
                      </View>
                  </View>
                  <View>
                       <TouchableOpacity>
-                          <View className='w-10 h-10 bg-gray-100 flex-col justify-center items-center rounded-d'>
-                                <MaterialCommunityIcons name="filter-menu" size={20} color="black" />
+                          <View className='w-10 h-10 bg-gray-100 flex-col justify-center items-center rounded-md'>
+                                <MaterialCommunityIcons name="filter-menu" size={20} color="#027DFC" />
                           </View>
                       </TouchableOpacity>
                  </View>
@@ -31,7 +31,7 @@ export default function IndexScreen() {
   <View className='w-full'>
             <View>
                  <TouchableOpacity>
-                        <Image source={require('@/assets/images/1.jpg')} className='w-full h-60' resizeMode='cover'/>
+                        <Image source={require('@/assets/images/01.jpg')} className='w-full h-60' resizeMode='cover'/>
                  </TouchableOpacity>
             </View>
        </View>
@@ -43,7 +43,7 @@ export default function IndexScreen() {
                  <Text className='flex-1 font-bold py-2 uppercase'>Danh mục dịch vụ</Text>
                  <TouchableOpacity>
                     <View className="flex-row items-center justify-between">
-                     <Text className='text-gray-500 text-sm'>Xem thêm</Text>
+                     <Text className='text-gray-500 text-sm'></Text>
                     <Entypo name="chevron-small-right" size={24} color="black" />
                     
                     </View>
@@ -91,21 +91,131 @@ export default function IndexScreen() {
        </View>
  
        {/* products */}
-       <View className='w-full p-5'>
-             <View className="w-full flex-row items-center justify-between">
-                 <Text className='flex-1 font-bold py-2 uppercase'>Sản phẩm mới nhất</Text>
+
+        {/* sản phẩm nổi bật */}
+        <View className='w-full p-5'>
+            <View className="w-full flex-row items-center justify-between">
+              <View className='flex-row items-center gap-2'>
+                <MaterialIcons name="emoji-events" size={24} color="gold" />
+                <Text className='font-bold py-2 uppercase'>Sản phẩm nổi bật</Text>
+                </View>
                  <TouchableOpacity>
                     <View className="flex-row items-center justify-between">
-                     <Text className='text-gray-500 text-sm'>Xem thêm</Text>
+                     <Text className='text-gray-500 text-sm'></Text>
                     <Entypo name="chevron-small-right" size={24} color="black" />
                     
                     </View>
                  </TouchableOpacity>
              </View>
-           <View className='flex-col gap-5 mt-2'>
+             
+             <View className='w-full mt-4'>
+                 <ScrollView className='w-full' horizontal={true} showsHorizontalScrollIndicator={false}>
+                   <View className='flex-row gap-5'>
+                        <TouchableOpacity className='w-[200px] h-[250px]'>
+                            <View className='w-full bg-white rounded-md border-[1px] border-gray-200/100 h-full'>
+                                <View className='w-full rounded-md relative'>
+                                    <TouchableOpacity className='w-6 h-6 bg-gray-100 rounded-full flex-col justify-center items-center absolute top-2 right-2 z-10'>
+                                            <MaterialIcons name="favorite" size={15} color="black" />
+                                    </TouchableOpacity>
+                                    <Image source={require('@/assets/images/th.jpg')} className='w-full h-[120] rounded-md' resizeMode='cover'/>
+                                </View>
+                                <View className='w-full px-3 mt-2 pb-4'>
+                                    <Text className='w-full text-xl font-bold'>VinFast VF3</Text>
+                                    <Text className='text-sm text-gray-700 pt-2'>Mẫu xe điện cỡ nhỏ của VinFast, giá bán từ 240 triệu đồng</Text>
+                                    <View className='w-full flex-row items-center gap-2 mt-2'>
+                                        <Text>5.0</Text>
+                                        <View className='flex-row items-center'>
+                                        <Entypo name="star" size={15} color="orange" />
+                                        <Entypo name="star" size={15} color="orange" />
+                                        <Entypo name="star" size={15} color="orange" />
+                                        <Entypo name="star" size={15} color="orange" />
+                                        <Entypo name="star" size={15} color="orange" />
+                                    </View>
+                                    </View>
+                                </View>
+                            
+                                
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity className='w-[200px] h-[250px]'>
+                            <View className='w-full bg-white rounded-md border-[1px] border-gray-200/100 h-full'>
+                                <View className='w-full rounded-md relative'>
+                                    <TouchableOpacity className='w-6 h-6 bg-gray-100 rounded-full flex-col justify-center items-center absolute top-2 right-2 z-10'>
+                                            <MaterialIcons name="favorite" size={15} color="black" />
+                                    </TouchableOpacity>
+                                    <Image source={require('@/assets/images/th2.jpg')} className='w-full h-[120] rounded-md' resizeMode='cover'/>
+                                </View>
+                                <View className='w-full px-3 mt-2 pb-4'>
+                                    <Text className='w-full text-xl font-bold'>VinFast VF5</Text>
+                                    <Text className='text-sm text-gray-700 pt-2'>SUV điện cỡ nhỏ với giá bán từ 479 triệu đồng.</Text>
+                                    <View className='w-full flex-row items-center gap-2 mt-2'>
+                                        <Text>5.0</Text>
+                                        <View className='flex-row items-center'>
+                                        <Entypo name="star" size={15} color="orange" />
+                                        <Entypo name="star" size={15} color="orange" />
+                                        <Entypo name="star" size={15} color="orange" />
+                                        <Entypo name="star" size={15} color="orange" />
+                                        <Entypo name="star" size={15} color="orange" />
+                                    </View>
+                                    </View>
+                                </View>
+                            
+                                
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity className='w-[200px] h-[250px]'>
+                            <View className='w-full bg-white rounded-md border-[1px] border-gray-200/100 h-full'>
+                                <View className='w-full rounded-md relative'>
+                                    <TouchableOpacity className='w-6 h-6 bg-gray-100 rounded-full flex-col justify-center items-center absolute top-2 right-2 z-10'>
+                                            <MaterialIcons name="favorite" size={15} color="black" />
+                                    </TouchableOpacity>
+                                    <Image source={require('@/assets/images/th3.jpg')} className='w-full h-[120] rounded-md' resizeMode='cover'/>
+                                </View>
+                                <View className='w-full px-3 mt-2 pb-4'>
+                                    <Text className='w-full text-xl font-bold'>Ford Ranger</Text>
+                                    <Text className='text-sm text-gray-700 pt-2'>Bán tải cỡ trung, giá từ 669 triệu đồng</Text>
+                                    <View className='w-full flex-row items-center gap-2 mt-2'>
+                                        <Text>5.0</Text>
+                                        <View className='flex-row items-center'>
+                                        <Entypo name="star" size={15} color="orange" />
+                                        <Entypo name="star" size={15} color="orange" />
+                                        <Entypo name="star" size={15} color="orange" />
+                                        <Entypo name="star" size={15} color="orange" />
+                                        <Entypo name="star" size={15} color="orange" />
+                                    </View>
+                                    </View>
+                                </View>
+                            
+                                
+                            </View>
+                        </TouchableOpacity>
+                   </View>
+                  
+                 </ScrollView>
+             </View>
+        </View>
+        {/* end sản phẩn nổi bật */}
+
+        {/* sản phẩm mới nhất */}
+       <View className='w-full px-5'>
+             <View className="w-full flex-row items-center justify-between">
+                 
+                 <View className='flex-row items-center gap-2'>
+                 <FontAwesome name="star" size={24} color="gold" />
+                <Text className='font-bold py-2 uppercase'>Sản phẩm mới nhất</Text>
+                </View>
+                 <TouchableOpacity>
+                    <View className="flex-row items-center justify-between">
+                     <Text className='text-gray-500 text-sm'></Text>
+                    <Entypo name="chevron-small-right" size={24} color="black" />
+                    
+                    </View>
+                 </TouchableOpacity>
+             </View>
+           <View className='flex-col gap-5 mt-4'>
                 <TouchableOpacity className='w-full'>
-                     <View className='flex-row items-center justify-between bg-gray-100 rounded-md px-4 shadow-sm'>
-                           <View className='flex-1'>
+                     <View className='flex-row items-center justify-between bg-white border-[1px] border-gray-100/50 rounded-md shadow-sm'>
+                           <View className='flex-1 pl-5'>
                                <Text className='text-[16px] py-2'>Xe Moto 2025 moi nhat</Text>
                                <View>
                                    <View className='flex-row items-center'>
@@ -125,13 +235,13 @@ export default function IndexScreen() {
                                </View>
                             </View> 
                             <View className='w-[150px]'>
-                               <Image source={require('@/assets/images/2.jpg')} className='w-full h-40' resizeMode='contain'/>
+                               <Image source={require('@/assets/images/02.jpg')} className='w-full h-40 rounded-md' resizeMode='cover'/>
                             </View>
                      </View>
                 </TouchableOpacity>
                 <TouchableOpacity className='w-full'>
-                     <View className='flex-row items-center justify-between bg-gray-100 rounded-md px-4 shadow-sm'>
-                           <View className='flex-1'>
+                     <View className='flex-row items-center justify-between bg-white border-[1px] border-gray-100/50 rounded-md shadow-sm'>
+                           <View className='flex-1 pl-5'>
                                <Text className='text-[16px] py-2'>Xe Moto 2025 moi nhat</Text>
                                <View>
                                    <View className='flex-row items-center'>
@@ -151,13 +261,13 @@ export default function IndexScreen() {
                                </View>
                             </View> 
                             <View className='w-[150px]'>
-                               <Image source={require('@/assets/images/1.jpg')} className='w-full h-40' resizeMode='contain'/>
+                               <Image source={require('@/assets/images/05.jpg')} className='w-full h-40 rounded-md' resizeMode='cover'/>
                             </View>
                      </View>
                 </TouchableOpacity>
                 <TouchableOpacity className='w-full'>
-                     <View className='flex-row items-center justify-between bg-gray-100 rounded-md px-4 shadow-sm'>
-                           <View className='flex-1'>
+                     <View className='flex-row items-center justify-between bg-white border-[1px] border-gray-100/50 rounded-md shadow-sm'>
+                           <View className='flex-1 pl-5'>
                                <Text className='text-[16px] py-2'>Xe Moto 2025 moi nhat</Text>
                                <View>
                                    <View className='flex-row items-center'>
@@ -177,12 +287,15 @@ export default function IndexScreen() {
                                </View>
                             </View> 
                             <View className='w-[150px]'>
-                               <Image source={require('@/assets/images/1.jpg')} className='w-full h-40' resizeMode='contain'/>
+                               <Image source={require('@/assets/images/03.png')} className='w-full h-40 rounded-md' resizeMode='cover'/>
                             </View>
                      </View>
                 </TouchableOpacity>
+               
            </View>
        </View>
+         {/* end sản phẩm mới nhất */}
+
        </ScrollView>
       
  
