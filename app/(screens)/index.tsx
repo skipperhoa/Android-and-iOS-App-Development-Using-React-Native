@@ -1,7 +1,37 @@
 import React from 'react'
-import { View, Text ,TextInput, TouchableOpacity, Image, ScrollView} from 'react-native'
+import { View, Text ,TextInput, TouchableOpacity,useWindowDimensions,Dimensions, Image, ScrollView} from 'react-native'
 import { FontAwesome5, Entypo,MaterialCommunityIcons ,MaterialIcons, FontAwesome} from '@expo/vector-icons'; 
+
+import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
+// data image
+const slides = [
+    {
+      image: require("../../assets/images/01.jpg"),
+    },
+    {
+      image: require("../../assets/images/02.jpg"),
+    },
+    {
+      image: require("../../assets/images/03.png"),
+    },
+    {
+      image: require("../../assets/images/04.jpg"),
+    },
+    {
+      image: require("../../assets/images/05.jpg"),
+    }
+   
+  ]
+const { width: screenWidth } = Dimensions.get('window')
 export default function IndexScreen() {
+    const {width,height} = useWindowDimensions()
+    const _renderItem = ({item} :  any) => {
+        return (
+          <TouchableOpacity style={{width:'100%'}}>
+              <Image source = {item.image} style={{width:'100%',height:200, borderRadius:15}} />
+          </TouchableOpacity>
+        )
+      }
   return (
     <>
      <View className='w-full h-full bg-white '>
@@ -26,16 +56,26 @@ export default function IndexScreen() {
          </View>
             </View>
        {/* end search */}
- 
-  {/* banner */}
-  <View className='w-full'>
-            <View>
-                 <TouchableOpacity>
-                        <Image source={require('@/assets/images/01.jpg')} className='w-full h-60' resizeMode='cover'/>
-                 </TouchableOpacity>
+
+
+        {/* slide banner */}
+        <View>
+                <View style={{width:'100%'}}>
+                   
+                   {
+                    
+                       <Carousel 
+                      // layout={'stack'} 
+                       sliderWidth={screenWidth}
+                       sliderHeight={screenWidth}
+                       itemWidth={screenWidth - 50}
+                       data={slides}
+                       renderItem={_renderItem}
+                       hasParallaxImages={true}
+                   />
+                   }
+                </View>
             </View>
-       </View>
-       {/* end content */}
  
      {/* categories */}
        <View className='w-full mt-5 px-5'>

@@ -29,3 +29,4 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 # Demo
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/react-native-shopcar/Demo/home.png)
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/react-native-shopcar/Demo/Adding-Featured-Products.png)
+![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/react-native-shopcar/Demo/Adding-carousel-Products.png)
