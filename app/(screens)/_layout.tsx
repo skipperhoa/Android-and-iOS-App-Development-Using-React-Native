@@ -10,9 +10,10 @@ import {
 
 const RootLayout = () => {
   return (
-    <Stack screenOptions={{}}>
-      <Stack.Screen
+    <Stack>
+     {/*  <Stack.Screen 
         name="index"
+       
         options={{
           headerShown: true,
           headerStyle: {
@@ -57,7 +58,9 @@ const RootLayout = () => {
             </View>
           ),
         }}
-      />
+      />  */}
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+     
     </Stack>
   );
 };
