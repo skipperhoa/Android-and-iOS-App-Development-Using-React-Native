@@ -194,3 +194,4 @@ export default function TabLayout() {
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/react-native-shopcar/Demo/home.png)
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/react-native-shopcar/Demo/Adding-Featured-Products.png)
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/react-native-shopcar/Demo/Adding-carousel-Products.png)
+![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/react-native-shopcar/Demo/custom-bottom-tabs.png)
