@@ -33,7 +33,7 @@ export default function SplashScreen() {
               <Image source = {item.image} style={{width:'100%',height:200, borderRadius:15}} />
           </TouchableOpacity>
         )
-      }
+      } 
   return (
     <>
      <View className='w-full h-full bg-white '>
