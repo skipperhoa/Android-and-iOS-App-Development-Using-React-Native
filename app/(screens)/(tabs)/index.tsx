@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { View, Text ,TextInput, TouchableOpacity,useWindowDimensions,Dimensions, Image, ScrollView} from 'react-native'
 import { FontAwesome5, Entypo,MaterialCommunityIcons ,MaterialIcons, FontAwesome} from '@expo/vector-icons'; 
-
+import { useFonts } from 'expo-font';
 import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
 import { Redirect } from 'expo-router';
 // data image
@@ -25,8 +25,13 @@ const slides = [
   ]
 const { width: screenWidth } = Dimensions.get('window')
 export default function IndexScreen() {
-    const {width,height} = useWindowDimensions()
-   
+   const {width,height} = useWindowDimensions()
+   const [fontsLoaded, fontError] = useFonts({
+           HelvetIns: require("../../../assets/fonts/HelvetIns.ttf"),
+           PlaywriteNL: require("../../../assets/fonts/Playwrite_NL/Playwrite-NL.ttf"),
+           Montserrat: require("../../../assets/fonts/Montserrat/static/Montserrat-Regular.ttf"),
+           
+         });
     const _renderItem = ({item} :  any) => {
         return (
           <TouchableOpacity style={{width:'100%'}}>
@@ -82,7 +87,7 @@ export default function IndexScreen() {
      {/* categories */}
        <View className='w-full mt-5 px-5'>
              <View className="w-full flex-row items-center justify-between">
-                 <Text className='flex-1 font-bold py-2 uppercase'>Danh mục dịch vụ</Text>
+                 <Text className='flex-1 py-2 uppercase' style={{fontFamily:'HelvetIns'}}>Danh mục dịch vụ</Text>
                  <TouchableOpacity>
                     <View className="flex-row items-center justify-between">
                      <Text className='text-gray-500 text-sm'></Text>
@@ -95,37 +100,37 @@ export default function IndexScreen() {
                    <TouchableOpacity className='w-1/3 h-[110px] p-1 flex-col justify-center items-center'>
                        <View className='w-full h-full flex-col justify-center bg-orange-100 items-center p-2 py-5 rounded-md'>
                            <FontAwesome5 name="tools" size={24} color="orange" />
-                           <Text className='text-sm font-bold text-center py-2'>Bảo dưỡng định kỳ </Text>
+                           <Text className='text-sm text-center py-2' style={{fontFamily:'Montserrat'}}>Bảo dưỡng định kỳ </Text>
                        </View>
                    </TouchableOpacity>
                    <TouchableOpacity className='w-1/3 p-1 h-[110px] flex-col justify-center items-center'>
                        <View className='w-full h-full flex-col justify-center bg-green-100 items-center p-2 py-5 rounded-md'>
                            <FontAwesome5 name="cogs" size={24} color="green" />
-                           <Text className='text-sm font-bold text-center py-2'>Sửa chữa động cơ </Text>
+                           <Text className='text-sm text-center py-2' style={{fontFamily:'Montserrat'}}>Sửa chữa động cơ </Text>
                        </View>
                    </TouchableOpacity>
                    <TouchableOpacity className='w-1/3 p-1 h-[110px] flex-col justify-center items-center'>
                        <View className='w-full h-full flex-col justify-center bg-red-100 items-center p-2 py-5 rounded-md'>
                            <FontAwesome5 name="car-crash" size={24} color="red" />
-                           <Text className='text-sm font-bold text-center py-2'>Sửa chữa hộp số</Text>
+                           <Text className='text-sm text-center py-2' style={{fontFamily:'Montserrat'}}>Sửa chữa hộp số</Text>
                        </View>
                    </TouchableOpacity>
                    <TouchableOpacity className='w-1/3 p-1 h-[110px] flex-col justify-center items-center'>
                        <View className='w-full h-full flex-col justify-center bg-blue-100 items-center p-2 py-5 rounded-md'>
                            <FontAwesome5 name="oil-can" size={24} color="blue" />
-                           <Text className='text-sm font-bold text-center py-2'>Kiểm tra và thay dầu nhớt</Text>
+                           <Text className='text-sm text-center py-2' style={{fontFamily:'Montserrat'}}>Kiểm tra và thay dầu nhớt</Text>
                        </View>
                    </TouchableOpacity>
                    <TouchableOpacity className='w-1/3 p-1 h-[110px] flex-col justify-center items-center'>
                        <View className='w-full h-full flex-col justify-center bg-yellow-100 items-center p-2 py-5 rounded-md'>
                            <FontAwesome5 name="align-center" size={24} color="black" />
-                           <Text className='text-sm font-bold text-center py-2'>Cân chỉnh bánh xe</Text>
+                           <Text className='text-sm text-center py-2' style={{fontFamily:'Montserrat'}}>Cân chỉnh bánh xe</Text>
                        </View>
                    </TouchableOpacity>
                    <TouchableOpacity className='w-1/3 p-1 h-[110px] flex-col justify-center items-center'>
                        <View className='w-full h-full flex-col justify-center bg-gray-100 items-center p-2 py-5 rounded-md'>
                            <FontAwesome5 name="car-side" size={24} color="orange" />
-                           <Text className='text-sm font-bold text-center py-2'>Thay lốp & vá lốp</Text>
+                           <Text className='text-sm text-center py-2' style={{fontFamily:'Montserrat'}}>Thay lốp & vá lốp</Text>
                        </View>
                    </TouchableOpacity>
                   
@@ -139,7 +144,7 @@ export default function IndexScreen() {
             <View className="w-full flex-row items-center justify-between">
               <View className='flex-row items-center gap-2'>
                 <MaterialIcons name="emoji-events" size={24} color="gold" />
-                <Text className='font-bold py-2 uppercase'>Sản phẩm nổi bật</Text>
+                <Text className='py-2 uppercase'  style={{fontFamily:'HelvetIns'}}>Sản phẩm nổi bật</Text>
                 </View>
                  <TouchableOpacity>
                     <View className="flex-row items-center justify-between">
@@ -244,7 +249,7 @@ export default function IndexScreen() {
                  
                  <View className='flex-row items-center gap-2'>
                  <FontAwesome name="star" size={24} color="gold" />
-                <Text className='font-bold py-2 uppercase'>Sản phẩm mới nhất</Text>
+                <Text className=' py-2 uppercase'  style={{fontFamily:'HelvetIns'}}>Sản phẩm mới nhất</Text>
                 </View>
                  <TouchableOpacity>
                     <View className="flex-row items-center justify-between">
