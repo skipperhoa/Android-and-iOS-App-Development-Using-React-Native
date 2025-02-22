@@ -1,12 +1,16 @@
-import { Tabs } from 'expo-router';
-import { View, Text, TouchableOpacity } from "react-native";
+import { router, Tabs, useRouter } from 'expo-router';
+import { View, Text, TouchableOpacity ,TextInput} from "react-native";
 import {
-  FontAwesome5,Ionicons,FontAwesome,AntDesign,MaterialIcons
+  FontAwesome5,Ionicons,FontAwesome,AntDesign,MaterialIcons,
+  EvilIcons
 } from '@expo/vector-icons'
+
 export default function TabLayout() {
+  const router = useRouter();
   return (
     <Tabs
     screenOptions={{
+      
       tabBarShowLabel: true,
       title: "",
       tabBarActiveTintColor: "#000", 
@@ -80,7 +84,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="category"
         options={{
-          title: 'Category',
+          title: '',
+          headerShown: false,
+          tabBarLabel: 'Sản phẩm',
           tabBarIcon: ({ color, focused }) => (
             <FontAwesome name={focused ? 'list-alt' : 'list-alt'} color={color} size={24}/>
           ),
