@@ -106,28 +106,135 @@ export default function CategoryScreen() {
             {/* end header search */}
         </View>
 
-        <ScrollView className='flex-1 bg-white' style={{paddingTop: MAX_HEIGHT_HEADER}} >
+        <ScrollView className='flex-1 bg-gray-100' style={{paddingTop: MAX_HEIGHT_HEADER}} >
           
-
             {/* content  */}
-            <View className='w-full flex-1 bg-gray-100 items-center justify-center'>
-                <Text className='font-bold text-2xl' style={{fontFamily:'Montserrat'}}>Content Category</Text>
-            
-                <View>
-                {
-                    products.map((item, index) => (
-                        <View className='w-full p-4 border-b-2 border-gray-300' key={index}>
-                            <View className='w-full flex-row items-center justify-between'>
-                                <View className='flex-row items-center gap-2'>
-                                    <Image source={{uri:item.images[0]}} className='w-10 h-10 rounded-full' />
-                                    <Text className='text-gray-500 font-bold'>{item.title}</Text>
-                                </View>
+        <View className='w-full'>
+            <TouchableOpacity className='w-full px-5 mt-2'>
+               <View className='w-full p-5 bg-white rounded-xl'>
+                   <View className='w-full flex flex-row items-center justify-between'>
+                       <View className='flex flex-row items-center gap-1'>
+                           <Text className='font-bold text-[15px]'>5.0</Text>
+                           <Text>(300)</Text>
+                       </View>
+                       <View className='flex flex-row items-center gap-1'>
+                           <Text>Tốc độ:</Text>
+                           <Text className='font-bold text-[15px]'>300 km/h</Text>
+                       </View>
+                       <TouchableOpacity>
+                       <MaterialIcons name="favorite-border" size={25} color="black" />
+
+                       </TouchableOpacity>
+                   </View>
+                   <Image source={require("../../../assets/images/mau-xe-vinfast-Vf3-5.png")} style={{width:'100%',height:200, borderRadius:15}} />
+                   <View className="flex flex-row items-center justify-between">
+                            <View>
+                                 <Text className="text-gray-500">VinFast</Text>
+                                 <Text className="text-xl pt-1 font-bold">VinFast VF3</Text>
+                            </View>
+                            <View className="flex flex-col items-center gap-1"> 
+                                <Text className="text-gray-500">
+                                     Giá xe mua Pin 
+                                </Text>
+                                <Text className="font-bold">322.000.000 VNĐ</Text>
                             </View>
                         </View>
-                    ))
-                }
-                </View>
-            </View>
+               </View>
+            </TouchableOpacity>
+            <TouchableOpacity className='w-full px-5 mt-2'>
+               <View className='w-full p-5 bg-white rounded-xl'>
+                   <View className='w-full flex flex-row items-center justify-between'>
+                       <View className='flex flex-row items-center gap-1'>
+                           <Text className='font-bold text-[15px]'>5.0</Text>
+                           <Text>(300)</Text>
+                       </View>
+                       <View className='flex flex-row items-center gap-1'>
+                           <Text>Tốc độ:</Text>
+                           <Text className='font-bold text-[15px]'>300 km/h</Text>
+                       </View>
+                       <TouchableOpacity>
+                       <MaterialIcons name="favorite-border" size={25} color="black" />
+
+                       </TouchableOpacity>
+                   </View>
+                   <Image source={require("../../../assets/images/mau-xe-vinfast-Vf3-6.png")} style={{width:'100%',height:200, borderRadius:15}} />
+                   <View className="flex flex-row items-center justify-between">
+                            <View>
+                                 <Text className="text-gray-500">VinFast</Text>
+                                 <Text className="text-xl pt-1 font-bold">VinFast VF3</Text>
+                            </View>
+                            <View className="flex flex-col items-center gap-1"> 
+                                <Text className="text-gray-500">
+                                     Giá xe mua Pin 
+                                </Text>
+                                <Text className="font-bold">322.000.000 VNĐ</Text>
+                            </View>
+                        </View>
+               </View>
+            </TouchableOpacity>
+            <TouchableOpacity className='w-full px-5 mt-2'>
+               <View className='w-full p-5 bg-white rounded-xl'>
+                   <View className='w-full flex flex-row items-center justify-between'>
+                       <View className='flex flex-row items-center gap-1'>
+                           <Text className='font-bold text-[15px]'>5.0</Text>
+                           <Text>(300)</Text>
+                       </View>
+                       <View className='flex flex-row items-center gap-1'>
+                           <Text>Tốc độ:</Text>
+                           <Text className='font-bold text-[15px]'>300 km/h</Text>
+                       </View>
+                       <TouchableOpacity>
+                       <MaterialIcons name="favorite-border" size={25} color="black" />
+
+                       </TouchableOpacity>
+                   </View>
+                   <Image source={require("../../../assets/images/mau-xe-vinfast-Vf3-8.png")} style={{width:'100%',height:200, borderRadius:15}} />
+                   <View className="flex flex-row items-center justify-between">
+                            <View>
+                                 <Text className="text-gray-500">VinFast</Text>
+                                 <Text className="text-xl pt-1 font-bold">VinFast VF3</Text>
+                            </View>
+                            <View className="flex flex-col items-center gap-1"> 
+                                <Text className="text-gray-500">
+                                     Giá xe mua Pin 
+                                </Text>
+                                <Text className="font-bold">322.000.000 VNĐ</Text>
+                            </View>
+                        </View>
+               </View>
+            </TouchableOpacity>
+            <TouchableOpacity className='w-full px-5 mt-2'>
+               <View className='w-full p-5 bg-white rounded-xl'>
+                   <View className='w-full flex flex-row items-center justify-between'>
+                       <View className='flex flex-row items-center gap-1'>
+                           <Text className='font-bold text-[15px]'>5.0</Text>
+                           <Text>(300)</Text>
+                       </View>
+                       <View className='flex flex-row items-center gap-1'>
+                           <Text>Tốc độ:</Text>
+                           <Text className='font-bold text-[15px]'>300 km/h</Text>
+                       </View>
+                       <TouchableOpacity>
+                       <MaterialIcons name="favorite-border" size={25} color="black" />
+
+                       </TouchableOpacity>
+                   </View>
+                   <Image source={require("../../../assets/images/mau-xe-vinfast-Vf3-7.png")} style={{width:'100%',height:200, borderRadius:15}} />
+                   <View className="flex flex-row items-center justify-between">
+                            <View>
+                                 <Text className="text-gray-500">VinFast</Text>
+                                 <Text className="text-xl pt-1 font-bold">VinFast VF3</Text>
+                            </View>
+                            <View className="flex flex-col items-center gap-1"> 
+                                <Text className="text-gray-500">
+                                     Giá xe mua Pin 
+                                </Text>
+                                <Text className="font-bold">322.000.000 VNĐ</Text>
+                            </View>
+                        </View>
+               </View>
+            </TouchableOpacity>
+        </View>
             {/* content */}
         </ScrollView>
     </>
