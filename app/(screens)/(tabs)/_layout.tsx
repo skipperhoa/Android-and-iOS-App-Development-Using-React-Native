@@ -2,7 +2,7 @@ import { router, Tabs, useRouter } from 'expo-router';
 import { View, Text, TouchableOpacity ,TextInput} from "react-native";
 import {
   FontAwesome5,Ionicons,FontAwesome,AntDesign,MaterialIcons,
-  EvilIcons
+  EvilIcons,Entypo
 } from '@expo/vector-icons'
 
 export default function TabLayout() {
@@ -104,10 +104,21 @@ export default function TabLayout() {
       <Tabs.Screen
         name="message"
         options={{
-          title: 'Tin nhắn',
+          title: 'Thông báo',
+          headerShown: true,
           tabBarBadge: 3,
           tabBarIcon: ({ color, focused }) => (
             <AntDesign name={focused ? 'message1' : 'message1'} color={color} size={24}/>
+          ),
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.push("/")} className='px-2'>
+              <Entypo name="chevron-left" size={28} color="white" />
+            </TouchableOpacity>
+          ),
+          headerRight : () => (
+            <TouchableOpacity className='px-2'>
+              <AntDesign name="checkcircleo" size={24} color="white" />
+            </TouchableOpacity>
           ),
         }}
       />
