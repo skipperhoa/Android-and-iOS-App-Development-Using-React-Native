@@ -151,6 +151,7 @@ export default function TabLayout() {
         options={{
           title: 'Cài đặt',
           tabBarBadge: 2,
+          headerShown:false,
           tabBarBadgeStyle: {
             color: 'black',
             backgroundColor: 'yellow',
