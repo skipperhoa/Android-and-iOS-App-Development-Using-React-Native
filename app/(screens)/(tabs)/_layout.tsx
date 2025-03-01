@@ -15,7 +15,7 @@ export default function TabLayout() {
   return (
     <Tabs
     screenOptions={{
-      
+     
       tabBarShowLabel: true,
       title: "",
       tabBarActiveTintColor: "#000", 
@@ -45,7 +45,7 @@ export default function TabLayout() {
             <FontAwesome5 name={focused ? 'home' : 'home'} color={color} size={24} />
           ),
           headerLeft: () => (
-            <View className="w-full flex-row justify-between items-center">
+            <View className="flex flex-row justify-between items-center">
               <View className='px-4'>
                 <View className="flex-row items-center gap-2">
                   <TouchableOpacity>
@@ -54,13 +54,14 @@ export default function TabLayout() {
                   <Text className="font-bold text-white text-2xl">
                     Shop Car
                   </Text>
+                  
                 </View>
               </View>
             </View>
           ),
           headerRight: () => (
           <View className='px-4'>
-              <View className="flex-row items-center gap-4">
+              <View className="w-full flex flex-row items-center gap-4">
               <TouchableOpacity>
                 <View className="relative">
                   <View className="w-5 h-5 absolute z-10 -top-2 -right-2 rounded-full bg-red-500 flex-col justify-center items-center">

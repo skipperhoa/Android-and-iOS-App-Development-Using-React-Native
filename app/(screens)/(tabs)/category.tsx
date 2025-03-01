@@ -161,7 +161,7 @@ export default function CategoryScreen() {
       >
         {/* content  */}
         <View className="w-full">
-          <TouchableOpacity className="w-full px-5">
+          <TouchableOpacity className="w-full px-5" >
             <View className="w-full pt-5 bg-white rounded-xl">
               <View className="w-full flex flex-row items-center justify-between px-5">
                 <View className="flex flex-row items-center gap-1">

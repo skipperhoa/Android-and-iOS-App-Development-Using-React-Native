@@ -8,7 +8,8 @@ export default function MessageScreen() {
   const router = useRouter();
   return (
     <>
-      <View
+     <View className="w-full h-full flex-1 bg-white">
+     <View
         className="w-full bg-blue-500 relative pb-2 rounded-br-[30px] rounded-bl-[30px]"
         style={{ paddingTop: Constants.statusBarHeight + 10 }}
       >
@@ -81,11 +82,11 @@ export default function MessageScreen() {
           </TouchableOpacity>
         </View>
       </View>
-      <ScrollView className="w-full">
+      <ScrollView className="w-full bg-white" >
         <View>
           <TouchableOpacity className="w-full p-2">
             <View
-              className="w-full flex flex-row gap-2 bg-white p-5 rounded-[10px]"
+              className="w-full flex flex-row gap-2 bg-white p-5 border-[1px] border-gray-200 rounded-[10px]"
               style={{ backgroundColor: "#fff" }}
             >
               <View className="w-20 h-20 border-[1px] border-gray-200 rounded-full p-2">
@@ -108,7 +109,7 @@ export default function MessageScreen() {
           </TouchableOpacity>
           <TouchableOpacity className="w-full p-2">
             <View
-              className="w-full flex flex-row gap-2 bg-white p-5 rounded-[10px]"
+              className="w-full flex flex-row gap-2 bg-white p-5 border-[1px] border-gray-200 rounded-[10px]"
               style={{ backgroundColor: "#fff" }}
             >
               <View className="w-20 h-20 border-[1px] border-gray-200 rounded-full p-2">
@@ -131,7 +132,7 @@ export default function MessageScreen() {
           </TouchableOpacity>
           <TouchableOpacity className="w-full p-2">
             <View
-              className="w-full flex flex-row gap-2 bg-white p-5 rounded-[10px]"
+              className="w-full flex flex-row gap-2 bg-white p-5 border-[1px] border-gray-200 rounded-[10px]"
               style={{ backgroundColor: "#fdeded" }}
             >
               <View className="w-20 h-20 border-[1px] border-gray-200 rounded-full p-2">
@@ -154,7 +155,7 @@ export default function MessageScreen() {
           </TouchableOpacity>
           <TouchableOpacity className="w-full p-2">
             <View
-              className="w-full flex flex-row gap-2 bg-white p-5 rounded-[10px]"
+              className="w-full flex flex-row gap-2 bg-white p-5 border-[1px] border-gray-200 rounded-[10px]"
               style={{ backgroundColor: "#fff" }}
             >
               <View className="w-20 h-20 border-[1px] border-gray-200 rounded-full p-2">
@@ -177,7 +178,7 @@ export default function MessageScreen() {
           </TouchableOpacity>
           <TouchableOpacity className="w-full p-2">
             <View
-              className="w-full flex flex-row gap-2 bg-white p-5 rounded-[10px]"
+              className="w-full flex flex-row gap-2 bg-white p-5 border-[1px] border-gray-200 rounded-[10px]"
               style={{ backgroundColor: "#fdeded" }}
             >
               <View className="w-20 h-20 border-[1px] border-gray-200 rounded-full p-2">
@@ -200,7 +201,7 @@ export default function MessageScreen() {
           </TouchableOpacity>
           <TouchableOpacity className="w-full p-2">
             <View
-              className="w-full flex flex-row gap-2 bg-white p-5 rounded-[10px]"
+              className="w-full flex flex-row gap-2 bg-white p-5 border-[1px] border-gray-200 rounded-[10px]"
               style={{ backgroundColor: "#fff" }}
             >
               <View className="w-20 h-20 border-[1px] border-gray-200 rounded-full p-2">
@@ -223,6 +224,7 @@ export default function MessageScreen() {
           </TouchableOpacity>
         </View>
       </ScrollView>
+     </View>
     </>
   );
 }
