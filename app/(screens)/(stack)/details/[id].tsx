@@ -5,7 +5,7 @@ import {
   Text,
   TouchableOpacity,
   Alert,
-  ScrollView,
+  ScrollView,StyleSheet,
   Image,
 } from "react-native";
 import { useRouter } from "expo-router";
@@ -86,7 +86,8 @@ export default function DetailScreen() {
                     {/* view parent */}
                     <View className="w-full h-full flex flex-row items-center gap-4">
                       {/* item child */}
-                      <View className="w-[90px] h-[80px] bg-blue-400 rounded-xl relative">
+                      <View className="w-[90px] h-[80px] bg-blue-400 rounded-xl relative" 
+                     >
                         <MaterialCommunityIcons
                           name="ruler"
                           size={24}
@@ -97,7 +98,8 @@ export default function DetailScreen() {
                           Kích Thước
                         </Text>
                       </View>
-                      <View className="w-[90px] h-[80px] bg-blue-400 rounded-xl relative">
+                      <View className="w-[90px] h-[80px] bg-blue-400 rounded-xl relative"
+                     >
                         <MaterialCommunityIcons
                           name="weight"
                           size={24}
@@ -256,3 +258,27 @@ export default function DetailScreen() {
   );
 }
 
+
+
+const styles = StyleSheet.create({
+  boxShadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  boxShadowinset: {
+    shadowOffset: {
+      width: 2,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowColor: "#fff",
+    shadowRadius: 3,
+   
+  }
+});
