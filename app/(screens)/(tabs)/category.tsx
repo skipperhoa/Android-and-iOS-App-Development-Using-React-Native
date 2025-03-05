@@ -54,7 +54,9 @@ export default function CategoryScreen() {
     }
   };
 
-  if (loading) return <Text>Đang loadding...</Text>;
+  if (loading) return <View className="w-full h-full flex flex-col justify-center items-center">
+     <Text className="text-2xl font-bold">Đang loading...</Text>
+  </View>
   return (
     <>
       <View

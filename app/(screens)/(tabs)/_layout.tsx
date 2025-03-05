@@ -15,7 +15,7 @@ export default function TabLayout() {
   return (
     <Tabs
     screenOptions={{
-     
+      headerShown: false,
       tabBarShowLabel: true,
       title: "",
       tabBarActiveTintColor: "#000", 
@@ -74,7 +74,7 @@ export default function TabLayout() {
                   />
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => router.push("/(screens)/(stack)/carts")}>
                 <View className="relative">
                   <View className="w-5 h-5 absolute  z-10 -top-2 -right-2 rounded-full bg-red-500 flex-col justify-center items-center">
                     <Text className="font-bold text-white text-sm">1</Text>

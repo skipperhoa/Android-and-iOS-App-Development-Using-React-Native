@@ -5,9 +5,10 @@ export default function LayoutStack() {
   return (
    <Stack
     screenOptions={{
-        headerShown: false
+      headerShown: false
     }}
     >
+      <Stack.Screen name="carts/index" options={{ headerShown: false }} />
       <Stack.Screen name="details/[id]" options={{ headerShown: false }} />
    </Stack>
   )
