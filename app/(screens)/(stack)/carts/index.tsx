@@ -42,7 +42,7 @@ export default function CartScreen() {
             <View className="flex-1 px-2">
               <View className="w-ful">
                 <Text className="w-full font-bold text-black text-2xl text-center">
-                Carts
+                Giỏ hàng
                 </Text>
               </View>
             </View>
@@ -179,7 +179,9 @@ export default function CartScreen() {
                 </View>
 
                 {/* button checkout */}
-                <TouchableOpacity className='w-full mt-4'>
+                <TouchableOpacity className='w-full mt-4' onPress={() => 
+                    router.push('/(screens)/(stack)/orders')
+                }>
                     <View className='w-full rounded-xl bg-white py-3 flex flex-row items-center justify-center gap-2'>
                         <AntDesign name="arrowright" size={24} color="black" />
                         <Text className='text-[15px] py-2 text-black font-bold text-center'>Thanh toán</Text>
