@@ -5,9 +5,9 @@ import {useFocusEffect, useRouter} from 'expo-router'
 export default function App() {
   const router = useRouter()
   useFocusEffect(() => {
-    setTimeout(() => {
+   /*  setTimeout(() => {
       router.replace('/(tabs)')
-    }, 3000);
+    }, 3000); */
   })
   return (
     <>
@@ -29,7 +29,11 @@ export default function App() {
              <View className='w-[350px] h-[350px] z-0 absolute bg-[#2375fe] rounded-full flex-row items-center justify-center'></View>     
           </View>
           <View className='w-full pb-10'>
-              <TouchableOpacity className='w-full px-10'>
+              <TouchableOpacity className='w-full px-10' onPress={
+                () => {
+                  router.push('/(screens)/(stack)/login')
+                }
+              }>
                   <LinearGradient 
                   colors={['#dbdbda',  '#f19105']} style={{borderRadius:50}}>
                        <View className='w-full py-4 flex flex-row items-center justify-center gap-2'>

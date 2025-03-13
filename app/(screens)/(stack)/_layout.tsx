@@ -11,6 +11,7 @@ export default function LayoutStack() {
       <Stack.Screen name="carts/index" options={{ headerShown: false }} />
       <Stack.Screen name="details/[id]" options={{ headerShown: false }} />
       <Stack.Screen name="orders/index" options={{ headerShown: false }} />
+      <Stack.Screen name="login/index" options={{ headerShown: false }} />
    </Stack>
   )
 }
