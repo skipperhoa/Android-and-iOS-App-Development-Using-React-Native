@@ -43,3 +43,4 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/react-native-shopcar/Demo/cart.png)
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/react-native-shopcar/Demo/orders.png)
 ![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/react-native-shopcar/Demo/login.png)
+![hoanguyenit.com](https://github.com/skipperhoa/Android-and-iOS-App-Development-Using-React-Native/blob/react-native-shopcar/Demo/register.png)

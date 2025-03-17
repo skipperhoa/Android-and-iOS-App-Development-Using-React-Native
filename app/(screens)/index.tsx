@@ -42,7 +42,8 @@ export default function App() {
                        </View>
                   </LinearGradient>
               </TouchableOpacity>
-              <TouchableOpacity className='w-full px-10 pt-4'>
+              <TouchableOpacity className='w-full px-10 pt-4'
+              onPress={() => router.push('/(screens)/(stack)/register')}>
                   <LinearGradient 
                   colors={['#dbdbda',  '#e8c308']} style={{borderRadius:50}}>
                        <View className='w-full py-4 flex flex-row items-center justify-center gap-2'>
