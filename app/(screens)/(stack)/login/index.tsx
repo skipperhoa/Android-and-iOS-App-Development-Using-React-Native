@@ -14,9 +14,12 @@ import { useFonts } from "expo-font";
 // 📗 khai báo thư viện mà expo hổ trỡ để lấy giá trị chiều cao  statusBar
 import Constants from "expo-constants";
 import { LinearGradient } from "expo-linear-gradient";
+import { useSelector } from "react-redux";
 
 const MAX_HEIGHT_HEADER = 200;
 export default function LoginScreen() {
+  const store = useSelector((state) => state.auth);
+  console.log("GET VALUE FROM REDUX", store);
   const router = useRouter();
    const [fontsLoaded, fontError] = useFonts({
       HelvetIns: require("@/assets/fonts/HelvetIns.ttf"),

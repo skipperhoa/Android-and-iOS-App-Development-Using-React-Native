@@ -9,6 +9,11 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 
+/* import store */
+import store from '@/redux';
+import {Provider} from 'react-redux';
+import {loginRequest, loginSuccess} from '@/redux/actions/authActions';
+
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
@@ -28,13 +33,32 @@ export default function RootLayout() {
     return null;
   }
 
+/* test React Redux */
+const data = {
+  user:{
+    name:'Hoa Nguyen Coder'
+  },
+  token:'123456'
+}
+//store.dispatch(loginSuccess(data));
+
+/* test React Redux-saga */
+store.dispatch(loginRequest(data))
+
+
+
+
+
+
+
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <Provider store={store}>
       <Stack>
         <Stack.Screen name="(screens)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
-    </ThemeProvider>
+    </Provider>
   );
 }
