@@ -35,21 +35,13 @@ export default function RootLayout() {
 
 /* test React Redux */
 const data = {
-  user:{
-    name:'Hoa Nguyen Coder'
-  },
-  token:'123456'
+  'email': 'abcdef@example.com',
+  'password': '12345678'
 }
 //store.dispatch(loginSuccess(data));
 
 /* test React Redux-saga */
-store.dispatch(loginRequest(data))
-
-
-
-
-
-
+//store.dispatch(loginRequest(data))
 
 
   return (

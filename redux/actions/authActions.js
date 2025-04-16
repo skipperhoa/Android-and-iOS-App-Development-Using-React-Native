@@ -23,3 +23,10 @@ export const loginFailure = (data) =>{
         payload : data
     }
 }
+
+export const getUser = (data)=>{
+    return {
+        type : AUTH_TYPES.GET_USER,
+        payload : data
+    }
+}
