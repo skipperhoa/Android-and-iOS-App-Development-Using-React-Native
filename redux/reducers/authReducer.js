@@ -29,13 +29,13 @@ export const authReducer = (state = initialState, action) => {
         error: null,
       };
     case AUTH_TYPES.LOGIN_FAILURE:
-      console.log("LOGIN_FAILURE", action);
+      console.log("LOGIN_FAILURE2", action);
       return {
         ...state,
         user: null,
         token: null,
         loading: false,
-        error: action.payload.error,
+        error: action.payload.message,
       };
     case AUTH_TYPES.GET_USER:
       console.log("GET_USER", action);

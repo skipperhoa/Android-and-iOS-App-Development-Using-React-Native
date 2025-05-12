@@ -12,9 +12,9 @@ function* fetchUser(action) {
       email: action.payload.email,
       password: action.payload.password
     })
-    
+    console.log("user", user)
     if(user?.error){
-      yield put({ type: AUTH_TYPES.LOGIN_FAILURE, message: user.error })
+      yield put({ type: AUTH_TYPES.LOGIN_FAILURE, payload: user.error })
     }
     if(user?.access_token){
 
@@ -22,7 +22,9 @@ function* fetchUser(action) {
         // chúng ta sẽ lấy thông tin user bằng token đã có 
         console.log("GET INFO USER FROM API")
         // call api , sau do put update user
+
         const userResponse = yield call(getUserByToken, {token:user.access_token})
+       
         yield put({ type: AUTH_TYPES.GET_USER, payload: userResponse })
     }
    

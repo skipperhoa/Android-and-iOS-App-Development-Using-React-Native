@@ -19,7 +19,7 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, set } from "react-hook-form";
 
 // 📗 khai báo thư viện mà expo hổ trỡ để lấy giá trị chiều cao  statusBar
 import Constants from "expo-constants";
@@ -27,10 +27,13 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRequest } from "@/redux/actions/authActions";
 
+// add AlertModal
+import AlertModal from "@/modules/alert/AlertModal";
+
 const MAX_HEIGHT_HEADER = 200;
 export default function LoginScreen() {
-   const {token, user} = useSelector((state) => state.auth);
-  console.log("GET VALUE FROM REDUX", user); 
+  const {token, user, error} = useSelector((state) => state.auth);
+  const [showModal, setShowModal] = React.useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
   const [fontsLoaded, fontError] = useFonts({
@@ -56,6 +59,21 @@ export default function LoginScreen() {
     }
   }, [user]);
 
+  /* check error */
+  useEffect(() => {
+        if (error!== null) {
+           setShowModal(true);
+        }
+  }, [error]);
+
+  /**close modal */
+  const closeModal = () => {
+    setShowModal(false);
+    //dispatch({ type: "CLEAR_ERROR" });
+  }
+
+ 
+
   /* function login */
   const onSubmit = (data: any) => {
       dispatch(loginRequest(data))
@@ -64,11 +82,11 @@ export default function LoginScreen() {
     <>
       {/* content */}
       <View
-        className="w-full h-full bg-blue-600"
+        className="w-full h-full bg-blue-600 relative z-50"
         style={{ paddingTop: Constants.statusBarHeight + 50 }}
       >
         {/* form login */}
-        <View className="w-full">
+        <View className="w-full relative z-50">
           <View className="w-[100px] h-[100px] rounded-full bg-blue-400 flex-col items-center justify-center m-auto">
             <View className="w-[80px] h-[80px] rounded-full bg-blue-300 flex-col items-center justify-center m-auto">
               <View className="w-[60px] h-[60px] rounded-full bg-blue-200 flex-col items-center justify-center m-auto">
@@ -246,7 +264,22 @@ export default function LoginScreen() {
             </View>
           </View>
         </View>
+
+         {/* Alert Modal */}
+          {showModal && <View className="w-full h-screen absolute z-50">
+             <AlertModal
+           showModal={showModal}
+            title="Thông báo"
+            message="Bạn đăng nhập không thành công!"
+            error={error}
+            bgColor="#ccc"
+            onPress={closeModal}
+            />
+          </View>}
       </View>
+      {/* end content */}
+
+     
     </>
   );
 }
