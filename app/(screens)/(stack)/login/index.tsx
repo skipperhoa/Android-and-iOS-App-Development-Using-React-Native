@@ -34,6 +34,7 @@ const MAX_HEIGHT_HEADER = 200;
 export default function LoginScreen() {
   const {token, user, error} = useSelector((state) => state.auth);
   const [showModal, setShowModal] = React.useState(false);
+  const [eyePassword, setEyePassword] = React.useState(true);
   const router = useRouter();
   const dispatch = useDispatch();
   const [fontsLoaded, fontError] = useFonts({
@@ -155,18 +156,18 @@ export default function LoginScreen() {
                       <View className="w-full relative">
                         <TextInput
                           className="w-full bg-white p-5 rounded-md"
-                         
-                          secureTextEntry={true}
+                          
+                          secureTextEntry={eyePassword}
                           onBlur={onBlur}
                           onChangeText={onChange}
                         />
                         <TouchableOpacity
                           className="absolute right-5 top-[14px]"
                           onPress={() => {
-                            Alert.alert("Eye");
+                            setEyePassword(!eyePassword);
                           }}
                         >
-                          <Entypo name="eye" size={24} color="gray" />
+                          <Entypo name={eyePassword ? "eye" : "eye-with-line"} size={24} color="gray" />
                         </TouchableOpacity>
                       </View>
                       <View className="mt-2">
