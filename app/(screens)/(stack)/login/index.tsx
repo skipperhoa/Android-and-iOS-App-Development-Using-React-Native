@@ -118,7 +118,7 @@ export default function LoginScreen() {
                 render={({ field: { onChange, onBlur, value } }) => (
                   <>
                     {/* item email */}
-                    <View className="w-full py-2">
+                      <View className="w-full py-2">
                       <Text
                         className="w-full text-white py-2"
                         style={{ fontFamily: "Montserrat" }}

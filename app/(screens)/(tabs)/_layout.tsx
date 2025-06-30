@@ -1,5 +1,5 @@
 import { router, Tabs, useRouter } from 'expo-router';
-import { View, Text, TouchableOpacity ,TextInput} from "react-native";
+import { View, Text, TouchableOpacity ,TextInput, Image} from "react-native";
 import {
   FontAwesome5,Ionicons,FontAwesome,AntDesign,MaterialIcons,
   EvilIcons,Entypo
@@ -8,9 +8,9 @@ import { useFonts } from "expo-font";
 export default function TabLayout() {
   const router = useRouter();
   const [fontsLoaded, fontError] = useFonts({
-      HelvetIns: require("../../../assets/fonts/HelvetIns.ttf"),
-      PlaywriteNL: require("../../../assets/fonts/Playwrite_NL/Playwrite-NL.ttf"),
-      Montserrat: require("../../../assets/fonts/Montserrat/static/Montserrat-Regular.ttf"),
+      HelvetIns: require("@/assets/fonts/HelvetIns.ttf"),
+      PlaywriteNL: require("@/assets/fonts/Playwrite_NL/Playwrite-NL.ttf"),
+      Montserrat: require("@/assets/fonts/Montserrat/static/Montserrat-Regular.ttf"),
     });
   return (
     <Tabs
@@ -18,11 +18,13 @@ export default function TabLayout() {
       headerShown: false,
       tabBarShowLabel: true,
       title: "",
-      tabBarActiveTintColor: "#000", 
+      tabBarActiveTintColor: "#f9b10a", 
       tabBarInactiveTintColor: "#fff",
       
       headerStyle: {
         backgroundColor: "#027DFC",
+        height:130
+        
       },
       headerShadowVisible: false,
       headerTintColor: "#fff",
@@ -48,13 +50,20 @@ export default function TabLayout() {
             <View className="flex flex-row justify-between items-center">
               <View className='px-4'>
                 <View className="flex-row items-center gap-2">
-                  <TouchableOpacity>
-                    <MaterialIcons name="menu-open" size={28} color="white" />
-                  </TouchableOpacity>
-                  <Text className="font-bold text-white text-2xl">
-                    Shop Car
-                  </Text>
-                  
+                   <View className='w-full flex flex-row items-center gap-2'>
+                      <View className='w-[50px] h-[50px] rounded-full bg-gray-400'>
+                          <Image source={require('@/assets/images/avatar/6.png')} className="w-full h-full block m-auto rounded-full" />
+                      </View>
+                      <View>
+                          <View>
+                              <Text className='text-[#e6e4e0]' style={{fontFamily:'Montserrat'}}>Welcome Back!</Text>
+                             <View className='w-full flex-row items-center justify-center gap-2'>
+                                <Text className='text-gray-900 font-bold'>Hòa Nguyễn Coder</Text>
+                                <AntDesign name="checkcircle" size={16} color="#47e63b" />
+                             </View>
+                          </View>
+                      </View>
+                   </View>
                 </View>
               </View>
             </View>
@@ -62,24 +71,24 @@ export default function TabLayout() {
           headerRight: () => (
           <View className='px-4'>
               <View className="w-full flex flex-row items-center gap-4">
-              <TouchableOpacity>
+              <TouchableOpacity  className="w-[30px] h-[30px] flex flex-col items-center justify-center rounded-full bg-white">
                 <View className="relative">
-                  <View className="w-5 h-5 absolute z-10 -top-2 -right-2 rounded-full bg-red-500 flex-col justify-center items-center">
-                    <Text className="font-bold text-white text-sm">10</Text>
+                  <View className="w-5 h-5 absolute z-10 -top-3 -right-3 rounded-full bg-red-500 flex-col justify-center items-center">
+                    <Text className="ffont-bold text-white text-sm">10</Text>
                   </View>
                   <Ionicons
                     name="notifications-outline"
-                    size={24}
-                    color="white"
+                    size={22}
+                    color="black"
                   />
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => router.push("/(screens)/(stack)/carts")}>
+              <TouchableOpacity onPress={() => router.push("/(screens)/(stack)/carts")} className="w-[30px] h-[30px] flex flex-col items-center justify-center rounded-full bg-white">
                 <View className="relative">
-                  <View className="w-5 h-5 absolute  z-10 -top-2 -right-2 rounded-full bg-red-500 flex-col justify-center items-center">
+                  <View className="w-5 h-5 absolute  z-10 -top-3 -right-3 rounded-full bg-red-500 flex-col justify-center items-center">
                     <Text className="font-bold text-white text-sm">1</Text>
                   </View>
-                  <Ionicons name="cart-outline" size={24} color="white" />
+                  <Ionicons name="cart-outline" size={22} color="black" />
                 </View>
               </TouchableOpacity>
             </View>
