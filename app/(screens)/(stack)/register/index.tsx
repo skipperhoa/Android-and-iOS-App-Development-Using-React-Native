@@ -188,7 +188,7 @@ export default function RegisterScreen() {
           <View className="w-full px-5 pt-2">
               <View className="w-full flex flex-row items-center justify-center gap-2">
                   <Text className="text-sm text-white"  style={{fontFamily: "Montserrat"}}>Bạn chưa có tài khoản?</Text>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => router.replace("/(screens)/(stack)/login")}>
                       <Text className="w-full text-white py-2 text-right font-bold"  style={{fontFamily: "Montserrat"}}>Đăng nhập</Text>
                     </TouchableOpacity>
               </View>

@@ -216,7 +216,7 @@ export default function LoginScreen() {
               >
                 Bạn chưa có tài khoản?
               </Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => router.replace("/(screens)/(stack)/register")}>
                 <Text
                   className="w-full text-white py-2 text-right font-bold"
                   style={{ fontFamily: "Montserrat" }}

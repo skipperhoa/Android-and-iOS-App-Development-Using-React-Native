@@ -1,13 +1,14 @@
 import { StyleSheet, Text, View ,Image,TouchableOpacity} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import {MaterialIcons,AntDesign}  from '@expo/vector-icons'
-import {useFocusEffect, useRouter} from 'expo-router'
+import {Redirect, useFocusEffect, useRouter} from 'expo-router'
 export default function App() {
+  
   const router = useRouter()
   useFocusEffect(() => {
-   /*  setTimeout(() => {
-      router.replace('/(tabs)')
-    }, 3000); */
+    /*  setTimeout(() => {
+       router.replace('/(tabs)')
+    }, 3000);  */
   })
   return (
     <>
@@ -31,7 +32,7 @@ export default function App() {
           <View className='w-full pb-10'>
               <TouchableOpacity className='w-full px-10' onPress={
                 () => {
-                  router.push('/(screens)/(stack)/login')
+                  router.replace('/(screens)/(stack)/login')
                 }
               }>
                   <LinearGradient 
@@ -43,7 +44,7 @@ export default function App() {
                   </LinearGradient>
               </TouchableOpacity>
               <TouchableOpacity className='w-full px-10 pt-4'
-              onPress={() => router.push('/(screens)/(stack)/register')}>
+              onPress={() => router.replace('/(screens)/(stack)/register')}>
                   <LinearGradient 
                   colors={['#dbdbda',  '#e8c308']} style={{borderRadius:50}}>
                        <View className='w-full py-4 flex flex-row items-center justify-center gap-2'>
@@ -53,7 +54,7 @@ export default function App() {
                   </LinearGradient>
               </TouchableOpacity>
               <TouchableOpacity className='w-full px-10 pt-4' onPress={() => {
-                router.push('/(tabs)')
+                 router.replace('/(tabs)')
               }}>
                  <Text className='text-white font-bold uppercase text-[15px] text-center'>Bỏ qua</Text>
               </TouchableOpacity>

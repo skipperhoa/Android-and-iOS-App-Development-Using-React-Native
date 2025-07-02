@@ -3,7 +3,6 @@ import { View, Text ,TextInput, TouchableOpacity,useWindowDimensions,Dimensions,
 import { FontAwesome5, Entypo,MaterialCommunityIcons ,MaterialIcons, FontAwesome} from '@expo/vector-icons'; 
 import { useFonts } from 'expo-font';
 import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
-import { Redirect } from 'expo-router';
 // data image
 const slides = [
     {
@@ -25,6 +24,7 @@ const slides = [
   ]
 const { width: screenWidth } = Dimensions.get('window')
 export default function IndexScreen() {
+   
    const {width,height} = useWindowDimensions()
    const [fontsLoaded, fontError] = useFonts({
            HelvetIns: require("../../../assets/fonts/HelvetIns.ttf"),
