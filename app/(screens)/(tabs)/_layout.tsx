@@ -9,7 +9,6 @@ import { useFonts } from "expo-font";
 export default function TabLayout() {
   //get user from state in store
   const {user} = useSelector((state) => state.auth); 
-  console.log("TAB_INDEX",user)
 
   const router = useRouter();
   const [fontsLoaded, fontError] = useFonts({
