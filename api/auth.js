@@ -41,6 +41,19 @@ const registerUser = async(data)=>{
   console.log("USER REISTER SUCCESS", user)
   return user;
 }
+
+const checkToken = async(data)=>{
+  console.log("first", data.token)
+  const response = await fetch(BASE_URL + '/auth/check/token', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${data.token}`
+    },
+  })
+  const result = await response.json();
+  return result;
+}
   
 
-export {loginUser, getUserByToken, registerUser}
+export {loginUser, getUserByToken, registerUser, checkToken}

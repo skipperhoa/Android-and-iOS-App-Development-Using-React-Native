@@ -1,10 +1,45 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
 //import Api from '...'
 import { AUTH_TYPES } from "@/redux/constants/authTypes";
-import {loginUser, getUserByToken, registerUser} from "@/api/auth"
+import { CART_TYPES } from '@/redux/constants/cartTypes';
+import {loginUser, getUserByToken, registerUser,checkToken} from "@/api/auth"
+import {getCartItemsApi} from "@/api/cart"
+import storageApi from '@/storage'
+function* fetchUserAsync(action) {
+  try {
+    console.log("RUN FETCH USER ASYNC");
+    //check token in storage
+    const token = yield call(storageApi.getItem, '@authToken')
+    const response = yield call(checkToken, { token: token })
+   
+    if (response?.status === 1) {
+      // Xác thực token và lấy thông tin user
+      const userResponse = yield call(getUserByToken, { token: token })
 
+      // Nếu thành công → dispatch login success
+      yield put({ type: AUTH_TYPES.LOGIN_SUCCESS, payload: userResponse })
 
-// worker Saga: will be fired on USER_FETCH_REQUESTED actions
+      // Lấy giỏ hàng
+      const { carts } = yield call(getCartItemsApi, { token: token })
+      yield put({ type: CART_TYPES.SET_CART_ITEMS_SUCCESS, payload: carts })
+
+      // Nếu muốn lưu user profile riêng
+      yield put({ type: AUTH_TYPES.SET_USER, payload: userResponse })
+
+    } else {
+      // Nếu không có token thì báo lỗi
+      yield put({ type: AUTH_TYPES.LOGIN_FAILURE, message: response.message })
+    } 
+  } catch (e) {
+    console.log("ERROR LOGIN ASYNC", e)
+    yield put({
+      type: AUTH_TYPES.LOGIN_FAILURE,
+      payload: e.message
+    });
+  }
+}
+
+/* login user */
 function* fetchUser(action) {
   try {
     console.log("RUN FETCH USER");
@@ -16,20 +51,36 @@ function* fetchUser(action) {
     if(user?.error){
       yield put({ type: AUTH_TYPES.LOGIN_FAILURE, payload: user.error })
     }
-    if(user?.access_token){
+    else if(user?.access_token){
+       try {
+           console.log("GET INFO USER FROM API")
 
-        yield put({ type: AUTH_TYPES.LOGIN_SUCCESS, payload: user })
-        // chúng ta sẽ lấy thông tin user bằng token đã có 
-        console.log("GET INFO USER FROM API")
-        // call api , sau do put update user
+            // Xác thực token và lấy thông tin user
+            const userResponse = yield call(getUserByToken, { token: user.access_token })
 
-        const userResponse = yield call(getUserByToken, {token:user.access_token})
-       
-        yield put({ type: AUTH_TYPES.GET_USER, payload: userResponse })
+            // Nếu thành công → dispatch login success
+            yield put({ type: AUTH_TYPES.LOGIN_SUCCESS, payload: userResponse })
+
+            // Lấy giỏ hàng
+            const { carts } = yield call(getCartItemsApi, { token: user.access_token })
+            yield put({ type: CART_TYPES.SET_CART_ITEMS_SUCCESS, payload: carts })
+
+            // Nếu muốn lưu user profile riêng
+            yield put({ type: AUTH_TYPES.SET_USER, payload: userResponse })
+
+            // Lưu token vào AsyncStorage
+            yield call(storageApi.storeItem, { token: user.access_token })
+            
+          } catch (error) {
+            // Nếu lỗi thì logout hoặc báo login error
+            yield put({ type: AUTH_TYPES.LOGIN_FAILURE, error })
+            yield call(storageApi.clearItem, '@authToken')
+          }
+        
     }
    
   } catch (e) {
-   console.log("ERROR LOGIN", e)
+    console.log("ERROR LOGIN", e)
     yield put({ type: AUTH_TYPES.LOGIN_FAILURE, message: e.message })
   }
 }
@@ -52,6 +103,18 @@ function* fetchUserRegister(action){
    }
 }
 
+function* logoutUser() {
+  try{
+      yield call(storageApi.clearItem, '@authToken')
+      yield put({ type: CART_TYPES.CLEAR_CART_SUCCESS })
+      yield put({ type: AUTH_TYPES.LOGOUT_SUCCESS })
+  }
+  catch(e){
+      console.log("ERROR LOGOUT", e)
+      yield put({ type: AUTH_TYPES.LOGOUT_FAILURE, message: e.message })
+  }
+}
+
 /*
   Starts fetchUser on each dispatched `USER_FETCH_REQUESTED` action.
   Allows concurrent fetches of user.
@@ -70,10 +133,11 @@ function* fetchUserRegister(action){
 */
 function* authSaga() {
  // takeLatest :  Chỉ chạy lần mới nhất, có nghĩa là, nó sẽ huỷ các action trước đó :))
-  console.log("RUN SAGA")
+  //console.log("RUN SAGA")
+  yield takeLatest(AUTH_TYPES.LOGIN_REQUEST_ASYNC, fetchUserAsync)
   yield takeLatest(AUTH_TYPES.LOGIN_REQUEST, fetchUser)
-
   yield takeLatest(AUTH_TYPES.REGISTER_REQUEST, fetchUserRegister)
+  yield takeLatest(AUTH_TYPES.LOGOUT_REQUEST, logoutUser)
 }
 
 export default authSaga

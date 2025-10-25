@@ -30,3 +30,13 @@ export const getUser = (data)=>{
         payload : data
     }
 }
+export const chectToken = ()=>{
+    return {
+        type : AUTH_TYPES.CHECK_,
+    }
+}
+export const logoutRequest = ()=>{
+    return {
+        type : AUTH_TYPES.LOGOUT_REQUEST,
+    }
+}

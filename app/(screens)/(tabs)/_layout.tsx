@@ -6,9 +6,11 @@ import {
   EvilIcons,Entypo
 } from '@expo/vector-icons'
 import { useFonts } from "expo-font";
+import HomeHeaderLeft from '@/components/ui/header/HomeHeaderLeft';
+import HomeHeaderRight from '@/components/ui/header/HomeHeaderRight';
 export default function TabLayout() {
-  //get user from state in store
-  const {user} = useSelector((state) => state.auth); 
+  
+  // ...
 
   const router = useRouter();
   const [fontsLoaded, fontError] = useFonts({
@@ -33,6 +35,7 @@ export default function TabLayout() {
       headerShadowVisible: false,
       headerTintColor: "#fff",
       tabBarStyle: {
+        position:'relative',
         backgroundColor: "#027DFC",
       },
       tabBarIconStyle: { 
@@ -50,58 +53,8 @@ export default function TabLayout() {
           tabBarIcon: ({ color, focused }) => (
             <FontAwesome5 name={focused ? 'home' : 'home'} color={color} size={24} />
           ),
-          headerLeft: () => (
-            <View className="flex flex-row justify-between items-center">
-              <View className='px-4'>
-                <View className="flex-row items-center gap-2">
-                   <View className='w-full flex flex-row items-center gap-2'>
-                      <View className='w-[50px] h-[50px] rounded-full bg-gray-400'>
-                       {
-                          user?.avatar ? <Image source={{uri:user?.avatar}} className="w-full h-full block m-auto rounded-full" /> : <Image source={require('@/assets/images/avatar/6.png')} className="w-full h-full block m-auto rounded-full" />
-                       } 
-                      </View>
-                      <View>
-                          <View>
-                              <Text className='text-[#e6e4e0]' style={{fontFamily:'Montserrat'}}>Welcome Back!</Text>
-                              <View className='w-full flex-row items-center justify-center gap-2'>
-                                  
-                                    <Text className='text-gray-900 font-bold'>{user?.name??"User12345678"}</Text>
-                                  
-                                  <AntDesign name="checkcircle" size={16} color="#47e63b" />
-                              </View>
-                          </View>
-                      </View>
-                   </View>
-                </View>
-              </View>
-            </View>
-          ),
-          headerRight: () => (
-          <View className='px-4'>
-              <View className="w-full flex flex-row items-center gap-4">
-              <TouchableOpacity  className="w-[30px] h-[30px] flex flex-col items-center justify-center rounded-full bg-white">
-                <View className="relative">
-                  <View className="w-5 h-5 absolute z-10 -top-3 -right-3 rounded-full bg-red-500 flex-col justify-center items-center">
-                    <Text className="ffont-bold text-white text-sm">10</Text>
-                  </View>
-                  <Ionicons
-                    name="notifications-outline"
-                    size={22}
-                    color="black"
-                  />
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => router.push("/(screens)/(stack)/carts")} className="w-[30px] h-[30px] flex flex-col items-center justify-center rounded-full bg-white">
-                <View className="relative">
-                  <View className="w-5 h-5 absolute  z-10 -top-3 -right-3 rounded-full bg-red-500 flex-col justify-center items-center">
-                    <Text className="font-bold text-white text-sm">1</Text>
-                  </View>
-                  <Ionicons name="cart-outline" size={22} color="black" />
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
-          ),
+          headerLeft: () => <HomeHeaderLeft />,
+          headerRight: () => <HomeHeaderRight />,
         }}
       />
       <Tabs.Screen

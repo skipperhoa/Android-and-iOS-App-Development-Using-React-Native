@@ -188,7 +188,7 @@ export default function RegisterScreen() {
           <View className="w-full px-5 pt-2">
               <View className="w-full flex flex-row items-center justify-center gap-2">
                   <Text className="text-sm text-white"  style={{fontFamily: "Montserrat"}}>Bạn chưa có tài khoản?</Text>
-                  <TouchableOpacity onPress={() => router.replace("/(screens)/(stack)/login")}>
+                  <TouchableOpacity onPress={() => router.push("/(screens)/(stack)/login")}>
                       <Text className="w-full text-white py-2 text-right font-bold"  style={{fontFamily: "Montserrat"}}>Đăng nhập</Text>
                     </TouchableOpacity>
               </View>
@@ -217,6 +217,21 @@ export default function RegisterScreen() {
                             <Text className="text-black"  style={{fontFamily: "Montserrat"}}>Facebook</Text>
                         </View>
                     </TouchableOpacity>
+                </View>
+              </View>
+              {/* back */}
+              <View
+                className="w-full flex flex-col mt-5">
+                <View
+                  className="w-full">
+                  <View className="w-full flex-row items-center justify-between px-2">
+                    <TouchableOpacity onPress={() => router.back()} className="w-full flex flex-row items-center justify-center p-2 bg-white rounded-xl">
+                      <View className="flex flex-row items-center gap-1">
+                        <Entypo name="chevron-left" size={30} color="#374151" />
+                        <Text className="text-gray-700"  style={{fontFamily: "Montserrat"}}>Trở về trang chủ</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
                 </View>
               </View>
           </View>

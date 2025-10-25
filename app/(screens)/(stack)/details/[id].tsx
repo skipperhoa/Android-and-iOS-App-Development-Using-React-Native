@@ -1,5 +1,5 @@
 import { useLocalSearchParams } from "expo-router";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -20,11 +20,21 @@ import {
 
 // 📗 khai báo thư viện mà expo hổ trỡ để lấy giá trị chiều cao  statusBar
 import Constants from "expo-constants";
+import { getProductById } from "@/api/product";
 
 const MAX_HEIGHT_HEADER = 200;
 export default function DetailScreen() {
   const { id } = useLocalSearchParams();
+  const [product,setProduct] = React.useState({} as any);
   const router = useRouter();
+  useEffect(()=>{
+     getProductById(id).then((res)=>{
+      setProduct(res.product);
+      console.log("PRODUCT ID:",res)
+    }).catch((err)=>{
+      console.log(err);
+    });
+  },[id]);
   return (
     <>
     
@@ -44,7 +54,7 @@ export default function DetailScreen() {
             <View className="flex-1 px-2">
               <View className="w-ful">
                 <Text className="w-full font-bold text-black text-2xl text-center">
-                  Vinfast VF3
+                  {product?.title}
                 </Text>
               </View>
             </View>
@@ -68,7 +78,7 @@ export default function DetailScreen() {
             {/* banner product */}
             <View className="w-full h-[240] px-5 pb-5">
               <Image
-                source={require("@/assets/images/VinFast-VF3-11.png")}
+                source={{ uri: product?.image }}
                 style={{ width: "100%", height: 200, borderRadius: 15 }}
               />
             </View>

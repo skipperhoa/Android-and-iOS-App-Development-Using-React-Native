@@ -29,7 +29,7 @@ export const authReducer = (state = initialState, action) => {
         error: null,
       };
     case AUTH_TYPES.LOGIN_FAILURE:
-      console.log("LOGIN_FAILURE2", action);
+    
       return {
         ...state,
         user: null,
@@ -37,8 +37,8 @@ export const authReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload.message,
       };
-    case AUTH_TYPES.GET_USER:
-      console.log("GET_USER", action);
+    case AUTH_TYPES.SET_USER:
+     
       return {
         ...state,
         user: action.payload,
@@ -47,7 +47,23 @@ export const authReducer = (state = initialState, action) => {
       return {
         ...state,
         token:action.payload.authorization.access_token
-      }
+      };
+    case AUTH_TYPES.LOGOUT_SUCCESS:
+      return {
+        ...state,
+        user: null,
+        token: null,
+        loading: false,
+        error: null,
+      };
+    case AUTH_TYPES.LOGOUT_FAILURE:
+      return {
+        ...state,
+        user: null,
+        token: null,
+        loading: false,
+        error: action.payload.message,
+      };
     default:
       return state;
   }

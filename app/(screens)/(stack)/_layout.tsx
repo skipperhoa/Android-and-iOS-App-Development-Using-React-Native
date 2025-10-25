@@ -13,6 +13,9 @@ export default function LayoutStack() {
       <Stack.Screen name="orders/index" options={{ headerShown: false }} />
       <Stack.Screen name="login/index" options={{ headerShown: false }} />
       <Stack.Screen name="register/index" options={{ headerShown: false }} />
+      <Stack.Screen name="(settings)/account" options={{ headerShown: false }} />
+      <Stack.Screen name="(settings)/account/edit" options={{ headerShown: false }} />
+      
    </Stack>
   )
 }

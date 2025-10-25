@@ -3,7 +3,11 @@ import { View, Text, TouchableOpacity,ScrollView, Alert } from "react-native";
 import { AntDesign, MaterialCommunityIcons, Entypo,Ionicons ,MaterialIcons,FontAwesome} from "@expo/vector-icons";
 // 📗 khai báo thư viện mà expo hổ trỡ để lấy giá trị chiều cao  statusBar
 import Constants from "expo-constants";
+import { useRouter } from "expo-router";
+import { ROUTES_APP } from "@/routes";
 export default function SettingScreen() {
+  const router = useRouter();
+
   return (
     <>
       {/* header */}
@@ -14,7 +18,7 @@ export default function SettingScreen() {
         <View className="w-full flex-row justify-between items-center gap-2 px-5">
           <TouchableOpacity onPress={
             () => {
-              Alert.alert('Back')
+              router.back()
             }
           }>
             <AntDesign name="arrowleft" size={24} color="black" />
@@ -31,7 +35,7 @@ export default function SettingScreen() {
           <Text className="font-bold text-xl">GENERAL</Text>
         </View>
         <View className="w-full pt-5">
-          <TouchableOpacity className="w-full py-1">
+          <TouchableOpacity className="w-full py-1" onPress={()=>router.push(ROUTES_APP.SETTING_ACCOUNT as any)}>
             <View className="w-full flex-row items-center justify-between py-4 bg-white px-2 rounded-md">
               <View className="flex flex-row item-center gap-2">
                 <MaterialCommunityIcons

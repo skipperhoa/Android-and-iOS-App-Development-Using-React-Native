@@ -6,7 +6,7 @@ import {
   Alert,
   TextInput,
   Image,
-  StyleSheet,
+  StyleSheet,ActivityIndicator
 } from "react-native";
 import { useRouter } from "expo-router";
 import {
@@ -26,14 +26,16 @@ import Constants from "expo-constants";
 import { LinearGradient } from "expo-linear-gradient";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRequest } from "@/redux/actions/authActions";
-
+import { AUTH_TYPES } from "@/redux/constants/authTypes";
 // add AlertModal
 import AlertModal from "@/modules/alert/AlertModal";
+import { goBack } from "expo-router/build/global-state/routing";
 
 const MAX_HEIGHT_HEADER = 200;
 export default function LoginScreen() {
-  const {token, user, error} = useSelector((state) => state.auth);
+  const {token, user,error} = useSelector((state) => state.auth);
   const [showModal, setShowModal] = React.useState(false);
+  const [isSubmit, setIsSubmit] = React.useState(false);
   const [eyePassword, setEyePassword] = React.useState(true);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -56,16 +58,17 @@ export default function LoginScreen() {
   /* check user */
   useEffect(() => {
     if (user) {
-      router.replace("/(screens)/(tabs)");
+     router.replace("/(screens)/(tabs)");
     }
   }, [user]);
 
   /* check error */
   useEffect(() => {
-        if (error!== null) {
+        if (error!== null && isSubmit) {
            setShowModal(true);
+           setIsSubmit(false);
         }
-  }, [error]);
+  }, [error,isSubmit]);
 
   /**close modal */
   const closeModal = () => {
@@ -73,19 +76,21 @@ export default function LoginScreen() {
     //dispatch({ type: "CLEAR_ERROR" });
   }
 
- 
+
 
   /* function login */
-  const onSubmit = (data: any) => {
-      dispatch(loginRequest(data))
-  }
+  const onSubmit =  (data: any) => {
+      setIsSubmit(true);
+      dispatch(loginRequest(data));
+  };
   return (
     <>
       {/* content */}
       <View
-        className="w-full h-full bg-blue-600 relative z-50"
+        className="w-full h-full  bg-blue-600 relative z-50"
         style={{ paddingTop: Constants.statusBarHeight + 50 }}
       >
+         
         {/* form login */}
         <View className="w-full relative z-50">
           <View className="w-[100px] h-[100px] rounded-full bg-blue-400 flex-col items-center justify-center m-auto">
@@ -208,62 +213,58 @@ export default function LoginScreen() {
           </View>
 
           {/* Group social */}
-          <View className="w-full px-5 pt-2">
-            <View className="w-full flex flex-row items-center justify-center gap-2">
-              <Text
-                className="text-sm text-white"
-                style={{ fontFamily: "Montserrat" }}
-              >
-                Bạn chưa có tài khoản?
-              </Text>
-              <TouchableOpacity onPress={() => router.replace("/(screens)/(stack)/register")}>
-                <Text
-                  className="w-full text-white py-2 text-right font-bold"
-                  style={{ fontFamily: "Montserrat" }}
-                >
-                  Đăng ký
-                </Text>
-              </TouchableOpacity>
-            </View>
-
-            {/* box social */}
-            <View className="w-full pt-20">
-              <TouchableOpacity className="w-full">
-                <View
-                  className="w-full flex flex-row items-center justify-center gap-3  bg-white py-5 rounded-xl"
-                  style={styles.boxShadow}
-                >
-                  <Image
-                    source={require("@/assets/images/google.png")}
-                    style={{ width: 30, height: 30 }}
-                  />
-                  <Text
-                    className="text-gray-700"
-                    style={{ fontFamily: "Montserrat" }}
-                  >
-                    Đăng nhập bằng Google
-                  </Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity className="w-full mt-4">
-                <View
-                  className="w-full flex flex-row items-center justify-center gap-3 bg-white py-5 rounded-xl"
-                  style={styles.boxShadow}
-                >
-                  <Image
-                    source={require("@/assets/images/facebook.png")}
-                    style={{ width: 30, height: 30 }}
-                  />
-                  <Text
-                    className="text-black"
-                    style={{ fontFamily: "Montserrat" }}
-                  >
-                    Đăng nhập bằng Facebook
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
+                   <View className="w-full px-5 pt-2">
+                       <View className="w-full flex flex-row items-center justify-center gap-2">
+                           <Text className="text-sm text-white"  style={{fontFamily: "Montserrat"}}>Bạn chưa có tài khoản?</Text>
+                           <TouchableOpacity onPress={() => router.push("/(screens)/(stack)/register")}>
+                               <Text className="w-full text-white py-2 text-right font-bold"  style={{fontFamily: "Montserrat"}}>Đăng ký</Text>
+                             </TouchableOpacity>
+                       </View>
+         
+                       {/* or */}
+                       <View className="w-full flex flex-row items-center justify-center">
+                          <View className="w-full h-[1px] bg-gray-200/50"></View>
+                          <View className="px-2">
+                          <MaterialIcons name="more-horiz" size={24} color="white" />
+                          </View>
+                          <View className="w-full h-[1px] bg-gray-200/50"></View>
+                       </View>
+         
+                       {/* box social */}
+                       <View className="w-full">
+                         <View className="w-full mt-4 flex flex-row items-center justify-center">
+                             <TouchableOpacity className="w-1/2 px-2">
+                                 <View className="w-full flex flex-row items-center justify-center gap-3  bg-white py-2 rounded-xl" style={styles.boxShadow}>
+                                     <Image source={require("@/assets/images/google.png")} style={{width:30,height:30}} />
+                                     <Text className="text-gray-700"  style={{fontFamily: "Montserrat"}}>Google</Text>
+                                 </View>
+                             </TouchableOpacity>
+                             <TouchableOpacity className="w-1/2 px-2">
+                                 <View className="w-full flex flex-row items-center justify-center gap-3 bg-white py-2 rounded-xl" style={styles.boxShadow}>
+                                 <Image source={require("@/assets/images/facebook.png")} style={{width:30,height:30}} />
+                                     <Text className="text-gray-700"  style={{fontFamily: "Montserrat"}}>Facebook</Text>
+                                 </View>
+                             </TouchableOpacity>
+                         </View>
+                       </View>
+                       
+                      {/* back */}
+                      <View
+                        className="w-full flex flex-col mt-5">
+                        <View
+                          className="w-full">
+                          <View className="w-full flex-row items-center justify-between px-2">
+                            <TouchableOpacity onPress={() => router.back()} className="w-full flex flex-row items-center justify-center p-2 bg-white rounded-xl">
+                              <View className="flex flex-row items-center gap-1">
+                                <Entypo name="chevron-left" size={30} color="#374151" />
+                                <Text className="text-gray-700"  style={{fontFamily: "Montserrat"}}>Trở về trang chủ</Text>
+                              </View>
+                            </TouchableOpacity>
+                          </View>
+                        </View>
+                      </View>
+                   </View>
+         
         </View>
 
          {/* Alert Modal */}
