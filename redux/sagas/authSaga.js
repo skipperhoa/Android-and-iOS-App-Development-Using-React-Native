@@ -8,7 +8,7 @@ import storageApi from '@/storage'
 function* fetchUserAsync(action) {
   try {
     console.log("RUN FETCH USER ASYNC");
-    //check token in storage
+    //check token in storage 
     const token = yield call(storageApi.getItem, '@authToken')
     const response = yield call(checkToken, { token: token })
    
@@ -19,7 +19,7 @@ function* fetchUserAsync(action) {
       // Nếu thành công → dispatch login success
       yield put({ type: AUTH_TYPES.LOGIN_SUCCESS, payload: userResponse })
 
-      // Lấy giỏ hàng
+      // Lấy giỏ hàng từ API
       const { carts } = yield call(getCartItemsApi, { token: token })
       yield put({ type: CART_TYPES.SET_CART_ITEMS_SUCCESS, payload: carts })
 
